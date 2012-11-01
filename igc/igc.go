@@ -1,8 +1,9 @@
 package igc
 
 import (
-    "fmt"
-    "io/ioutil"
+    "bufio"
+    "io"
+    "os"
 )
 
 // Point is latitude/longitude (decimal format) and altitude (meters)
@@ -12,12 +13,29 @@ type Point struct {
     alt int
 }
 
+// Track is a list of Points representing a Flight track
+type Track []Point
+
+// Flight has all the flight info
 type Flight struct {
     bytes   []byte
-    points  []Point
+    track   Track
+    record  []byte
 }
 
-func (f *Flight) parse() {
-    bytes, err := ioutil.ReadFile("test/basic.igc")
-    f.bytes = bytes
+// Parses the IGC file at the given location, returning a Flight
+func Parse(location string) (flight Flight, err error) {
+    fd, _ := os.Open(location)
+    defer fd.Close()
+    r := bufio.NewReader(fd)
+    for record, err := r.ReadSlice('\n'); err != io.EOF; record, err = r.ReadSlice('\n') {
+
+        switch record[0] {
+        case 'A':
+        case 'B':
+        case 'C':
+        }
+    }
+    return
 }
+
