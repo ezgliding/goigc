@@ -1,29 +1,20 @@
-## About
+```
+                         _______
+                            |
+/--------------------------(_)--------------------------\
+```
 
-This is a Go language library for parsing GPS flights tracks in IGC format.
+Library in Go for handling flight tracks in [IGC](http://www.fai.org/component/phocadownload/category/?download=5745:igc-flight-recorder-specification-edition-2-with-al1-2011-5-31) format.
 
-Go lang
-(http://golang.org)
+## Usage
 
-IGC Specification (Appendix A)
-(http://www.fai.org/component/phocadownload/category/?download=5745:igc-flight-recorder-specification-edition-2-with-al1-2011-5-31)
+    $ go get github.com/rochaporto/goigc
 
-## Installing
+    $ goigc --help
 
-### Using go get
-
-    $ go get github.com/rochaporto/go-igc/igc
-
-Package will then be ready to use, source at:
-
-    $GOROOT/src/pkg/github.com/rochaporto/go-igc/igc
-
-### Using *git clone* command:
-
-    $ git clone git://github.com/rochaporto/go-igc
-    $ cd go-igc/igc
-    $ make install
+    $ goigc stats sample-flight.igc
+    $ goigc optimize sample-flight.igc
 
 ## Documentation
 
-    $ godoc github.com/rochaporto/go-igc/igc
+    $ godoc github.com/rochaporto/goigc
