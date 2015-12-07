@@ -1,10 +1,4 @@
-```
-                         _______
-                            |
-/--------------------------(_)--------------------------\
-```
-
-Library in Go for handling flight tracks in [IGC](http://www.fai.org/component/phocadownload/category/?download=5745:igc-flight-recorder-specification-edition-2-with-al1-2011-5-31) format.
+Handles flight tracks in [IGC](http://www.fai.org/component/phocadownload/category/?download=5745:igc-flight-recorder-specification-edition-2-with-al1-2011-5-31) format.
 
 ## Usage
 
