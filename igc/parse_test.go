@@ -22,6 +22,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/kellydunn/golang-geo"
 )
 
@@ -123,7 +124,7 @@ GJNJK2489IERGNV3089IVJE9GO398535J3894N358954983O0934
 					NumSatellites: 6,
 				},
 				Point{
-					Point:       *geo.NewPoint(51.118766666666666, -1.8216666666666668),
+					Point:       *geo.NewPoint(51.1202, -1.8216666666666668),
 					Time:        time.Date(0, 1, 1, 16, 3, 10, 0, time.UTC),
 					FixValidity: 'V', PressureAltitude: 293, GNSSAltitude: 435,
 					IData: map[string]string{
@@ -307,7 +308,7 @@ func TestParse(t *testing.T) {
 			continue
 		}
 		if !reflect.DeepEqual(result, test.r) {
-			t.Errorf("%v failed :: expected\n%+v\ngot\n%+v", test.t, test.r, result)
+			spew.Errorf("%v failed :: expected\n%+v\ngot\n%+v", test.t, test.r, result)
 			continue
 		}
 	}
