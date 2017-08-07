@@ -24,8 +24,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/ezgliding/goigc/spatial"
 	"github.com/kellydunn/golang-geo"
-	"github.com/rochaporto/ezgliding/spatial"
 )
 
 const (
