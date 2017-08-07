@@ -5,8 +5,6 @@ sudo: false
 env:
         - BUILDFLAVOR=goveralls
         - BUILDFLAVOR=pprof
-services:
-        - memcached
 
 before_install:
         - go get -v github.com/golang/lint/golint
