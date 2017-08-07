@@ -48,7 +48,7 @@ func (*OptimizerBF) Optimize(pts []Point, t TaskType) (Result, error) {
 			fmt.Printf("C: %v :: D: %v\n", cnt, res)
 		}
 	default:
-		fmt.Errorf("unsupported task type\n")
+		return res, fmt.Errorf("unsupported task type")
 	}
 	return res, nil
 }
