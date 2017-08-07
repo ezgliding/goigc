@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/rochaporto/goigc/igc"
+	"github.com/ezgliding/goigc/igc"
 	"github.com/spf13/cobra"
 )
 

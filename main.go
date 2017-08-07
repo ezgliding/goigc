@@ -19,7 +19,7 @@ package main
 import (
 	"log"
 
-	"github.com/rochaporto/goigc/cmd"
+	"github.com/ezgliding/goigc/cmd"
 )
 
 func main() {
