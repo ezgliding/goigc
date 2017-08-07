@@ -20,7 +20,6 @@
 package spatial
 
 import (
-	"reflect"
 	"testing"
 )
 
