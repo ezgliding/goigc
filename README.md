@@ -1,4 +1,4 @@
-# goigc [![Build Status](https://travis-ci.org/ezgliding/goigc.svg)](http://travis-ci.org/ezgliding/goigc) [![Coverage Status](https://img.shields.io/coveralls/ezgliding/goigc.svg)](https://coveralls.io/e/ezgliding/goigc) [![GoDoc](https://godoc.org/github.com/ezgliding/goigc?status.png)](https://godoc.org/github.com/ezgliding/goigc) ![Project Status](http://img.shields.io/badge/status-prealpha-red.svg)
+# goigc [![Build Status](https://travis-ci.org/ezgliding/goigc.svg)](http://travis-ci.org/ezgliding/goigc) [![Coverage Status](https://coveralls.io/repos/github/ezgliding/goigc/badge.svg?branch=vendor)](https://coveralls.io/github/ezgliding/goigc?branch=vendor) [![GoDoc](https://godoc.org/github.com/ezgliding/goigc?status.png)](https://godoc.org/github.com/ezgliding/goigc) ![Project Status](http://img.shields.io/badge/status-prealpha-red.svg)
 
 Handles flight tracks in [IGC](http://www.fai.org/component/phocadownload/category/?download=5745:igc-flight-recorder-specification-edition-2-with-al1-2011-5-31) format.
 
