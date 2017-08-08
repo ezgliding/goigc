@@ -17,25 +17,23 @@
 package igc
 
 import (
+	"encoding/json"
+	"flag"
+	"fmt"
 	"io/ioutil"
-	"reflect"
+	"path/filepath"
 	"testing"
-	"time"
-
-	"github.com/davecgh/go-spew/spew"
-	"github.com/kellydunn/golang-geo"
 )
 
 type ParseTest struct {
 	t string
 	c string
-	r Track
 	e bool
 }
 
 var parseTests = []ParseTest{
 	{
-		"basic header test",
+		"parse-basic-header-test",
 		`
 AFLA001Some Additional Data
 HFDTE010203
@@ -54,43 +52,28 @@ HFCIDCompetitionID:EZ COMPID
 HFCCLCompetitionClass:EZ COMPCLASS
 HFTZNTimezone:2.00
 `,
-		Track{
-			Header: Header{
-				Manufacturer: "FLA", UniqueID: "001", AdditionalData: "Some Additional Data",
-				Date:        time.Date(2003, time.February, 01, 0, 0, 0, 0, time.UTC),
-				FixAccuracy: 500, Pilot: "EZ PILOT", Crew: "EZ CREW",
-				GliderType: "EZ TYPE", GliderID: "EZ ID", GPSDatum: "WGS84",
-				FirmwareVersion: "v 0.1", HardwareVersion: "v 0.2",
-				FlightRecorder: "EZ RECORDER,001", GPS: "EZ GPS,002,12,5000",
-				PressureSensor: "EZ PRESSURE", CompetitionID: "EZ COMPID",
-				CompetitionClass: "EZ COMPCLASS", Timezone: *time.FixedZone("", 2*3600),
-			},
-			K:          map[time.Time]map[string]string{},
-			Events:     map[time.Time]map[string]string{},
-			Satellites: map[time.Time][]int{},
-		},
 		false,
 	},
-	{"A record failure too short",
-		"AFLA0", Track{}, true},
-	{"H record failure too short",
-		"HFFX", Track{}, true},
-	{"H record failure bad date",
-		"HFDTE330203", Track{}, true},
-	{"H record failure date too short",
-		"HFDTE33", Track{}, true},
-	{"H record failure bad fix accuracy",
-		"HFFXAAAA", Track{}, true},
-	{"H record failure fix accuracy too short",
-		"HFFXA20", Track{}, true},
-	{"H record failure gps datum too short",
-		"HFDTM20", Track{}, true},
-	{"H record failure unknown field",
-		"HFZZZaaa", Track{}, true},
-	{"H record failure bad timezone",
-		"HFTZNaa", Track{}, true},
+	{"parse-A-record-failure-too-short",
+		"AFLA0", true},
+	{"parse-H-record-failure-too-short",
+		"HFFX", true},
+	{"parse-H-record-failure-bad-date",
+		"HFDTE330203", true},
+	{"parse-H-record-failure-date-too-short",
+		"HFDTE33", true},
+	{"parse-H-record-failure-bad-fix-accuracy",
+		"HFFXAAAA", true},
+	{"parse-H-record-failure-fix-accuracy-too-short",
+		"HFFXA20", true},
+	{"parse-H-record-failure-gps-datum-too-short",
+		"HFDTM20", true},
+	{"parse-H-record-failure-unknown-field",
+		"HFZZZaaa", true},
+	{"parse-H-record-failure-bad-timezone",
+		"HFTZNaa", true},
 	{
-		"basic flight test",
+		"parse-basic-flight-test",
 		`
 I033638FXA3940SIU4143ENL
 J010812HDT
@@ -111,194 +94,107 @@ LPLTLOG TEXT
 GREJNGJERJKNJKRE31895478537H43982FJN9248F942389T433T
 GJNJK2489IERGNV3089IVJE9GO398535J3894N358954983O0934
 `,
-		Track{
-			Points: []Point{
-				Point{
-					Point:            *geo.NewPoint(51.118766666666666, -1.8216666666666668),
-					Time:             time.Date(0, 1, 1, 16, 2, 45, 0, time.UTC),
-					FixValidity:      'A',
-					PressureAltitude: 288, GNSSAltitude: 429,
-					IData: map[string]string{
-						"FXA": "195", "SIU": "09", "ENL": "020",
-					},
-					NumSatellites: 6,
-				},
-				Point{
-					Point:       *geo.NewPoint(51.1202, -1.8216666666666668),
-					Time:        time.Date(0, 1, 1, 16, 3, 10, 0, time.UTC),
-					FixValidity: 'V', PressureAltitude: 293, GNSSAltitude: 435,
-					IData: map[string]string{
-						"FXA": "196", "SIU": "08", "ENL": "024",
-					},
-					NumSatellites: 6,
-				},
-			},
-			K: map[time.Time]map[string]string{
-				time.Date(0, 1, 1, 16, 2, 48, 0, time.UTC): map[string]string{
-					"HDT": "00090",
-				},
-			},
-			Events: map[time.Time]map[string]string{
-				time.Date(0, 1, 1, 16, 2, 45, 0, time.UTC): map[string]string{
-					"ATS": "102312",
-				},
-			},
-			Satellites: map[time.Time][]int{
-				time.Date(0, 1, 1, 16, 02, 40, 0, time.UTC): []int{4, 6, 9, 12, 36, 24},
-			},
-			Logbook: []LogEntry{
-				LogEntry{Type: "PLT", Text: "LOG TEXT"},
-			},
-			Task: Task{
-				DeclarationDate: time.Date(2001, time.July, 15, 21, 38, 41, 0, time.UTC),
-				Date:            time.Date(2001, time.July, 16, 0, 0, 0, 0, time.UTC),
-				Number:          1,
-				Takeoff: Point{
-					Point:       *geo.NewPoint(51.18931666666667, -1.03165),
-					Description: "EZ TAKEOFF"},
-				Start: Point{
-					Point:       *geo.NewPoint(51.16965, -1.0440666666666667),
-					Description: "EZ START"},
-				Turnpoints: []Point{
-					Point{
-						Point:       *geo.NewPoint(52.15153333333333, -2.9204499999999998),
-						Description: "EZ TP1"},
-					Point{
-						Point:       *geo.NewPoint(52.50245, -0.2935333333333333),
-						Description: "EZ TP2"},
-				},
-				Finish: Point{
-					Point:       *geo.NewPoint(51.16965, -1.0440666666666667),
-					Description: "EZ FINISH"},
-				Landing: Point{
-					Point:       *geo.NewPoint(51.18931666666667, -1.03165),
-					Description: "EZ LANDING"},
-				Description: "500KTri",
-			},
-			DGPSStationID: "0331",
-			Signature:     "REJNGJERJKNJKRE31895478537H43982FJN9248F942389T433TJNJK2489IERGNV3089IVJE9GO398535J3894N358954983O0934",
-		},
 		false,
 	},
-	{"point/fix wrong size",
-		"B110001", Track{}, true},
-	{"point/fix bad time",
-		"B3103105107212N00149174WV002930043519608024", Track{}, true},
-	{"point/fix bad fix validity",
-		"B1603105107212N00149174WX002930043519608024", Track{}, true},
-	{"point/fix bad pressure altitude",
-		"B1603105107212N00149174WV0029a0043519608024", Track{}, true},
-	{"point/fix bad gnss altitude",
-		"B1603105107212N00149174WV002930043a19608024", Track{}, true},
-	{"irecord wrong size",
-		"I0", Track{}, true},
-	{"irecord invalid value for field number",
-		"I0a", Track{}, true},
-	{"irecord wrong size with fields",
-		"I02AAA0102BBB030", Track{}, true},
-	{"jrecord wrong size",
-		"J0", Track{}, true},
-	{"jrecord invalid value for field number",
-		"J0a", Track{}, true},
-	{"jrecord wrong size with fields",
-		"J02AAA0102BBB030", Track{}, true},
-	{"k wrong size",
-		"K16024", Track{}, true},
-	{"k invalid date",
-		"K160271", Track{}, true},
-	{"k wrong size",
-		"K16027000090", Track{}, true},
-	{"e wrong size",
-		"E16024", Track{}, true},
-	{"e invalid date",
-		"E160271ATS", Track{}, true},
-	{"f wrong size",
-		"F16024", Track{}, true},
-	{"f invalid date",
-		"F1602710102", Track{}, true},
-	{"f invalid num satellites",
-		"F1602310a02", Track{}, true},
-	{"l wrong size",
-		"LPL", Track{}, true},
-	{"c bad num lines",
-		"C150701213841160701000102500KTri", Track{}, true},
-	{"c wrong size first line",
-		"C15070121384116070100010", Track{}, true},
-	{"c invalid num of tps",
-		"C15070121384116070100010a", Track{}, true},
-	{"c invalid declaration date",
-		"C350701213841160701000102500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5230147N00017612WEZ TP2\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", getTrack(Task{
-			DeclarationDate: time.Time{},
-			Date:            time.Date(2001, time.July, 16, 0, 0, 0, 0, time.UTC),
-			Number:          1,
-			Takeoff: Point{
-				Point:       *geo.NewPoint(51.18931666666667, -1.03165),
-				Description: "EZ TAKEOFF"},
-			Start: Point{
-				Point:       *geo.NewPoint(51.16965, -1.0440666666666667),
-				Description: "EZ START"},
-			Turnpoints: []Point{
-				Point{
-					Point:       *geo.NewPoint(52.15153333333333, -2.9204499999999998),
-					Description: "EZ TP1"},
-				Point{
-					Point:       *geo.NewPoint(52.50245, -0.2935333333333333),
-					Description: "EZ TP2"},
-			},
-			Finish: Point{
-				Point:       *geo.NewPoint(51.16965, -1.0440666666666667),
-				Description: "EZ FINISH"},
-			Landing: Point{
-				Point:       *geo.NewPoint(51.18931666666667, -1.03165),
-				Description: "EZ LANDING"},
-			Description: "500KTri",
-		}), false},
-	{"c invalid flight date",
-		"C150701213841360701000102500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5230147N00017612WEZ TP2\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", getTrack(Task{
-			DeclarationDate: time.Date(2001, time.July, 15, 21, 38, 41, 0, time.UTC),
-			Date:            time.Time{},
-			Number:          1,
-			Takeoff: Point{
-				Point:       *geo.NewPoint(51.18931666666667, -1.03165),
-				Description: "EZ TAKEOFF"},
-			Start: Point{
-				Point:       *geo.NewPoint(51.16965, -1.0440666666666667),
-				Description: "EZ START"},
-			Turnpoints: []Point{
-				Point{
-					Point:       *geo.NewPoint(52.15153333333333, -2.9204499999999998),
-					Description: "EZ TP1"},
-				Point{
-					Point:       *geo.NewPoint(52.50245, -0.2935333333333333),
-					Description: "EZ TP2"},
-			},
-			Finish: Point{
-				Point:       *geo.NewPoint(51.16965, -1.0440666666666667),
-				Description: "EZ FINISH"},
-			Landing: Point{
-				Point:       *geo.NewPoint(51.18931666666667, -1.03165),
-				Description: "EZ LANDING"},
-			Description: "500KTri",
-		}), false},
-	{"c invalid task number",
-		"C150701213841160701000a01500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", Track{}, true},
-	{"c invalid takeoff",
-		"C150701213841160701000101500KTri\nC5111359N00101899\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", Track{}, true},
-	{"c invalid start",
-		"C150701213841160701000101500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644\nC5209092N00255227WEZ TP1\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", Track{}, true},
-	{"c invalid tp",
-		"C150701213841160701000101500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", Track{}, true},
-	{"c invalid finish",
-		"C150701213841160701000101500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5110179N00102644\nC5111359N00101899WEZ LANDING", Track{}, true},
-	{"c invalid landing",
-		"C150701213841160701000101500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5110179N00102644WEZ FINISH\nC5111359N00101899", Track{}, true},
-	{"d wrong size",
-		"D2033", Track{}, true},
-	{"invalid record",
-		"RANDOM GARBAGE", Track{}, true},
+	{"parse-point-fix-wrong-size",
+		"B110001", true},
+	{"parse-point-fix-bad-time",
+		"B3103105107212N00149174WV002930043519608024", true},
+	{"parse-point-fix-bad-fix-validity",
+		"B1603105107212N00149174WX002930043519608024", true},
+	{"parse-point-fix-bad-pressure-altitude",
+		"B1603105107212N00149174WV0029a0043519608024", true},
+	{"parse-point-fix-bad-gnss-altitude",
+		"B1603105107212N00149174WV002930043a19608024", true},
+	{"parse-irecord-wrong-size",
+		"I0", true},
+	{"parse-irecord-invalid-value-for-field-number",
+		"I0a", true},
+	{"parse-irecord-wrong-size-with-fields",
+		"I02AAA0102BBB030", true},
+	{"parse-jrecord-wrong-size",
+		"J0", true},
+	{"parse-jrecord-invalid-value-for-field-number",
+		"J0a", true},
+	{"parse-jrecord-wrong-size-with-fields",
+		"J02AAA0102BBB030", true},
+	{"parse-k-wrong-size",
+		"K16024", true},
+	{"parse-k-invalid-date",
+		"K160271", true},
+	{"parse-k-wrong-size",
+		"K16027000090", true},
+	{"parse-e-wrong-size",
+		"E16024", true},
+	{"parse-e-invalid-date",
+		"E160271ATS", true},
+	{"parse-f-wrong-size",
+		"F16024", true},
+	{"parse-f-invalid-date",
+		"F1602710102", true},
+	{"parse-f-invalid-num-satellites",
+		"F1602310a02", true},
+	{"parse-l-wrong-size",
+		"LPL", true},
+	{"parse-c-bad-num-lines",
+		"C150701213841160701000102500KTri", true},
+	{"parse-c-wrong-size-first-line",
+		"C15070121384116070100010", true},
+	{"parse-c-invalid-num-of-tps",
+		"C15070121384116070100010a", true},
+	{"parse-c-invalid-declaration-date",
+		"C350701213841160701000102500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5230147N00017612WEZ TP2\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", false},
+	{"parse-c-invalid-flight-date",
+		"C150701213841360701000102500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5230147N00017612WEZ TP2\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", false},
+	{"parse-c-invalid-task-number",
+		"C150701213841160701000a01500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", true},
+	{"parse-c-invalid-takeoff",
+		"C150701213841160701000101500KTri\nC5111359N00101899\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", true},
+	{"parse-c-invalid-start",
+		"C150701213841160701000101500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644\nC5209092N00255227WEZ TP1\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", true},
+	{"parse-c-invalid-tp",
+		"C150701213841160701000101500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227\nC5110179N00102644WEZ FINISH\nC5111359N00101899WEZ LANDING", true},
+	{"parse-c-invalid-finish",
+		"C150701213841160701000101500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5110179N00102644\nC5111359N00101899WEZ LANDING", true},
+	{"parse-c-invalid-landing",
+		"C150701213841160701000101500KTri\nC5111359N00101899WEZ TAKEOFF\nC5110179N00102644WEZ START\nC5209092N00255227WEZ TP1\nC5110179N00102644WEZ FINISH\nC5111359N00101899", true},
+	{"parse-d-wrong-size",
+		"D2033", true},
+	{"parse-invalid-record",
+		"RANDOM GARBAGE", true},
+}
+
+var update = flag.Bool("update", false, "update golden test data")
+
+func Get(t *testing.T, actual Track, test string) Track {
+	golden := filepath.Join("tdata", fmt.Sprintf("%s.json", test))
+
+	actualJson, err := json.MarshalIndent(actual, "", "  ")
+	if err != nil {
+		t.Fatalf("%v :: %+v", err, actual)
+	}
+
+	if *update {
+		if err = ioutil.WriteFile(golden, actualJson, 0644); err != nil {
+			t.Fatal(err)
+		}
+	}
+
+	expectedJson, err := ioutil.ReadFile(golden)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var expected Track
+	err = json.Unmarshal(expectedJson, &expected)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	return expected
 }
 
 func TestParse(t *testing.T) {
+	var expected Track
 	for _, test := range parseTests {
 		result, err := Parse(test.c)
 		if err != nil && test.e {
@@ -307,8 +203,11 @@ func TestParse(t *testing.T) {
 			t.Errorf("%v failed :: %v", test.t, err)
 			continue
 		}
-		if !reflect.DeepEqual(result, test.r) {
-			spew.Errorf("%v failed :: expected\n%+v\ngot\n%+v", test.t, test.r, result)
+		expected = Get(t, result, test.t)
+		resultJson, _ := json.Marshal(result)
+		expectedJson, _ := json.Marshal(expected)
+		if string(resultJson) != string(expectedJson) {
+			t.Errorf("%v failed :: expected\n%+v\ngot\n%+v", test.t, expected, result)
 			continue
 		}
 	}

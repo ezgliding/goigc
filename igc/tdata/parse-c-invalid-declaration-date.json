@@ -1,0 +1,101 @@
+{
+  "Manufacturer": "",
+  "UniqueID": "",
+  "AdditionalData": "",
+  "Date": "0001-01-01T00:00:00Z",
+  "FixAccuracy": 0,
+  "Pilot": "",
+  "Crew": "",
+  "GliderType": "",
+  "GliderID": "",
+  "GPSDatum": "",
+  "FirmwareVersion": "",
+  "HardwareVersion": "",
+  "FlightRecorder": "",
+  "GPS": "",
+  "PressureSensor": "",
+  "CompetitionID": "",
+  "CompetitionClass": "",
+  "Timezone": 0,
+  "Points": null,
+  "K": null,
+  "Events": null,
+  "Satellites": null,
+  "Logbook": null,
+  "Task": {
+    "DeclarationDate": "0001-01-01T00:00:00Z",
+    "Date": "2001-07-16T00:00:00Z",
+    "Number": 1,
+    "Takeoff": {
+      "Lat": 51.18931666666667,
+      "Lon": -1.03165,
+      "Time": "0001-01-01T00:00:00Z",
+      "FixValidity": 0,
+      "PressureAltitude": 0,
+      "GNSSAltitude": 0,
+      "IData": null,
+      "NumSatellites": 0,
+      "Description": "EZ TAKEOFF"
+    },
+    "Start": {
+      "Lat": 51.16965,
+      "Lon": -1.0440666666666667,
+      "Time": "0001-01-01T00:00:00Z",
+      "FixValidity": 0,
+      "PressureAltitude": 0,
+      "GNSSAltitude": 0,
+      "IData": null,
+      "NumSatellites": 0,
+      "Description": "EZ START"
+    },
+    "Turnpoints": [
+      {
+        "Lat": 52.15153333333333,
+        "Lon": -2.9204499999999998,
+        "Time": "0001-01-01T00:00:00Z",
+        "FixValidity": 0,
+        "PressureAltitude": 0,
+        "GNSSAltitude": 0,
+        "IData": null,
+        "NumSatellites": 0,
+        "Description": "EZ TP1"
+      },
+      {
+        "Lat": 52.50245,
+        "Lon": -0.2935333333333333,
+        "Time": "0001-01-01T00:00:00Z",
+        "FixValidity": 0,
+        "PressureAltitude": 0,
+        "GNSSAltitude": 0,
+        "IData": null,
+        "NumSatellites": 0,
+        "Description": "EZ TP2"
+      }
+    ],
+    "Finish": {
+      "Lat": 51.16965,
+      "Lon": -1.0440666666666667,
+      "Time": "0001-01-01T00:00:00Z",
+      "FixValidity": 0,
+      "PressureAltitude": 0,
+      "GNSSAltitude": 0,
+      "IData": null,
+      "NumSatellites": 0,
+      "Description": "EZ FINISH"
+    },
+    "Landing": {
+      "Lat": 51.18931666666667,
+      "Lon": -1.03165,
+      "Time": "0001-01-01T00:00:00Z",
+      "FixValidity": 0,
+      "PressureAltitude": 0,
+      "GNSSAltitude": 0,
+      "IData": null,
+      "NumSatellites": 0,
+      "Description": "EZ LANDING"
+    },
+    "Description": "500KTri"
+  },
+  "DGPSStationID": "",
+  "Signature": ""
+}
