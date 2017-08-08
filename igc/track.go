@@ -25,10 +25,10 @@ import (
 // Track holds all IGC flight data (header and gps track).
 type Track struct {
 	Header
-	Points        []Point // FIXME: use a map keyed by time.Time instead?
-	K             map[time.Time]map[string]string
-	Events        map[time.Time]map[string]string
-	Satellites    map[time.Time][]int
+	Points        []Point
+	K             []K
+	Events        []Event
+	Satellites    []Satellite
 	Logbook       []LogEntry
 	Task          Task
 	DGPSStationID string
@@ -39,9 +39,6 @@ type Track struct {
 // It initializes all the structures with zero values.
 func NewTrack() Track {
 	track := Track{}
-	track.K = make(map[time.Time]map[string]string)
-	track.Events = make(map[time.Time]map[string]string)
-	track.Satellites = make(map[time.Time][]int)
 	return track
 }
 
@@ -85,6 +82,22 @@ func NewPoint() Point {
 	var pt Point
 	pt.IData = make(map[string]string)
 	return pt
+}
+
+type K struct {
+	Time   time.Time
+	Fields map[string]string
+}
+
+type Satellite struct {
+	Time time.Time
+	Ids  []string
+}
+
+type Event struct {
+	Time time.Time
+	Type string
+	Data string
 }
 
 // Task is a pre-declared task to be performed.
