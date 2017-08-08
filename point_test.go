@@ -31,7 +31,17 @@ type PointTest struct {
 	d float64
 }
 
-var distanceTests = []PointTest{
+var dmdTests = []PointTest{
+	{
+		p1: point{lat: "", lng: ""},
+		p2: point{lat: "", lng: ""},
+		d: 0,
+	},
+	{
+		p1: point{lat: "5110179N", lng: "00102644W"},
+		p2: point{lat: "5110179N", lng: "00102644W"},
+		d: 0,
+	},
 	{
 		p1: point{lat: "5110179N", lng: "00102644W"},
 		p2: point{lat: "5230147N", lng: "00017612W"},
@@ -39,8 +49,8 @@ var distanceTests = []PointTest{
 	},
 }
 
-func TestDistance(t *testing.T) {
-	for _, test := range distanceTests {
+func TestDistanceDMD(t *testing.T) {
+	for _, test := range dmdTests {
 		p1 := NewPointFromDMD(test.p1.lat, test.p1.lng)
 		p2 := NewPointFromDMD(test.p2.lat, test.p2.lng)
 		result := p1.Distance(p2)
