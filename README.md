@@ -33,7 +33,7 @@ Handles flight tracks in [IGC](http://www.fai.org/component/phocadownload/catego
 
 ## Testing
 
-Tests rely on the golden test pattern. To update the test data under the tdata
+Tests rely on the golden test pattern. To update the test data under the trest
 directory run the tests with the `update` flag:
 ```
 go test -update .
