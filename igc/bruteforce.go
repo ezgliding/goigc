@@ -33,8 +33,8 @@ func (*OptimizerBF) Optimize(pts []Point, t TaskType) (Result, error) {
 		for i = 0; i < len(pts)-2; i++ {
 			for j = i + 1; j < len(pts)-1; j++ {
 				for z = j + 1; z < len(pts); z++ {
-					d = pts[i].GreatCircleDistance(&pts[j].Point)
-					d += pts[j].GreatCircleDistance(&pts[z].Point)
+					d = pts[i].GreatCircleDistance(&pts[j])
+					d += pts[j].GreatCircleDistance(&pts[z])
 					if d > res.Distance {
 						res.Distance = d
 						res.Points[0] = pts[i]

@@ -31,7 +31,7 @@ type MaxDistance string
 func (md MaxDistance) Score(pts []Point, t Task) (float64, error) {
 	d := 0.0
 	for i := 0; i < len(pts)-1; i++ {
-		d += pts[i].GreatCircleDistance(&pts[i+1].Point)
+		d += pts[i].GreatCircleDistance(&pts[i+1])
 	}
 	return d, nil
 }

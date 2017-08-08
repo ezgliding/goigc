@@ -25,7 +25,6 @@ import (
 	"time"
 
 	"github.com/ezgliding/goigc/spatial"
-	"github.com/kellydunn/golang-geo"
 )
 
 const (
@@ -135,14 +134,14 @@ func (p *Parser) parseB(line string, f *Track) error {
 		return fmt.Errorf("line too short :: %v", line)
 	}
 	pt := NewPoint()
+	pt.Lat = spatial.DMD2Decimal(line[7:15])
+	pt.Lon = spatial.DMD2Decimal(line[15:24])
+
 	var err error
 	pt.Time, err = time.Parse(TimeFormat, line[1:7])
 	if err != nil {
 		return err
 	}
-	pt.Point = *geo.NewPoint(
-		spatial.DMD2Decimal(line[7:15]),
-		spatial.DMD2Decimal(line[15:24]))
 	if line[24] == 'A' || line[24] == 'V' {
 		pt.FixValidity = line[24]
 	} else {
@@ -215,9 +214,8 @@ func (p *Parser) taskPoint(line string) (Point, error) {
 		return Point{}, fmt.Errorf("line too short :: %v", line)
 	}
 	return Point{
-		Point: *geo.NewPoint(
-			spatial.DMD2Decimal(line[1:9]),
-			spatial.DMD2Decimal(line[9:18])),
+		Lat:         spatial.DMD2Decimal(line[1:9]),
+		Lon:         spatial.DMD2Decimal(line[9:18]),
 		Description: line[18:],
 	}, nil
 }
@@ -315,7 +313,7 @@ func (p *Parser) parseH(line string, f *Track) error {
 		if err != nil {
 			return err
 		}
-		f.Header.Timezone = *time.FixedZone("", int(z*3600))
+		f.Header.Timezone = int(z)
 	default:
 		err = fmt.Errorf("unknown record :: %v", line)
 	}

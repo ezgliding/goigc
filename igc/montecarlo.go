@@ -76,7 +76,7 @@ func (mc *Montecarlo) distance(track []Point, tps []int) float64 {
 	distance := 0.0
 	var v float64
 	for i := 0; i < len(tps)-1; i++ {
-		v = track[tps[i]].Point.GreatCircleDistance(&track[tps[i+1]].Point)
+		v = track[tps[i]].GreatCircleDistance(&track[tps[i+1]])
 		distance += v
 	}
 	return distance
