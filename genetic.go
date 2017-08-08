@@ -16,12 +16,15 @@
 
 package igc
 
-// OptimizerGA ...
-type OptimizerGA struct {
+type genetic struct {
+}
+
+func NewGeneticOptimizer() Optimizer {
+	return &genetic{}
 }
 
 // Optimize is Optimizer.Optimize.
-func (*OptimizerGA) Optimize(pts []Point, t TaskType) (Result, error) {
+func (g *genetic) Optimize(pts []Point, t TaskType) (Result, error) {
 	res := Result{}
 
 	//TODO:

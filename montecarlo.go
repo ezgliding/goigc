@@ -18,20 +18,18 @@ package igc
 
 import "math/rand"
 
-// Montecarlo is the montecarlo based implementation of the flight Optimizer.
-type Montecarlo struct {
+type montecarlo struct {
 	Cycles    int
 	MCCycles  int
 	MCGuesses int
 }
 
 // NewMontecarlo returns a new Montecarlo optimizer instance.
-func NewMontecarlo() *Montecarlo {
-	return &Montecarlo{Cycles: 10, MCCycles: 100000, MCGuesses: 0}
+func NewMontecarloOptimizer() Optimizer {
+	return &montecarlo{Cycles: 10, MCCycles: 100000, MCGuesses: 0}
 }
 
-// Optimize implements Optimizer().
-func (mc *Montecarlo) Optimize(track []Point, tp TaskType) (Result, error) {
+func (mc *montecarlo) Optimize(track []Point, tp TaskType) (Result, error) {
 	res := Result{Distance: 0.0, Points: make([]Point, tp)}
 
 	nTP := int(tp)
@@ -72,7 +70,7 @@ func (mc *Montecarlo) Optimize(track []Point, tp TaskType) (Result, error) {
 	return res, nil
 }
 
-func (mc *Montecarlo) distance(track []Point, tps []int) float64 {
+func (mc *montecarlo) distance(track []Point, tps []int) float64 {
 	distance := 0.0
 	var v float64
 	for i := 0; i < len(tps)-1; i++ {
