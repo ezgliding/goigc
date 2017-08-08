@@ -240,10 +240,7 @@ func (p *Parser) parseE(line string, f *Track) error {
 	if err != nil {
 		return err
 	}
-	if f.Events[t] == nil {
-		f.Events[t] = make(map[string]string)
-	}
-	f.Events[t][line[7:10]] = line[10:]
+	f.Events = append(f.Events, Event{Time: t, Type: line[7:10], Data: line[10:]})
 	return nil
 }
 
@@ -255,17 +252,12 @@ func (p *Parser) parseF(line string, f *Track) error {
 	if err != nil {
 		return err
 	}
-	if f.Satellites[t] == nil {
-		f.Satellites[t] = []int{}
-	}
+	ids := []string{}
 	for i := 7; i < len(line)-1; i = i + 2 {
-		var n int
-		if n, err = strconv.Atoi(line[i : i+2]); err != nil {
-			return err
-		}
-		f.Satellites[t] = append(f.Satellites[t], n)
+		ids = append(ids, line[i:i+2])
 	}
-	p.numSat = len(f.Satellites[t])
+	f.Satellites = append(f.Satellites, Satellite{Time: t, Ids: ids})
+	p.numSat = len(ids)
 	return nil
 }
 
@@ -385,7 +377,7 @@ func (p *Parser) parseK(line string, f *Track) error {
 	for _, f := range p.JFields {
 		fields[f.tlc] = line[f.start-1 : f.end]
 	}
-	f.K[t] = fields
+	f.K = append(f.K, K{Time: t, Fields: fields})
 	return nil
 }
 
