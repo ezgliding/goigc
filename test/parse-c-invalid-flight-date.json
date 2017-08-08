@@ -33,7 +33,7 @@
       "FixValidity": 0,
       "PressureAltitude": 0,
       "GNSSAltitude": 0,
-      "IData": null,
+      "IData": {},
       "NumSatellites": 0,
       "Description": "EZ TAKEOFF"
     },
@@ -44,7 +44,7 @@
       "FixValidity": 0,
       "PressureAltitude": 0,
       "GNSSAltitude": 0,
-      "IData": null,
+      "IData": {},
       "NumSatellites": 0,
       "Description": "EZ START"
     },
@@ -56,7 +56,7 @@
         "FixValidity": 0,
         "PressureAltitude": 0,
         "GNSSAltitude": 0,
-        "IData": null,
+        "IData": {},
         "NumSatellites": 0,
         "Description": "EZ TP1"
       },
@@ -67,7 +67,7 @@
         "FixValidity": 0,
         "PressureAltitude": 0,
         "GNSSAltitude": 0,
-        "IData": null,
+        "IData": {},
         "NumSatellites": 0,
         "Description": "EZ TP2"
       }
@@ -79,7 +79,7 @@
       "FixValidity": 0,
       "PressureAltitude": 0,
       "GNSSAltitude": 0,
-      "IData": null,
+      "IData": {},
       "NumSatellites": 0,
       "Description": "EZ FINISH"
     },
@@ -90,7 +90,7 @@
       "FixValidity": 0,
       "PressureAltitude": 0,
       "GNSSAltitude": 0,
-      "IData": null,
+      "IData": {},
       "NumSatellites": 0,
       "Description": "EZ LANDING"
     },

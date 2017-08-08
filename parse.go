@@ -23,9 +23,6 @@ import (
 	"strconv"
 	"strings"
 	"time"
-
-	"github.com/ezgliding/goigc/spatial"
-	"github.com/golang/geo/s2"
 )
 
 const (
@@ -124,9 +121,9 @@ func (p *Parser) parseA(line string, f *Track) error {
 	if len(line) < 7 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
-	f.Header.Manufacturer = line[1:4]
-	f.Header.UniqueID = line[4:7]
-	f.Header.AdditionalData = line[7:]
+	f.Manufacturer = line[1:4]
+	f.UniqueID = line[4:7]
+	f.AdditionalData = line[7:]
 	return nil
 }
 
@@ -134,10 +131,8 @@ func (p *Parser) parseB(line string, f *Track) error {
 	if len(line) < 37 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
-	pt := NewPoint()
-	pt.LatLng = s2.LatLngFromDegrees(
-		spatial.DMD2Decimal(line[7:15]),
-		spatial.DMD2Decimal(line[15:24]))
+	pt := NewPointFromDMD(
+		line[7:15], line[15:24])
 
 	var err error
 	pt.Time, err = time.Parse(TimeFormat, line[1:7])
@@ -215,11 +210,10 @@ func (p *Parser) taskPoint(line string) (Point, error) {
 	if len(line) < 18 {
 		return Point{}, fmt.Errorf("line too short :: %v", line)
 	}
-	b := Point{LatLng: s2.LatLngFromDegrees(
-		spatial.DMD2Decimal(line[1:9]),
-		spatial.DMD2Decimal(line[9:18])),
-		Description: line[18:]}
-	return b, nil
+	pt := NewPointFromDMD(
+		line[1:9], line[9:18])
+	pt.Description = line[18:]
+	return pt, nil
 }
 
 func (p *Parser) parseD(line string, f *Track) error {
@@ -277,45 +271,45 @@ func (p *Parser) parseH(line string, f *Track) error {
 		if len(line) < 11 {
 			return fmt.Errorf("line too short :: %v", line)
 		}
-		f.Header.Date, err = time.Parse(DateFormat, line[5:11])
+		f.Date, err = time.Parse(DateFormat, line[5:11])
 	case "FXA":
 		if len(line) < 8 {
 			return fmt.Errorf("line too short :: %v", line)
 		}
-		f.Header.FixAccuracy, err = strconv.ParseInt(line[5:8], 10, 64)
+		f.FixAccuracy, err = strconv.ParseInt(line[5:8], 10, 64)
 	case "PLT":
-		f.Header.Pilot = stripUpTo(line[5:], ":")
+		f.Pilot = stripUpTo(line[5:], ":")
 	case "CM2":
-		f.Header.Crew = stripUpTo(line[5:], ":")
+		f.Crew = stripUpTo(line[5:], ":")
 	case "GTY":
-		f.Header.GliderType = stripUpTo(line[5:], ":")
+		f.GliderType = stripUpTo(line[5:], ":")
 	case "GID":
-		f.Header.GliderID = stripUpTo(line[5:], ":")
+		f.GliderID = stripUpTo(line[5:], ":")
 	case "DTM":
 		if len(line) < 8 {
 			return fmt.Errorf("line too short :: %v", line)
 		}
-		f.Header.GPSDatum = stripUpTo(line[5:], ":")
+		f.GPSDatum = stripUpTo(line[5:], ":")
 	case "RFW":
-		f.Header.FirmwareVersion = stripUpTo(line[5:], ":")
+		f.FirmwareVersion = stripUpTo(line[5:], ":")
 	case "RHW":
-		f.Header.HardwareVersion = stripUpTo(line[5:], ":")
+		f.HardwareVersion = stripUpTo(line[5:], ":")
 	case "FTY":
-		f.Header.FlightRecorder = stripUpTo(line[5:], ":")
+		f.FlightRecorder = stripUpTo(line[5:], ":")
 	case "GPS":
-		f.Header.GPS = line[5:]
+		f.GPS = line[5:]
 	case "PRS":
-		f.Header.PressureSensor = stripUpTo(line[5:], ":")
+		f.PressureSensor = stripUpTo(line[5:], ":")
 	case "CID":
-		f.Header.CompetitionID = stripUpTo(line[5:], ":")
+		f.CompetitionID = stripUpTo(line[5:], ":")
 	case "CCL":
-		f.Header.CompetitionClass = stripUpTo(line[5:], ":")
+		f.CompetitionClass = stripUpTo(line[5:], ":")
 	case "TZN":
 		z, err := strconv.ParseFloat(stripUpTo(line[5:], ":"), 64)
 		if err != nil {
 			return err
 		}
-		f.Header.Timezone = int(z)
+		f.Timezone = int(z)
 	default:
 		err = fmt.Errorf("unknown record :: %v", line)
 	}
