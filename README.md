@@ -31,6 +31,14 @@ Handles flight tracks in [IGC](http://www.fai.org/component/phocadownload/catego
 
     $ goigc optimize sample-flight.igc
 
+## Testing
+
+Tests rely on the golden test pattern. To update the test data under the tdata
+directory run the tests with the `update` flag:
+```
+go test -update .
+```
+
 ## Documentation
 
     $ godoc github.com/rochaporto/goigc
