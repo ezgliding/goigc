@@ -25,6 +25,11 @@ import (
 	"time"
 )
 
+const (
+	// EarthRadius ...
+	EarthRadius = 6371.0
+)
+
 // Point represents a gps read (single point in the track).
 type Point struct {
 	s2.LatLng
@@ -40,13 +45,27 @@ type Point struct {
 // NewPoint creates a new Point struct and returns it.
 // It initializes all structures to zero values.
 func NewPoint() Point {
-	var pt Point
-	pt.IData = make(map[string]string)
-	return pt
+	return NewPointFromLatLng(0, 0)
+}
+
+// NewPointFromLatLng ...
+func NewPointFromLatLng(lat float64, lng float64) Point {
+	return Point {
+		LatLng: s2.LatLngFromDegrees(lat, lng),
+		IData: make(map[string]string),
+	}
 }
 
 // PointFromDMS returns a Point corresponding to the given string.
-func PointFromDMS(dms string) float64 {
+func PointFromDMS(lat string, lng string) Point {
+	return NewPointFromLatLng(
+		DecimalFromDMS(lat), DecimalFromDMS(lng),
+	)
+}
+
+// DecimalFromDMS returns the decimal value corresponding to the given coordinates.
+// The coordinates are expected in Degrees, Minutes, Seconds format.
+func DecimalFromDMS(dms string) float64 {
 	var degrees, minutes, seconds float64
 	if len(dms) == 7 {
 		degrees, _ = strconv.ParseFloat(dms[1:3], 64)
@@ -66,7 +85,14 @@ func PointFromDMS(dms string) float64 {
 }
 
 // PointFromDMD returns a Point corresponding to the given string.
-func PointFromDMD(dmd string) float64 {
+func PointFromDMD(lat string, lng string) Point {
+	return NewPointFromLatLng(
+		DecimalFromDMD(lat), DecimalFromDMD(lng),
+	)
+}
+
+// DecimalFromDMD ...
+func DecimalFromDMD(dmd string) float64 {
 	var degrees, minutes, dminutes float64
 	if dmd[0] == 'S' || dmd[0] == 'N' {
 		degrees, _ = strconv.ParseFloat(dmd[1:3], 64)
@@ -95,5 +121,5 @@ func PointFromDMD(dmd string) float64 {
 
 // Distance dd
 func (p *Point) Distance(b Point) float64 {
-	return float64(p.Distance(b) * EARTH_RADIUS)
+	return float64(p.Distance(b) * EarthRadius)
 }
