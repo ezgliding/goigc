@@ -29,6 +29,36 @@
 			"revisionTime": "2017-03-29T04:21:07Z"
 		},
 		{
+			"checksumSHA1": "ewUc/AddabJQQ6xmSgRTY+T5cRg=",
+			"path": "github.com/golang/geo/r1",
+			"revision": "284d0e7826141d6067722f7b5353b741242596f2",
+			"revisionTime": "2017-08-02T07:49:00Z"
+		},
+		{
+			"checksumSHA1": "bhbWcOOLa1ovcW+EwRoX6YuxxIg=",
+			"path": "github.com/golang/geo/r2",
+			"revision": "284d0e7826141d6067722f7b5353b741242596f2",
+			"revisionTime": "2017-08-02T07:49:00Z"
+		},
+		{
+			"checksumSHA1": "NKLkQBzGY85mQ+JJEJa2QkZAoRE=",
+			"path": "github.com/golang/geo/r3",
+			"revision": "284d0e7826141d6067722f7b5353b741242596f2",
+			"revisionTime": "2017-08-02T07:49:00Z"
+		},
+		{
+			"checksumSHA1": "qgDYNsWxk0RzqfwEisknCuRNfPQ=",
+			"path": "github.com/golang/geo/s1",
+			"revision": "284d0e7826141d6067722f7b5353b741242596f2",
+			"revisionTime": "2017-08-02T07:49:00Z"
+		},
+		{
+			"checksumSHA1": "O0YCjw3cYjv4rKK/Zj4ccOa6Jes=",
+			"path": "github.com/golang/geo/s2",
+			"revision": "284d0e7826141d6067722f7b5353b741242596f2",
+			"revisionTime": "2017-08-02T07:49:00Z"
+		},
+		{
 			"checksumSHA1": "7JBkp3EZoc0MSbiyWfzVhO4RYoY=",
 			"path": "github.com/hashicorp/hcl",
 			"revision": "392dba7d905ed5d04a5794ba89f558b27e2ba1ca",
