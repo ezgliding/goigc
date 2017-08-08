@@ -169,23 +169,23 @@ var update = flag.Bool("update", false, "update golden test data")
 func Get(t *testing.T, actual Track, test string) Track {
 	golden := filepath.Join("test", fmt.Sprintf("%s.json", test))
 
-	actualJson, err := json.MarshalIndent(actual, "", "  ")
+	actualJSON, err := json.MarshalIndent(actual, "", "  ")
 	if err != nil {
 		t.Fatalf("%v :: %+v", err, actual)
 	}
 
 	if *update {
-		if err = ioutil.WriteFile(golden, actualJson, 0644); err != nil {
+		if err = ioutil.WriteFile(golden, actualJSON, 0644); err != nil {
 			t.Fatal(err)
 		}
 	}
 
-	expectedJson, err := ioutil.ReadFile(golden)
+	expectedJSON, err := ioutil.ReadFile(golden)
 	if err != nil {
 		t.Fatal(err)
 	}
 	var expected Track
-	err = json.Unmarshal(expectedJson, &expected)
+	err = json.Unmarshal(expectedJSON, &expected)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -204,10 +204,10 @@ func TestParse(t *testing.T) {
 			continue
 		}
 		expected = Get(t, result, test.t)
-		resultJson, _ := json.Marshal(result)
-		expectedJson, _ := json.Marshal(expected)
-		if string(resultJson) != string(expectedJson) {
-			t.Errorf("%v failed :: expected\n%+v\ngot\n%+v", test.t, string(expectedJson), string(resultJson))
+		resultJSON, _ := json.Marshal(result)
+		expectedJSON, _ := json.Marshal(expected)
+		if string(resultJSON) != string(expectedJSON) {
+			t.Errorf("%v failed :: expected\n%+v\ngot\n%+v", test.t, string(expectedJSON), string(resultJSON))
 			continue
 		}
 	}
@@ -222,7 +222,7 @@ func TestStripUpToMissing(t *testing.T) {
 }
 
 func BenchmarkParse(b *testing.B) {
-	c, err := ioutil.ReadFile("../test/sample-flight.igc")
+	c, err := ioutil.ReadFile("test/sample-flight.igc")
 	if err != nil {
 		b.Errorf("failed to load sample flight :: %v", err)
 	}
