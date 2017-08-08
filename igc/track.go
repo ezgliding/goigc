@@ -17,9 +17,12 @@
 package igc
 
 import (
+	"math"
 	"time"
+)
 
-	"github.com/kellydunn/golang-geo"
+const (
+	EARTH_RADIUS = 6371
 )
 
 // Track holds all IGC flight data (header and gps track).
@@ -61,12 +64,13 @@ type Header struct {
 	PressureSensor   string
 	CompetitionID    string
 	CompetitionClass string
-	Timezone         time.Location
+	Timezone         int
 }
 
 // Point represents a gps read (single point in the track).
 type Point struct {
-	geo.Point
+	Lat              float64
+	Lon              float64
 	Time             time.Time
 	FixValidity      byte
 	PressureAltitude int64
@@ -74,6 +78,25 @@ type Point struct {
 	IData            map[string]string
 	NumSatellites    int
 	Description      string
+}
+
+// Calculates the Haversine distance between two points in kilometers.
+// Original Implementation from: http://www.movable-type.co.uk/scripts/latlong.html
+func (p *Point) GreatCircleDistance(p2 *Point) float64 {
+	dLat := (p2.Lat - p.Lat) * (math.Pi / 180.0)
+	dLon := (p2.Lon - p.Lon) * (math.Pi / 180.0)
+
+	lat1 := p.Lat * (math.Pi / 180.0)
+	lat2 := p2.Lat * (math.Pi / 180.0)
+
+	a1 := math.Sin(dLat/2) * math.Sin(dLat/2)
+	a2 := math.Sin(dLon/2) * math.Sin(dLon/2) * math.Cos(lat1) * math.Cos(lat2)
+
+	a := a1 + a2
+
+	c := 2 * math.Atan2(math.Sqrt(a), math.Sqrt(1-a))
+
+	return EARTH_RADIUS * c
 }
 
 // NewPoint creates a new Point struct and returns it.
