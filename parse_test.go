@@ -167,7 +167,7 @@ GJNJK2489IERGNV3089IVJE9GO398535J3894N358954983O0934
 var update = flag.Bool("update", false, "update golden test data")
 
 func Get(t *testing.T, actual Track, test string) Track {
-	golden := filepath.Join("tdata", fmt.Sprintf("%s.json", test))
+	golden := filepath.Join("test", fmt.Sprintf("%s.json", test))
 
 	actualJson, err := json.MarshalIndent(actual, "", "  ")
 	if err != nil {
