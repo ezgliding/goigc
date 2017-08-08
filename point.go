@@ -71,10 +71,12 @@ func DecimalFromDMS(dms string) float64 {
 		degrees, _ = strconv.ParseFloat(dms[1:3], 64)
 		minutes, _ = strconv.ParseFloat(dms[3:5], 64)
 		seconds, _ = strconv.ParseFloat(dms[5:], 64)
-	} else {
+	} else if len(dms) == 8 {
 		degrees, _ = strconv.ParseFloat(dms[1:4], 64)
 		minutes, _ = strconv.ParseFloat(dms[4:6], 64)
 		seconds, _ = strconv.ParseFloat(dms[6:], 64)
+	} else {
+		return 0
 	}
 	var r float64
 	r = degrees + (minutes / 60.0) + (seconds / 3600.0)
@@ -93,6 +95,10 @@ func NewPointFromDMD(lat string, lng string) Point {
 
 // DecimalFromDMD ...
 func DecimalFromDMD(dmd string) float64 {
+	if len(dmd) != 8 && len(dmd) != 9 {
+		return 0
+	}
+
 	var degrees, minutes, dminutes float64
 	if dmd[0] == 'S' || dmd[0] == 'N' {
 		degrees, _ = strconv.ParseFloat(dmd[1:3], 64)
@@ -121,5 +127,5 @@ func DecimalFromDMD(dmd string) float64 {
 
 // Distance dd
 func (p *Point) Distance(b Point) float64 {
-	return float64(p.Distance(b) * EarthRadius)
+	return float64(p.LatLng.Distance(b.LatLng) * EarthRadius)
 }
