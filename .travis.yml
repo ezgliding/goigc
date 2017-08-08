@@ -5,6 +5,7 @@ sudo: false
 env:
         - BUILDFLAVOR=goveralls
         - BUILDFLAVOR=pprof
+        - BUILDFLAVOR=bench
 
 before_install:
         - go get -v github.com/golang/lint/golint

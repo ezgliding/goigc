@@ -222,7 +222,7 @@ func TestStripUpToMissing(t *testing.T) {
 }
 
 func BenchmarkParse(b *testing.B) {
-	c, err := ioutil.ReadFile("t/sample-igc")
+	c, err := ioutil.ReadFile("../test/sample-flight.igc")
 	if err != nil {
 		b.Errorf("failed to load sample flight :: %v", err)
 	}
