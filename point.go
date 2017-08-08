@@ -56,8 +56,8 @@ func NewPointFromLatLng(lat float64, lng float64) Point {
 	}
 }
 
-// PointFromDMS returns a Point corresponding to the given string.
-func PointFromDMS(lat string, lng string) Point {
+// NewPointFromDMS returns a Point corresponding to the given string.
+func NewPointFromDMS(lat string, lng string) Point {
 	return NewPointFromLatLng(
 		DecimalFromDMS(lat), DecimalFromDMS(lng),
 	)
@@ -84,8 +84,8 @@ func DecimalFromDMS(dms string) float64 {
 	return r
 }
 
-// PointFromDMD returns a Point corresponding to the given string.
-func PointFromDMD(lat string, lng string) Point {
+// NewPointFromDMD returns a Point corresponding to the given string.
+func NewPointFromDMD(lat string, lng string) Point {
 	return NewPointFromLatLng(
 		DecimalFromDMD(lat), DecimalFromDMD(lng),
 	)
