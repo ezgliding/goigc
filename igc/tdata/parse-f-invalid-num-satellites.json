@@ -36,7 +36,7 @@
     "Number": 0,
     "Takeoff": {
       "Lat": 0,
-      "Lon": 0,
+      "Lng": 0,
       "Time": "0001-01-01T00:00:00Z",
       "FixValidity": 0,
       "PressureAltitude": 0,
@@ -47,7 +47,7 @@
     },
     "Start": {
       "Lat": 0,
-      "Lon": 0,
+      "Lng": 0,
       "Time": "0001-01-01T00:00:00Z",
       "FixValidity": 0,
       "PressureAltitude": 0,
@@ -59,7 +59,7 @@
     "Turnpoints": null,
     "Finish": {
       "Lat": 0,
-      "Lon": 0,
+      "Lng": 0,
       "Time": "0001-01-01T00:00:00Z",
       "FixValidity": 0,
       "PressureAltitude": 0,
@@ -70,7 +70,7 @@
     },
     "Landing": {
       "Lat": 0,
-      "Lon": 0,
+      "Lng": 0,
       "Time": "0001-01-01T00:00:00Z",
       "FixValidity": 0,
       "PressureAltitude": 0,

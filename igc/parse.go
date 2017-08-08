@@ -25,6 +25,7 @@ import (
 	"time"
 
 	"github.com/ezgliding/goigc/spatial"
+	"github.com/golang/geo/s2"
 )
 
 const (
@@ -134,8 +135,9 @@ func (p *Parser) parseB(line string, f *Track) error {
 		return fmt.Errorf("line too short :: %v", line)
 	}
 	pt := NewPoint()
-	pt.Lat = spatial.DMD2Decimal(line[7:15])
-	pt.Lon = spatial.DMD2Decimal(line[15:24])
+	pt.LatLng = s2.LatLngFromDegrees(
+		spatial.DMD2Decimal(line[7:15]),
+		spatial.DMD2Decimal(line[15:24]))
 
 	var err error
 	pt.Time, err = time.Parse(TimeFormat, line[1:7])
@@ -213,11 +215,11 @@ func (p *Parser) taskPoint(line string) (Point, error) {
 	if len(line) < 18 {
 		return Point{}, fmt.Errorf("line too short :: %v", line)
 	}
-	return Point{
-		Lat:         spatial.DMD2Decimal(line[1:9]),
-		Lon:         spatial.DMD2Decimal(line[9:18]),
-		Description: line[18:],
-	}, nil
+	b := Point{LatLng: s2.LatLngFromDegrees(
+		spatial.DMD2Decimal(line[1:9]),
+		spatial.DMD2Decimal(line[9:18])),
+		Description: line[18:]}
+	return b, nil
 }
 
 func (p *Parser) parseD(line string, f *Track) error {

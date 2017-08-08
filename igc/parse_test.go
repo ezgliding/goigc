@@ -207,7 +207,7 @@ func TestParse(t *testing.T) {
 		resultJson, _ := json.Marshal(result)
 		expectedJson, _ := json.Marshal(expected)
 		if string(resultJson) != string(expectedJson) {
-			t.Errorf("%v failed :: expected\n%+v\ngot\n%+v", test.t, expected, result)
+			t.Errorf("%v failed :: expected\n%+v\ngot\n%+v", test.t, string(expectedJson), string(resultJson))
 			continue
 		}
 	}
