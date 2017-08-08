@@ -18,12 +18,16 @@ package igc
 
 import "fmt"
 
-// OptimizerBF ...
-type OptimizerBF struct {
+// NewBruteForceOptimizer ...
+func NewBruteForceOptimizer(cache bool) Optimizer {
+	return &bruteForceOptimizer{cache: cache}
 }
 
-// Optimize is Optimizer.Optimize.
-func (*OptimizerBF) Optimize(pts []Point, t TaskType) (Result, error) {
+type bruteForceOptimizer struct {
+	cache bool
+}
+
+func (b *bruteForceOptimizer) Optimize(pts []Point, t TaskType) (Result, error) {
 	res := Result{Distance: 0.0, Points: make([]Point, 3)}
 
 	var i, j, z, cnt int
@@ -40,15 +44,13 @@ func (*OptimizerBF) Optimize(pts []Point, t TaskType) (Result, error) {
 						res.Points[0] = pts[i]
 						res.Points[1] = pts[j]
 						res.Points[2] = pts[z]
-						fmt.Printf("%v %v %v\n", i, j, z)
 					}
 					cnt++
 				}
 			}
-			fmt.Printf("C: %v :: D: %v\n", cnt, res)
 		}
 	default:
-		return res, fmt.Errorf("unsupported task type")
+		return res, fmt.Errorf("unsupported task type (%v)", t)
 	}
 	return res, nil
 }
