@@ -20,10 +20,6 @@ import (
 	"time"
 )
 
-const (
-	EARTH_RADIUS = 6371.0
-)
-
 // Track holds all IGC flight data (header and gps track).
 type Track struct {
 	Header
@@ -66,16 +62,19 @@ type Header struct {
 	Timezone         int
 }
 
+// K ...
 type K struct {
 	Time   time.Time
 	Fields map[string]string
 }
 
+// Satellite ...
 type Satellite struct {
 	Time time.Time
 	Ids  []string
 }
 
+// Event ...
 type Event struct {
 	Time time.Time
 	Type string
