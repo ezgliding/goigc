@@ -128,7 +128,7 @@ func (p *Parser) parseA(line string, f *Track) error {
 }
 
 func (p *Parser) parseB(line string, f *Track) error {
-	if len(line) < 37 {
+	if len(line) < 35 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
 	pt := NewPointFromDMD(

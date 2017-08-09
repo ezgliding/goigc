@@ -22,6 +22,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -196,20 +197,61 @@ func Get(t *testing.T, actual Track, test string) Track {
 func TestParse(t *testing.T) {
 	var expected Track
 	for _, test := range parseTests {
-		result, err := Parse(test.c)
-		if err != nil && test.e {
-			continue
-		} else if err != nil {
-			t.Errorf("%v failed :: %v", test.t, err)
-			continue
+		t.Run(test.t, func(t *testing.T) {
+			result, err := Parse(test.c)
+			if err != nil && test.e {
+				return
+			} else if err != nil {
+				t.Error(err)
+			}
+			expected = Get(t, result, test.t)
+			resultJSON, _ := json.Marshal(result)
+			expectedJSON, _ := json.Marshal(expected)
+			if string(resultJSON) != string(expectedJSON) {
+				t.Errorf("expected\n%+v\ngot\n%+v", string(expectedJSON), string(resultJSON))
+			}
+		})
+	}
+}
+
+func TestParseLocation(t *testing.T) {
+	var expected Track
+	files, err := ioutil.ReadDir("test")
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, f := range files {
+		match, _ := filepath.Match("parse-location-*.igc", f.Name())
+		if match {
+			t.Run(f.Name(), func(t *testing.T) {
+				result, err := ParseLocation(filepath.Join("test", f.Name()))
+				if err != nil {
+					t.Fatalf("%v :: %v", f.Name(), err)
+				}
+
+				expected = Get(t, result, strings.Split(f.Name(), ".igc")[0])
+				resultJSON, _ := json.Marshal(result)
+				expectedJSON, _ := json.Marshal(expected)
+				if string(resultJSON) != string(expectedJSON) {
+					t.Fatalf("%v\nexpected\n%v\nresult\n%v", f.Name(), string(expectedJSON), string(resultJSON))
+				}
+			})
 		}
-		expected = Get(t, result, test.t)
-		resultJSON, _ := json.Marshal(result)
-		expectedJSON, _ := json.Marshal(expected)
-		if string(resultJSON) != string(expectedJSON) {
-			t.Errorf("%v failed :: expected\n%+v\ngot\n%+v", test.t, string(expectedJSON), string(resultJSON))
-			continue
-		}
+	}
+
+}
+
+func TestParseLocationMissing(t *testing.T) {
+	_, err := ParseLocation("does-not-exist")
+	if err == nil {
+		t.Errorf("no error returned for missing file")
+	}
+}
+
+func TestParseLocationEmpty(t *testing.T) {
+	_, err := ParseLocation("")
+	if err == nil {
+		t.Errorf("no error returned empty string location")
 	}
 }
 
@@ -222,7 +264,7 @@ func TestStripUpToMissing(t *testing.T) {
 }
 
 func BenchmarkParse(b *testing.B) {
-	c, err := ioutil.ReadFile("test/sample-flight.igc")
+	c, err := ioutil.ReadFile("test/parse-location-sample-flight.igc")
 	if err != nil {
 		b.Errorf("failed to load sample flight :: %v", err)
 	}
