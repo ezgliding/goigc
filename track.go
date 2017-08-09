@@ -109,6 +109,22 @@ type Task struct {
 	Description     string
 }
 
+// Distance returns the total distance in kms between the turn points.
+//
+// It includes the Start and Finish fields as the first and last point,
+// respectively, with the Turnpoints in the middle. The return value is
+// sum of all distances between each consecutive point.
+func (task *Task) Distance() float64 {
+	d := 0.0
+	p := []Point{task.Start}
+	p = append(p, task.Turnpoints...)
+	p = append(p, task.Finish)
+	for i := 0; i < len(p)-1; i++ {
+		d += p[i].Distance(p[i+1])
+	}
+	return d
+}
+
 // LogEntry holds a logbook/comment entry, in free format.
 //
 // This is the L record in the IGC specification, section A4.5.
