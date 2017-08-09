@@ -55,8 +55,8 @@ func Example_totaldistance() {
 func Example_optimize() {
 	track, _ := ParseLocation("sample-flight.igc")
 
-	// In this case we use a brute force based optimizer
+	// In this case we use a brute force optimizer
 	o := NewBruteForceOptimizer(false)
-	r, _ := o.Optimize(track, TP1)
+	r, _ := o.Optimize(track, 1, Distance)
 	fmt.Printf("Optimization result was: %v", r)
 }

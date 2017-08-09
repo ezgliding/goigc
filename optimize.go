@@ -16,30 +16,32 @@
 
 package igc
 
-// TaskType represents one of the possible task types (turnpoints and angles).
-type TaskType int
-
-// Enum holding the possible TaskTypes.
-const (
-	// Task with a single turnpoint (out and return).
-	TP1 TaskType = iota + 1
-	// Task with two turnpoints (generic triangle).
-	TP2
-	// Task with three turnpoints.
-	TP3
-	// Task with four turnpoints.
-	TP4
-	// Task with five turnpoints.
-	TP5
-	// Task with two turnpoints, forming a triangle where the shortest leg is at least 28% of the total.
-	FAITriangle
-)
-
-// Optimizer returns an optimal Task with a number of turnpoints for the given Task.
+// Score functions calculate a score for the given Task.
 //
-// The optimal Task is selected taking into account the score function.
+// The main use of these functions is in passing them to the Optimizers, so
+// they can evaluate each Task towards different goals.
+//
+// Example functions include the total distance between all turn points or an
+// online competition (netcoupe, online contest) score which takes additional
+// metrics of each leg into account.
+type Score func(task Task) float64
+
+// Distance returns the sum of distances between each of the points in the Task.
+//
+// The sum is made calculating the distances between each two consecutive Points.
+func Distance(task Task) float64 {
+	return task.Distance()
+}
+
+// Optimizer returns an optimal Task for the given turnpoints and Score function.
+//
 // Available score functions include MaxDistance and MaxPoints, but it is
 // possible to pass the Optimizer a custom function.
+//
+// Optimizers might not support a high number of turnpoints. As an example, the
+// BruteForceOptimizer does not perform well with nPoints > 2, and might decide
+// to return an error instead of attempting to finalize the optimization
+// indefinitely.
 type Optimizer interface {
-	Optimize(track Track, tp TaskType) (Task, error)
+	Optimize(track Track, nPoints int, score Score) (Task, error)
 }
