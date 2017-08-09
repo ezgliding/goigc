@@ -1,36 +1,39 @@
-// Copyright 2014 The ezgliding Authors.
+// Copyright @2017 The ezgliding Authors.
 //
-// This file is part of ezgliding.
 //
-// ezgliding is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
-// ezgliding is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
-// You should have received a copy of the GNU General Public License
-// along with ezgliding.  If not, see <http://www.gnu.org/licenses/>.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 //
-// Author: Ricardo Rocha <rocha.porto@gmail.com>
 
 package igc
 
 import (
-	"strconv"
 	"github.com/golang/geo/s2"
+	"strconv"
 	"time"
 )
 
 const (
-	// EarthRadius ...
+	// EarthRadius is the average earth radius.
 	EarthRadius = 6371.0
 )
 
-// Point represents a gps read (single point in the track).
+// Point represents a GPS recording (single point in the track).
+//
+// It is based on a golang-geo s2 LatLng, adding extra metadata such as
+// the Time the point was recorded, pressure and GNSS altitude, number of
+// satellites available and extra metadata added by the recorder.
+//
+// You can use all methods available for a s2.LatLng on this struct.
 type Point struct {
 	s2.LatLng
 	Time             time.Time
@@ -42,29 +45,34 @@ type Point struct {
 	Description      string
 }
 
-// NewPoint creates a new Point struct and returns it.
-// It initializes all structures to zero values.
+// NewPoint returns a new Point set to latitude and longitude 0.
 func NewPoint() Point {
 	return NewPointFromLatLng(0, 0)
 }
 
-// NewPointFromLatLng ...
+// NewPointFromLatLng returns a new Point with the given latitude and longitude.
 func NewPointFromLatLng(lat float64, lng float64) Point {
-	return Point {
+	return Point{
 		LatLng: s2.LatLngFromDegrees(lat, lng),
-		IData: make(map[string]string),
+		IData:  make(map[string]string),
 	}
 }
 
-// NewPointFromDMS returns a Point corresponding to the given string.
+// NewPointFromDMS returns a Point corresponding to the given string in DMS format.
+//
+// DecimalFromDMS includes more information regarding this format.
 func NewPointFromDMS(lat string, lng string) Point {
 	return NewPointFromLatLng(
 		DecimalFromDMS(lat), DecimalFromDMS(lng),
 	)
 }
 
-// DecimalFromDMS returns the decimal value corresponding to the given coordinates.
-// The coordinates are expected in Degrees, Minutes, Seconds format.
+// DecimalFromDMS returns the decimal representation (in radians) of the given DMS.
+//
+// DMS is a representation of a coordinate in Decimal,Minutes,Seconds, with an
+// extra character indicating north, south, east, west.
+//
+// Examples: N512646, W0064312, S342244, E0021233
 func DecimalFromDMS(dms string) float64 {
 	var degrees, minutes, seconds float64
 	if len(dms) == 7 {
@@ -86,14 +94,21 @@ func DecimalFromDMS(dms string) float64 {
 	return r
 }
 
-// NewPointFromDMD returns a Point corresponding to the given string.
+// NewPointFromDMD returns a Point corresponding to the given string in DMD format.
+//
+// DecimalFromDMD includes more information regarding this format.
 func NewPointFromDMD(lat string, lng string) Point {
 	return NewPointFromLatLng(
 		DecimalFromDMD(lat), DecimalFromDMD(lng),
 	)
 }
 
-// DecimalFromDMD ...
+// DecimalFromDMD returns the decimal representation (in radians) of the given DMD.
+//
+// DMD is a representation of a coordinate in Decimal,Minutes,100thMinute with an
+// extra character indicating north, south, east, west.
+//
+// Examples: N512688, W0064364, S342212, E0021275
 func DecimalFromDMD(dmd string) float64 {
 	if len(dmd) != 8 && len(dmd) != 9 {
 		return 0
@@ -125,7 +140,10 @@ func DecimalFromDMD(dmd string) float64 {
 	return r
 }
 
-// Distance dd
+// Distance returns the great circle distance in kms to the given point.
+//
+// Internally it uses the golang-geo s2 LatLng.Distance() method, but converts
+// its result (an angle) to kms considering the constance EarthRadius.
 func (p *Point) Distance(b Point) float64 {
 	return float64(p.LatLng.Distance(b.LatLng) * EarthRadius)
 }

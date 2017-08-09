@@ -1,4 +1,4 @@
-// Copyright ©2015 Ricardo Rocha <rocha.porto@gmail.com>
+// Copyright ©2017 The ezgliding Authors.
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,8 +16,6 @@
 
 package igc
 
-import "fmt"
-
 // NewBruteForceOptimizer ...
 func NewBruteForceOptimizer(cache bool) Optimizer {
 	return &bruteForceOptimizer{cache: cache}
@@ -27,30 +25,6 @@ type bruteForceOptimizer struct {
 	cache bool
 }
 
-func (b *bruteForceOptimizer) Optimize(pts []Point, t TaskType) (Result, error) {
-	res := Result{Distance: 0.0, Points: make([]Point, 3)}
-
-	var i, j, z, cnt int
-	var d float64
-	switch t {
-	case TP1:
-		for i = 0; i < len(pts)-2; i++ {
-			for j = i + 1; j < len(pts)-1; j++ {
-				for z = j + 1; z < len(pts); z++ {
-					d = pts[i].Distance(pts[j])
-					d += pts[j].Distance(pts[z])
-					if d > res.Distance {
-						res.Distance = d
-						res.Points[0] = pts[i]
-						res.Points[1] = pts[j]
-						res.Points[2] = pts[z]
-					}
-					cnt++
-				}
-			}
-		}
-	default:
-		return res, fmt.Errorf("unsupported task type (%v)", t)
-	}
-	return res, nil
+func (b *bruteForceOptimizer) Optimize(track Track, t TaskType) (Task, error) {
+	return Task{}, nil
 }

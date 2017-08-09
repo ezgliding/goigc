@@ -1,4 +1,4 @@
-// Copyright ©2015 Ricardo Rocha <rocha.porto@gmail.com>
+// Copyright ©2017 The ezgliding Authors.
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,14 +26,15 @@ import (
 )
 
 const (
-	// TimeFormat is the golang time.Parse format for IGC time
+	// TimeFormat is the golang time.Parse format for IGC time.
 	TimeFormat = "150405"
-	// DateFormat is the golang time.Parse format for IGC time
+	// DateFormat is the golang time.Parse format for IGC time.
 	DateFormat = "020106"
 )
 
-// ParseLocation returns a Track object from the content at the given location.
-// It calls Parse internatlly, so the content should be in IGC format.
+// ParseLocation returns a Track object corresponding to the given file.
+//
+// It calls Parse internatlly, so the file content should be in IGC format.
 func ParseLocation(location string) (Track, error) {
 	var content []byte
 	resp, err := http.Get(location)
@@ -53,11 +54,13 @@ func ParseLocation(location string) (Track, error) {
 }
 
 // Parse returns a Track object corresponding to the given content.
-// content should be a text string in the IGC format.
+//
+// The value of content should be a text string with all the flight data
+// in the IGC format.
 func Parse(content string) (Track, error) {
 	f := NewTrack()
 	var err error
-	p := Parser{}
+	p := parser{}
 	lines := strings.Split(content, "\n")
 	for i := range lines {
 		line := strings.TrimSpace(lines[i])
@@ -109,15 +112,14 @@ type field struct {
 	tlc   string
 }
 
-// Parser gives functionality to parse IGC flight files.
-type Parser struct {
+type parser struct {
 	IFields  []field
 	JFields  []field
 	taskDone bool
 	numSat   int
 }
 
-func (p *Parser) parseA(line string, f *Track) error {
+func (p *parser) parseA(line string, f *Track) error {
 	if len(line) < 7 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
@@ -127,7 +129,7 @@ func (p *Parser) parseA(line string, f *Track) error {
 	return nil
 }
 
-func (p *Parser) parseB(line string, f *Track) error {
+func (p *parser) parseB(line string, f *Track) error {
 	if len(line) < 35 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
@@ -160,7 +162,7 @@ func (p *Parser) parseB(line string, f *Track) error {
 	return nil
 }
 
-func (p *Parser) parseC(lines []string, f *Track) error {
+func (p *parser) parseC(lines []string, f *Track) error {
 	line := lines[0]
 	if len(line) < 25 {
 		return fmt.Errorf("wrong line size :: %v", line)
@@ -206,7 +208,7 @@ func (p *Parser) parseC(lines []string, f *Track) error {
 	return nil
 }
 
-func (p *Parser) taskPoint(line string) (Point, error) {
+func (p *parser) taskPoint(line string) (Point, error) {
 	if len(line) < 18 {
 		return Point{}, fmt.Errorf("line too short :: %v", line)
 	}
@@ -216,7 +218,7 @@ func (p *Parser) taskPoint(line string) (Point, error) {
 	return pt, nil
 }
 
-func (p *Parser) parseD(line string, f *Track) error {
+func (p *parser) parseD(line string, f *Track) error {
 	if len(line) < 6 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
@@ -226,7 +228,7 @@ func (p *Parser) parseD(line string, f *Track) error {
 	return nil
 }
 
-func (p *Parser) parseE(line string, f *Track) error {
+func (p *parser) parseE(line string, f *Track) error {
 	if len(line) < 10 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
@@ -238,7 +240,7 @@ func (p *Parser) parseE(line string, f *Track) error {
 	return nil
 }
 
-func (p *Parser) parseF(line string, f *Track) error {
+func (p *parser) parseF(line string, f *Track) error {
 	if len(line) < 7 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
@@ -255,12 +257,12 @@ func (p *Parser) parseF(line string, f *Track) error {
 	return nil
 }
 
-func (p *Parser) parseG(line string, f *Track) error {
+func (p *parser) parseG(line string, f *Track) error {
 	f.Signature = f.Signature + line[1:]
 	return nil
 }
 
-func (p *Parser) parseH(line string, f *Track) error {
+func (p *parser) parseH(line string, f *Track) error {
 	var err error
 	if len(line) < 5 {
 		return fmt.Errorf("line too short :: %v", line)
@@ -317,7 +319,7 @@ func (p *Parser) parseH(line string, f *Track) error {
 	return err
 }
 
-func (p *Parser) parseI(line string) error {
+func (p *parser) parseI(line string) error {
 	if len(line) < 3 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
@@ -338,7 +340,7 @@ func (p *Parser) parseI(line string) error {
 	return nil
 }
 
-func (p *Parser) parseJ(line string) error {
+func (p *parser) parseJ(line string) error {
 	if len(line) < 3 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
@@ -359,7 +361,7 @@ func (p *Parser) parseJ(line string) error {
 	return nil
 }
 
-func (p *Parser) parseK(line string, f *Track) error {
+func (p *parser) parseK(line string, f *Track) error {
 	if len(line) < 7 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
@@ -375,7 +377,7 @@ func (p *Parser) parseK(line string, f *Track) error {
 	return nil
 }
 
-func (p *Parser) parseL(line string, f *Track) error {
+func (p *parser) parseL(line string, f *Track) error {
 	if len(line) < 4 {
 		return fmt.Errorf("line too short :: %v", line)
 	}

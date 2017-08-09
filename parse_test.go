@@ -1,4 +1,4 @@
-// Copyright ©2015 Ricardo Rocha <rocha.porto@gmail.com>
+// Copyright ©2017 The ezgliding Authors.
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -261,6 +261,28 @@ func TestStripUpToMissing(t *testing.T) {
 	if r != s {
 		t.Errorf("expected %v got %v", s, r)
 	}
+}
+
+// Parse a given file and get a Track object.
+func Example_parselocation() {
+	track, _ := ParseLocation("sample-flight.igc")
+
+	fmt.Printf("Track Pilot: %v", track.Pilot)
+	fmt.Printf("Track Points %v", len(track.Pilot))
+}
+
+// Parse directly flight contents and get a Track object.
+func Example_parsecontent() {
+	// We could pass here a string with the full contents in IGC format 
+	track, _ := Parse(`
+AFLA001Some Additional Data
+HFDTE010203
+HFFXA500
+HFPLTPilotincharge:EZ PILOT
+	`)
+
+	fmt.Printf("Track Pilot: %v", track.Pilot)
+	fmt.Printf("Track Points %v", len(track.Pilot))
 }
 
 func BenchmarkParse(b *testing.B) {
