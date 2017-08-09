@@ -1,4 +1,4 @@
-// Copyright ©2015 Ricardo Rocha <rocha.porto@gmail.com>
+// Copyright ©2017 The ezgliding Authors.
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License");

@@ -1,4 +1,4 @@
-// Copyright ©2015 Ricardo Rocha <rocha.porto@gmail.com>
+// Copyright ©2017 The ezgliding Authors.
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,7 +20,7 @@ import (
 	"time"
 )
 
-// Track holds all IGC flight data (header and gps track).
+// Track holds all IGC flight data (header and GPS points).
 type Track struct {
 	Header
 	Points        []Point
@@ -33,14 +33,15 @@ type Track struct {
 	Signature     string
 }
 
-// NewTrack returns a new instance of Track.
-// It initializes all the structures with zero values.
+// NewTrack returns a new instance of Track, with fields initialized to zero.
 func NewTrack() Track {
 	track := Track{}
 	return track
 }
 
 // Header holds the meta information of a track.
+//
+// This is the H record in the IGC specification, section A3.2.
 type Header struct {
 	Manufacturer     string
 	UniqueID         string
@@ -62,26 +63,40 @@ type Header struct {
 	Timezone         int
 }
 
-// K ...
+// K holds flight data needed less often than Points.
+//
+// This is the K record in the IGC specification, section A4.4. Fields
+// is a map between a given content type and its value, with the possible
+// content types being defined in the J record.
+//
+// Examples of content types include heading true (HDT) or magnetic (HDM),
+// airspeed (IAS), etc.
 type K struct {
 	Time   time.Time
 	Fields map[string]string
 }
 
-// Satellite ...
+// Satellite holds the IDs of the available satellites at a given Time.
+//
+// This is the F record in the IGC specification, section A4.3.
 type Satellite struct {
 	Time time.Time
 	Ids  []string
 }
 
-// Event ...
+// Event holds data records triggered at a given time.
+//
+// This is the E record in the IGC specification, section A4.2. The events
+// can be pilot initiated (with a PEV code), proximity alerts, etc.
 type Event struct {
 	Time time.Time
 	Type string
 	Data string
 }
 
-// Task is a pre-declared task to be performed.
+// Task holds all the metadata put in a pre-declared task to be performed.
+//
+// This is the C record in the IGC specification, section A3.5.
 type Task struct {
 	DeclarationDate time.Time
 	Date            time.Time
@@ -94,23 +109,27 @@ type Task struct {
 	Description     string
 }
 
-// LogEntry holds a logbook/comment entry in the IGC file.
+// LogEntry holds a logbook/comment entry, in free format.
+//
+// This is the L record in the IGC specification, section A4.5.
 type LogEntry struct {
 	Type string
 	Text string
 }
 
-// Manufacturer holds the char identifier, the short id and the full name of
-// an IGC Manufacturer, as defined in Appendix A (Codes for Manufacturers)
-// of the IGC spec.
+// Manufacturer holds manufacturer name, short ID and char identifier.
+//
+// The list of manufacturers is defined in the IGC specification,
+// section A2.5.6. A map Manufacturers is available in this library.
 type Manufacturer struct {
 	char  byte
 	short string
 	name  string
 }
 
-// Manufacturers holds the list of available manufacturers, as defined in
-// Appendix A (Codes for Manufacturers) of the IGC spec.
+// Manufacturers holds the list of available manufacturers.
+//
+// This list is defined in the IGC specification, section A2.5.6.
 var Manufacturers = map[string]Manufacturer{
 	"GCS": Manufacturer{'A', "GCS", "Garrecht"},
 	"LGS": Manufacturer{'B', "LGS", "Logstream"},
