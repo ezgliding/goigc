@@ -116,12 +116,11 @@ type Task struct {
 // sum of all distances between each consecutive point.
 func (task *Task) Distance() float64 {
 	d := 0.0
-	p := []Point{task.Start}
-	p = append(p, task.Turnpoints...)
-	p = append(p, task.Finish)
-	for i := 0; i < len(p)-1; i++ {
-		d += p[i].Distance(p[i+1])
+	d += task.Start.Distance(task.Turnpoints[0])
+	for i := 0; i < len(task.Turnpoints)-1; i++ {
+		d += task.Turnpoints[i].Distance(task.Turnpoints[i+1])
 	}
+	d += task.Turnpoints[len(task.Turnpoints)-1].Distance(task.Finish)
 	return d
 }
 
