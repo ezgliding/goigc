@@ -17,9 +17,10 @@
 package igc
 
 import (
-	"github.com/golang/geo/s2"
 	"strconv"
 	"time"
+
+	"github.com/golang/geo/s2"
 )
 
 const (

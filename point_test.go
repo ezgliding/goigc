@@ -28,24 +28,24 @@ type point struct {
 type PointTest struct {
 	p1 point
 	p2 point
-	d float64
+	d  float64
 }
 
 var dmdTests = []PointTest{
 	{
 		p1: point{lat: "", lng: ""},
 		p2: point{lat: "", lng: ""},
-		d: 0,
+		d:  0,
 	},
 	{
 		p1: point{lat: "5110179N", lng: "00102644W"},
 		p2: point{lat: "5110179N", lng: "00102644W"},
-		d: 0,
+		d:  0,
 	},
 	{
 		p1: point{lat: "5110179N", lng: "00102644W"},
 		p2: point{lat: "5230147N", lng: "00017612W"},
-		d: 156.91393060997657,
+		d:  156.91393060997657,
 	},
 }
 
