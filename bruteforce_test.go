@@ -65,6 +65,7 @@ func BenchmarkBruteForceOptimize(b *testing.B) {
 				if err != nil {
 					b.Fatal(err)
 				}
+				task.Distance()
 				result := task.Distance()
 				if !test.valid(result, tp) {
 					b.Errorf("expected %v got %v", expected, result)
