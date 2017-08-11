@@ -44,14 +44,16 @@ func (b *bruteForceOptimizer) optimize1(track Track, score Score) (Task, error) 
 
 	var optimalDistance float64
 	var distance float64
-	var task Task
 	var optimalTask Task
+
+	task := Task{}
+	task.Turnpoints = make([]Point, 1)
 
 	for i := 0; i < len(track.Points)-2; i++ {
 		for j := i + 1; j < len(track.Points)-1; j++ {
 			for z := j + 1; z < len(track.Points); z++ {
 				task.Start = track.Points[i]
-				task.Turnpoints = []Point{track.Points[j]}
+				task.Turnpoints[0] = track.Points[j]
 				task.Finish = track.Points[z]
 				distance = task.Distance()
 				if distance > optimalDistance {
