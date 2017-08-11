@@ -28,4 +28,3 @@ force, montecarlo method, genetic algorithms, etc.
 
 */
 package igc
-
