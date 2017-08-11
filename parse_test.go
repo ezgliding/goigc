@@ -273,7 +273,7 @@ func Example_parselocation() {
 
 // Parse directly flight contents and get a Track object.
 func Example_parsecontent() {
-	// We could pass here a string with the full contents in IGC format 
+	// We could pass here a string with the full contents in IGC format
 	track, _ := Parse(`
 AFLA001Some Additional Data
 HFDTE010203
