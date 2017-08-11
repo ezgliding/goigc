@@ -40,7 +40,7 @@ func TestBruteForceOptimize(t *testing.T) {
 					t.Fatal(err)
 				}
 				result := task.Distance()
-				if test.valid(result, tp) {
+				if !test.valid(result, tp) {
 					t.Errorf("expected %v got %v", expected, result)
 				}
 			})
@@ -52,7 +52,7 @@ func BenchmarkBruteForceOptimize(b *testing.B) {
 	opt := NewBruteForceOptimizer(false)
 
 	for _, test := range benchmarkTests {
-		for tp := range test.result {
+		for tp, expected := range test.result {
 			if tp > 1 {
 				continue
 			}
@@ -65,7 +65,10 @@ func BenchmarkBruteForceOptimize(b *testing.B) {
 				if err != nil {
 					b.Fatal(err)
 				}
-				task.Distance()
+				result := task.Distance()
+				if !test.valid(result, tp) {
+					b.Errorf("expected %v got %v", expected, result)
+				}
 			})
 		}
 	}
