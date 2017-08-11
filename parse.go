@@ -42,6 +42,9 @@ func ParseLocation(location string) (Track, error) {
 	if err == nil {
 		defer resp.Body.Close()
 		content, err = ioutil.ReadAll(resp.Body)
+		if err != nil {
+			return Track{}, err
+		}
 	} else { // case file
 		resp, err := ioutil.ReadFile(location)
 		if err != nil {
