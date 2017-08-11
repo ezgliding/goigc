@@ -24,6 +24,6 @@ git checkout -f $TARGET &> /dev/null
 go test -v -bench=Benchmark* -run None > bench-${TARGET}.result
 
 benchstat -delta-test none $TARGET_RESULT $BRANCH_RESULT
-rm $TARGET_RESULT $BRANCH_RESULT
+rm -f $TARGET_RESULT $BRANCH_RESULT
 
 git checkout -f $BRANCH &> /dev/null
