@@ -17,7 +17,9 @@
 package igc
 
 import (
+	"fmt"
 	"math"
+	"path/filepath"
 	"testing"
 )
 
@@ -95,5 +97,28 @@ func TestDistance(t *testing.T) {
 				t.Errorf("expected %v got %v", test.distance, result)
 			}
 		})
+	}
+}
+
+func benchmarkTest(b *testing.B, opt Optimizer) {
+	b.Log("AAAA")
+	for _, test := range benchmarkTests {
+		for tp, expected := range test.result {
+			track, err := ParseLocation(filepath.Join("test", fmt.Sprintf("%v.igc", test.name)))
+			if err != nil {
+				b.Fatal(err)
+			}
+			b.Run(fmt.Sprintf("%v/%v", test.name, tp), func(b *testing.B) {
+				task, err := opt.Optimize(track, tp, Distance)
+				if err != nil {
+					b.Fatal(err)
+				}
+				task.Distance()
+				result := task.Distance()
+				if !test.valid(result, tp) {
+					b.Errorf("expected %v got %v", expected, result)
+				}
+			})
+		}
 	}
 }
