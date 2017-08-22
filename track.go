@@ -102,11 +102,14 @@ type Task struct {
 	Date            time.Time
 	Number          int
 	Takeoff         Point
-	Start           Point
 	Turnpoints      []Point
-	Finish          Point
 	Landing         Point
 	Description     string
+}
+
+// NewTask returns a new Task initialized for the given number of points.
+func NewTask(nPoints int) Task {
+	return Task{Turnpoints: make([]Point, nPoints)}
 }
 
 // Distance returns the total distance in kms between the turn points.
@@ -116,11 +119,9 @@ type Task struct {
 // sum of all distances between each consecutive point.
 func (task *Task) Distance() float64 {
 	d := 0.0
-	d += task.Start.Distance(task.Turnpoints[0])
 	for i := 0; i < len(task.Turnpoints)-1; i++ {
 		d += task.Turnpoints[i].Distance(task.Turnpoints[i+1])
 	}
-	d += task.Turnpoints[len(task.Turnpoints)-1].Distance(task.Finish)
 	return d
 }
 

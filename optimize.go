@@ -16,6 +16,12 @@
 
 package igc
 
+import (
+	"fmt"
+	"math/rand"
+	"sort"
+)
+
 // Score functions calculate a score for the given Task.
 //
 // The main use of these functions is in passing them to the Optimizers, so
@@ -44,4 +50,73 @@ func Distance(task Task) float64 {
 // indefinitely.
 type Optimizer interface {
 	Optimize(track Track, nPoints int, score Score) (Task, error)
+}
+
+// Candidate aggregates Point indexes and a corresponding Task.
+//
+// It is a utility for Optimizer implementations requiring the tracking of the
+// Point indexes to calculate neighbours and variations of a current candidate.
+type Candidate struct {
+	indexes []int
+	track   *Track
+	Task    Task
+	Score   float64
+}
+
+// NewCandidate returns a Candidate initialized with nPoints, all set to zero.
+func NewCandidate(nPoints int, track *Track) Candidate {
+	return Candidate{indexes: make([]int, nPoints), track: track, Task: NewTask(nPoints)}
+}
+
+// NewCandidateRandom returns a Candidate with a random set of nPoints of track.
+func NewCandidateRandom(nPoints int, track *Track) Candidate {
+	candidate := NewCandidate(nPoints, track)
+	for i := 0; i < nPoints; i++ {
+		candidate.indexes[i] = rand.Intn(len(track.Points))
+	}
+	sort.Ints(candidate.indexes)
+	for i := 0; i < nPoints; i++ {
+		candidate.Task.Turnpoints[i] = track.Points[candidate.indexes[i]]
+	}
+	fmt.Printf("%v\n", candidate.indexes)
+	return candidate
+}
+
+// Neighbour returns a neighbouring Candidate to this one.
+//
+// The selection is done by randomly choosing one of the turn points (p), and
+// changing that point (p) with another on the Track, where the new point is
+// between p-1 and p+1.
+func (c *Candidate) Neighbour() Candidate {
+	var value int
+	nPoints := len(c.indexes)
+
+	candidate := NewCandidate(nPoints, c.track)
+	pos := rand.Intn(nPoints)
+	switch pos {
+	case 0:
+		value = randMinMax(0, c.indexes[pos]-1)
+	case nPoints - 1:
+		value = randMinMax(c.indexes[pos]+1, len(c.track.Points)-1)
+	default:
+		value = randMinMax(c.indexes[pos-1]+1, c.indexes[pos+1]-1)
+	}
+
+	for i := 0; i < nPoints; i++ {
+		candidate.indexes[i] = c.indexes[i]
+		candidate.Task.Turnpoints[i] = c.track.Points[candidate.indexes[i]]
+	}
+	candidate.indexes[pos] = value
+	candidate.Task.Turnpoints[pos] = c.track.Points[value]
+
+	return candidate
+}
+
+func randMinMax(min int, max int) int {
+	if max-min < 0 {
+		return 0
+	} else if max-min == 0 {
+		return max
+	}
+	return rand.Intn(max-min) + min
 }

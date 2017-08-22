@@ -17,19 +17,21 @@
 package igc
 
 import (
+	"fmt"
 	"math"
 	"math/rand"
-	"sort"
+	"time"
 )
 
 // NewSimAnnealingOptimizer ...
 func NewSimAnnealingOptimizer() Optimizer {
-	return NewSimAnnealingOptimizerParams(10000, 1, 0.003)
+	return NewSimAnnealingOptimizerParams(10000, 1, 0.003, time.Now().UTC().UnixNano())
 }
 
 // NewSimAnnealingOptimizerParams returns a BruteForceOptimizer with the given characteristics.
-//
-func NewSimAnnealingOptimizerParams(startTemperature float64, minTemperature float64, alpha float64) Optimizer {
+func NewSimAnnealingOptimizerParams(startTemperature float64, minTemperature float64,
+	alpha float64, seed int64) Optimizer {
+	rand.Seed(seed)
 	return &simAnnealingOptimizer{
 		currentTemperature: startTemperature,
 		minTemperature:     minTemperature,
@@ -42,79 +44,49 @@ type simAnnealingOptimizer struct {
 	currentTemperature float64
 	minTemperature     float64
 	alpha              float64
-	track              Track
+	track              *Track
 	nPoints            int
-	currentPoints      []int
-	currentTask        Task
+	candidate          Candidate
+	best               Candidate
 }
 
-func (sa *simAnnealingOptimizer) initialize(track Track, nPoints int, score Score) {
+func (sa *simAnnealingOptimizer) initialize(track *Track, nPoints int, score Score) {
 	sa.track = track
 	sa.nPoints = nPoints
 	sa.score = score
-
-	sa.currentPoints = make([]int, sa.nPoints)
-	for i := 0; i < sa.nPoints; i++ {
-		sa.currentPoints[i] = rand.Intn(len(sa.track.Points))
-	}
-	sort.Ints(sa.currentPoints)
-
-	sa.currentTask = Task{}
-	sa.currentTask.Start = sa.track.Points[sa.currentPoints[0]]
-	for i := 1; i < sa.nPoints-1; i++ {
-		sa.currentTask.Turnpoints[i] = sa.track.Points[sa.currentPoints[i]]
-	}
-	sa.currentTask.Finish = sa.track.Points[sa.currentPoints[sa.nPoints-1]]
+	sa.candidate = NewCandidateRandom(nPoints, track)
 }
 
-func (sa *simAnnealingOptimizer) neighbour() ([]int, Task) {
-	newPoints := sa.currentPoints
-	newTask := sa.currentTask
-	var prev, next int
-
-	pos := rand.Intn(sa.nPoints)
-	if prev = 0; pos-1 > 0 {
-		prev = pos - 1
-	}
-	if next = sa.nPoints - 1; pos+1 < sa.nPoints-1 {
-		next = pos + 1
-	}
-	value := newPoints[prev] + rand.Intn(newPoints[next]-newPoints[prev])
-	newPoints[pos] = value
-
-	switch pos {
-	case 0:
-		newTask.Start = sa.track.Points[newPoints[pos]]
-	case sa.nPoints - 1:
-		newTask.Finish = sa.track.Points[newPoints[pos]]
-	default:
-		newTask.Turnpoints[pos-1] = sa.track.Points[newPoints[pos]]
-	}
-
-	return newPoints, newTask
+func (sa *simAnnealingOptimizer) neighbour() Candidate {
+	return sa.candidate.Neighbour()
 }
 
 func (sa *simAnnealingOptimizer) acceptanceProb(task Task) float64 {
-	diff := sa.score(sa.currentTask) - sa.score(task)
+	diff := sa.score(sa.candidate.Task) - sa.score(task)
+	if diff > 0 {
+		return 1.0
+	}
 	return math.E * (diff / sa.currentTemperature)
 }
 
 func (sa *simAnnealingOptimizer) Optimize(track Track, nPoints int, score Score) (Task, error) {
 	var acceptanceProb float64
-	var points []int
-	var task Task
+	var candidate Candidate
 
-	sa.initialize(track, nPoints, score)
+	sa.initialize(&track, nPoints, score)
 
 	// loop while the temperature is above min
 	for sa.currentTemperature > sa.minTemperature {
-		points, task = sa.neighbour()
-		acceptanceProb = sa.acceptanceProb(task)
+		candidate = sa.neighbour()
+		acceptanceProb = sa.acceptanceProb(candidate.Task)
 		if acceptanceProb > rand.Float64() {
-			sa.currentPoints = points
-			sa.currentTask = task
+			sa.candidate = candidate
 		}
-		sa.currentTemperature = sa.currentTemperature * sa.alpha
+		if sa.score(candidate.Task) > sa.score(sa.best.Task) {
+			sa.best = candidate
+		}
+		sa.currentTemperature *= 1 - sa.alpha
+		fmt.Println("%v %v", candidate.Task.Turnpoints, sa.best.Task.Turnpoints)
 	}
-	return task, nil
+	return sa.best.Task, nil
 }

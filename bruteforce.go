@@ -69,8 +69,10 @@ func (b *bruteForceOptimizer) optimize1(track Track, score Score) (Task, error) 
 				distance = d1 + d2
 				if distance > optimalDistance {
 					optimalDistance = distance
-					optimalTask = Task{Start: track.Points[i],
-						Turnpoints: []Point{track.Points[j]}, Finish: track.Points[z]}
+					optimalTask = Task{
+						Turnpoints: []Point{
+							track.Points[i], track.Points[j], track.Points[z]},
+					}
 				}
 			}
 		}
@@ -89,9 +91,9 @@ func (b *bruteForceOptimizer) optimize2(track Track, score Score) (Task, error) 
 			for w := j + 1; w < len(track.Points)-1; w++ {
 				for z := w + 1; z < len(track.Points); z++ {
 					task := Task{
-						Start:      track.Points[i],
-						Turnpoints: []Point{track.Points[j], track.Points[w]},
-						Finish:     track.Points[z],
+						Turnpoints: []Point{
+							track.Points[i], track.Points[j], track.Points[w],
+							track.Points[z]},
 					}
 					distance = task.Distance()
 					if distance > optimalDistance {

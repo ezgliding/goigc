@@ -46,14 +46,14 @@ func (t *optimizeTest) valid(result float64, nTp int) bool {
 var benchmarkTests = []optimizeTest{
 	{
 		name:   "optimize-short-flight-1",
-		result: map[int]float64{1: 35.44619896425489},
+		result: map[int]float64{3: 35.44619896425489},
 	},
 }
 
 var optimizeTests = []optimizeTest{
 	{
 		name:   "optimize-short-flight-1",
-		result: map[int]float64{1: 35.44619896425489, 2: 0.0, 3: 507.80108709626626},
+		result: map[int]float64{3: 35.44619896425489, 4: 0.0, 5: 507.80108709626626},
 	},
 }
 
@@ -67,22 +67,24 @@ var distanceTests = []distanceTest{
 	{
 		t: "all-points-the-same-distance-zero",
 		task: Task{
-			Start:      NewPointFromDMD("4453183N", "00512633E"),
-			Turnpoints: []Point{NewPointFromDMD("4453183N", "00512633E")},
-			Finish:     NewPointFromDMD("4453183N", "00512633E"),
+			Turnpoints: []Point{
+				NewPointFromDMD("4453183N", "00512633E"),
+				NewPointFromDMD("4453183N", "00512633E"),
+				NewPointFromDMD("4453183N", "00512633E"),
+			},
 		},
 		distance: 0.0,
 	},
 	{
 		t: "valid-task-sequence",
 		task: Task{
-			Start: NewPointFromDMD("4453183N", "00512633E"),
 			Turnpoints: []Point{
+				NewPointFromDMD("4453183N", "00512633E"),
 				NewPointFromDMD("4353800N", "00615200E"),
 				NewPointFromDMD("4506750N", "00633950E"),
 				NewPointFromDMD("4424783N", "00644500E"),
+				NewPointFromDMD("4505550N", "00502883E"),
 			},
-			Finish: NewPointFromDMD("4505550N", "00502883E"),
 		},
 		distance: 507.80108709626626,
 	},
@@ -101,24 +103,25 @@ func TestDistance(t *testing.T) {
 }
 
 func benchmarkTest(b *testing.B, opt Optimizer) {
-	b.Log("AAAA")
-	for _, test := range benchmarkTests {
-		for tp, expected := range test.result {
-			track, err := ParseLocation(filepath.Join("test", fmt.Sprintf("%v.igc", test.name)))
-			if err != nil {
-				b.Fatal(err)
-			}
-			b.Run(fmt.Sprintf("%v/%v", test.name, tp), func(b *testing.B) {
-				task, err := opt.Optimize(track, tp, Distance)
+	for n := 0; n < b.N; n++ {
+		for _, test := range benchmarkTests {
+			for tp, expected := range test.result {
+				track, err := ParseLocation(filepath.Join("test", fmt.Sprintf("%v.igc", test.name)))
 				if err != nil {
 					b.Fatal(err)
 				}
-				task.Distance()
-				result := task.Distance()
-				if !test.valid(result, tp) {
-					b.Errorf("expected %v got %v", expected, result)
-				}
-			})
+				b.Run(fmt.Sprintf("%v/%v", test.name, tp), func(b *testing.B) {
+					task, err := opt.Optimize(track, tp, Distance)
+					if err != nil {
+						b.Fatal(err)
+					}
+					task.Distance()
+					result := task.Distance()
+					if !test.valid(result, tp) {
+						b.Errorf("expected %v got %v", expected, result)
+					}
+				})
+			}
 		}
 	}
 }

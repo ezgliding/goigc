@@ -19,6 +19,5 @@ package igc
 import "testing"
 
 func BenchmarkSimAnnealingOptimize(b *testing.B) {
-	b.Log("AAAA")
 	benchmarkTest(b, NewSimAnnealingOptimizer())
 }
