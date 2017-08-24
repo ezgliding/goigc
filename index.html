@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      #map {
+        height: 100%;
+      }
+      #chartwrap {
+        position: absolute;
+	bottom: 60px;
+	left: 3px;
+	width: 320px;
+	height:100px;
+	background: #eeeeee;
+	opacity: 0.7;
+	z-index: 99;
+      }
+      #chart {
+	padding-top: 5px;
+	margin-left: -10px;
+	margin-bottom: -15px;
+      }
+      #overlay {
+	position: absolute;
+	bottom: 3px;
+	left: 3px;
+	width: 320px;
+	height: 50px;
+	background: #eeeeee;
+	opacity: 0.7;
+	z-index: 99;
+      }
+      table {
+	width: 100%;
+	text-align: center;
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+	font-size: 12px;
+      }
+      td {
+        width: 25%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="text/javascript" src="tmpdata.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="chartwrap"><canvas id="chart" width="320px" height="100px"></canvas></div>
+    <div id="overlay">
+	<table>
+	     <tr>
+		  <th>Temperature</th>
+		  <th>Candidate</th>
+		  <th>Current</th>
+		  <th>Best</th>
+	     </tr>
+	     <tr>
+		  <td id="temperature"></td>
+		  <td id="index"></td>
+		  <td id="current"></td>
+		  <td id="best"></td>
+	     </tr>
+	</table>
+    </div>
+    <script>
+
+var d = JSON.parse(data);
+
+var map;
+var chart;
+var chartData;
+var animateIndex = 0;
+var polygons;
+var best;
+var interval;
+
+function toDegrees(radians) {
+    return radians * 180 / Math.PI;
+}
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: {
+            lat: toDegrees(d['Candidates'][1]['Task']['Turnpoints'][0]['Lat']),
+            lng: toDegrees(d['Candidates'][1]['Task']['Turnpoints'][0]['Lng'])
+        },
+	disableDefaultUI: true,
+        mapTypeId: 'terrain'
+    });
+
+    polygons = new Array();
+    chartData = new Array();
+
+    for (i = 0; i < d['Candidates'].length; i++) {
+        if (d['Candidates'][i]['Task']['Turnpoints']) {
+            polygons.push(getPolyline(d['Candidates'][i]), false);
+	    //chartData.push({x: animateIndex, y: d['Candidates'][i]['Score']});
+	    chartData.push({x: i, y: i%100});
+        } else {
+            polygons.push(null);
+	    chartData.push({x: i, y: 0});
+        }
+    }
+
+    interval = setInterval(function() {
+        ++animateIndex;
+        if (animateIndex >= polygons.length) {
+            clearInterval(interval);
+            return;
+        }
+        updateOverlay();
+	updateBest();
+	updatePlot();
+        if (polygons[animateIndex - 1])
+            polygons[animateIndex - 1].setMap(null);
+        if (polygons[animateIndex]) {
+            polygons[animateIndex].setMap(map);
+        }
+    }, 30);
+
+    initChart();
+}
+
+function updatePlot() {
+
+}
+
+function updateOverlay() {
+    document.getElementById('temperature').innerHTML = Math.round(d['Temperature'][animateIndex]);
+    document.getElementById('index').innerHTML = animateIndex;
+    document.getElementById('current').innerHTML = d['Candidates'][animateIndex]['Score'];
+    document.getElementById('best').innerHTML = d['Bests'][animateIndex]['Score'];
+}
+
+function updateBest() {
+    if (best)
+	best.setMap(null);
+    best = getPolyline(d['Bests'][animateIndex], true);
+    if (best) {
+	best.setMap(map);
+    }
+}
+
+function getPolyline(candidate, best) {
+    var coords = new Array();
+    for (var i=0; i<candidate['Task']['Turnpoints'].length; i++) {
+        coords.push(
+	    {
+ 	        lat: toDegrees(candidate['Task']['Turnpoints'][i]['Lat']),
+                lng: toDegrees(candidate['Task']['Turnpoints'][i]['Lng'])
+	    }
+	)
+    }
+    color = best ? '#FADBD8' : 'red';
+    return new google.maps.Polygon({
+        paths: coords,
+        strokeColor: color,
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: color,
+        fillOpacity: 0.2
+    });
+}
+
+function initChart(ctx) {
+    Chart.defaults.global.defaultFontSize = 0;
+    Chart.defaults.global.animation = {duration: 0};
+    var canvas = document.getElementById("chart");
+    var data = {
+        datasets: [{
+            label: '',
+            data: chartData,
+	    borderColor: 'black',
+	    borderWidth: 1
+        }]
+    };
+    var options = {
+	    axes: {display: false},
+	    legend: {display: false},
+	    elements: {
+		    line: { fill: false },
+		    point: { radius: 0, borderWidth: 0 }
+	    },
+	    scaleShowVerticalLines: false,
+	    scales: {
+		    xAxes: [{gridLines: {display:false, drawBorder: false}}],
+		    yAxes: [{gridLines: {display: false, drawBorder: false}}]
+	    },
+	    layout: {
+		    padding: {
+			    left: 0,
+			    right: 0,
+			    top: 0,
+			    bottom: 0
+		    }
+	    }
+    };
+    var chart = new Chart.Scatter(canvas, { data: data, options: options });
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcjbrVHgzglOQzENcwIbVV8yW1Ox2vU9c&callback=initMap">
+    </script>
+  </body>
+</html>

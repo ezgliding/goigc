@@ -191,22 +191,22 @@ func (p *parser) parseC(lines []string, f *Track) error {
 	if f.Task.Takeoff, err = p.taskPoint(lines[1]); err != nil {
 		return err
 	}
-	if f.Task.Turnpoints[0], err = p.taskPoint(lines[2]); err != nil {
-		return err
-	}
-	for i := 0; i < nTP-2; i++ {
-		var tp Point
-		if tp, err = p.taskPoint(lines[3+i]); err != nil {
+	/*	if f.Task.Turnpoints[0], err = p.taskPoint(lines[2]); err != nil {
 			return err
 		}
-		f.Task.Turnpoints = append(f.Task.Turnpoints, tp)
-	}
-	if f.Task.Turnpoints[nTP+1], err = p.taskPoint(lines[3+nTP]); err != nil {
-		return err
-	}
-	if f.Task.Landing, err = p.taskPoint(lines[4+nTP]); err != nil {
-		return err
-	}
+		for i := 0; i < nTP-2; i++ {
+			var tp Point
+			if tp, err = p.taskPoint(lines[3+i]); err != nil {
+				return err
+			}
+			f.Task.Turnpoints = append(f.Task.Turnpoints, tp)
+		}
+		if f.Task.Turnpoints[nTP+1], err = p.taskPoint(lines[3+nTP]); err != nil {
+			return err
+		}
+		if f.Task.Landing, err = p.taskPoint(lines[4+nTP]); err != nil {
+			return err
+		}*/
 	p.taskDone = true
 	return nil
 }

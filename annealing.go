@@ -17,6 +17,7 @@
 package igc
 
 import (
+	"encoding/json"
 	"fmt"
 	"math"
 	"math/rand"
@@ -25,7 +26,7 @@ import (
 
 // NewSimAnnealingOptimizer ...
 func NewSimAnnealingOptimizer() Optimizer {
-	return NewSimAnnealingOptimizerParams(10000, 1, 0.003, time.Now().UTC().UnixNano())
+	return NewSimAnnealingOptimizerParams(1000, 1, 0.003, time.Now().UTC().UnixNano())
 }
 
 // NewSimAnnealingOptimizerParams returns a BruteForceOptimizer with the given characteristics.
@@ -55,6 +56,7 @@ func (sa *simAnnealingOptimizer) initialize(track *Track, nPoints int, score Sco
 	sa.nPoints = nPoints
 	sa.score = score
 	sa.candidate = NewCandidateRandom(nPoints, track)
+	sa.best = Candidate(sa.candidate)
 }
 
 func (sa *simAnnealingOptimizer) neighbour() Candidate {
@@ -69,12 +71,19 @@ func (sa *simAnnealingOptimizer) acceptanceProb(task Task) float64 {
 	return math.E * (diff / sa.currentTemperature)
 }
 
+type RunLog struct {
+	Candidates  []Candidate
+	Bests       []Candidate
+	Temperature []float64
+}
+
 func (sa *simAnnealingOptimizer) Optimize(track Track, nPoints int, score Score) (Task, error) {
 	var acceptanceProb float64
 	var candidate Candidate
 
 	sa.initialize(&track, nPoints, score)
 
+	log := RunLog{Candidates: make([]Candidate, 1), Bests: make([]Candidate, 1), Temperature: make([]float64, 1)}
 	// loop while the temperature is above min
 	for sa.currentTemperature > sa.minTemperature {
 		candidate = sa.neighbour()
@@ -83,10 +92,14 @@ func (sa *simAnnealingOptimizer) Optimize(track Track, nPoints int, score Score)
 			sa.candidate = candidate
 		}
 		if sa.score(candidate.Task) > sa.score(sa.best.Task) {
-			sa.best = candidate
+			sa.best = Candidate(candidate)
 		}
-		sa.currentTemperature *= 1 - sa.alpha
-		fmt.Println("%v %v", candidate.Task.Turnpoints, sa.best.Task.Turnpoints)
+		sa.currentTemperature *= (1 - sa.alpha)
+		log.Candidates = append(log.Candidates, sa.candidate)
+		log.Bests = append(log.Bests, sa.best)
+		log.Temperature = append(log.Temperature, sa.currentTemperature)
 	}
+	txt, _ := json.MarshalIndent(log, "", "  ")
+	fmt.Printf("%v\n", string(txt))
 	return sa.best.Task, nil
 }

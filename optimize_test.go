@@ -48,6 +48,10 @@ var benchmarkTests = []optimizeTest{
 		name:   "optimize-short-flight-1",
 		result: map[int]float64{3: 35.44619896425489},
 	},
+	{
+		name:   "optimize-long-flight-1",
+		result: map[int]float64{3: 35.44619896425489},
+	},
 }
 
 var optimizeTests = []optimizeTest{
@@ -102,9 +106,12 @@ func TestDistance(t *testing.T) {
 	}
 }
 
-func benchmarkTest(b *testing.B, opt Optimizer) {
+type getOptimizer func() Optimizer
+
+func benchmarkTest(b *testing.B, f getOptimizer) {
 	for n := 0; n < b.N; n++ {
 		for _, test := range benchmarkTests {
+			opt := f()
 			for tp, expected := range test.result {
 				track, err := ParseLocation(filepath.Join("test", fmt.Sprintf("%v.igc", test.name)))
 				if err != nil {

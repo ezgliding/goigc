@@ -17,10 +17,11 @@
 package igc
 
 import (
-	"fmt"
 	"math/rand"
 	"sort"
 )
+
+type KV map[string]string
 
 // Score functions calculate a score for the given Task.
 //
@@ -30,7 +31,7 @@ import (
 // Example functions include the total distance between all turn points or an
 // online competition (netcoupe, online contest) score which takes additional
 // metrics of each leg into account.
-type Score func(task Task) float64
+type Score func(task Task, metadata KV) float64
 
 // Distance returns the sum of distances between each of the points in the Task.
 //
@@ -78,7 +79,6 @@ func NewCandidateRandom(nPoints int, track *Track) Candidate {
 	for i := 0; i < nPoints; i++ {
 		candidate.Task.Turnpoints[i] = track.Points[candidate.indexes[i]]
 	}
-	fmt.Printf("%v\n", candidate.indexes)
 	return candidate
 }
 

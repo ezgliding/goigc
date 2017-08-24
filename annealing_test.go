@@ -19,5 +19,5 @@ package igc
 import "testing"
 
 func BenchmarkSimAnnealingOptimize(b *testing.B) {
-	benchmarkTest(b, NewSimAnnealingOptimizer())
+	benchmarkTest(b, NewSimAnnealingOptimizer)
 }
