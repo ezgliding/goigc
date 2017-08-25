@@ -21,8 +21,6 @@ import (
 	"sort"
 )
 
-type KV map[string]string
-
 // Score functions calculate a score for the given Task.
 //
 // The main use of these functions is in passing them to the Optimizers, so
@@ -31,7 +29,7 @@ type KV map[string]string
 // Example functions include the total distance between all turn points or an
 // online competition (netcoupe, online contest) score which takes additional
 // metrics of each leg into account.
-type Score func(task Task, metadata KV) float64
+type Score func(task Task) float64
 
 // Distance returns the sum of distances between each of the points in the Task.
 //

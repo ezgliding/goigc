@@ -50,7 +50,7 @@ var benchmarkTests = []optimizeTest{
 	},
 	{
 		name:   "optimize-long-flight-1",
-		result: map[int]float64{3: 35.44619896425489},
+		result: map[int]float64{5: 492.6},
 	},
 }
 

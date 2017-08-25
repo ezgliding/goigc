@@ -51,7 +51,7 @@
     <script type="text/javascript" src="tmpdata.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
   </head>
-  <body>
+  <body onclick="javascript:start();">
     <div id="map"></div>
     <div id="chartwrap"><canvas id="chart" width="320px" height="100px"></canvas></div>
     <div id="overlay">
@@ -59,7 +59,7 @@
 	     <tr>
 		  <th>Temperature</th>
 		  <th>Candidate</th>
-		  <th>Current</th>
+		  <th>Score</th>
 		  <th>Best</th>
 	     </tr>
 	     <tr>
@@ -78,6 +78,8 @@ var map;
 var chart;
 var chartData;
 var animateIndex = 0;
+var running = false;
+var track;
 var polygons;
 var best;
 var interval;
@@ -102,15 +104,32 @@ function initMap() {
 
     for (i = 0; i < d['Candidates'].length; i++) {
         if (d['Candidates'][i]['Task']['Turnpoints']) {
-            polygons.push(getPolyline(d['Candidates'][i]), false);
+            polygons.push(getPolyline(d['Candidates'][i]['Task']['Turnpoints'], '#cc0000', 0.8, 0.2));
 	    //chartData.push({x: animateIndex, y: d['Candidates'][i]['Score']});
-	    chartData.push({x: i, y: i%100});
+	    chartData.push({x: i, y: d['Candidates'][i]['Score']});
         } else {
             polygons.push(null);
 	    chartData.push({x: i, y: 0});
         }
     }
 
+    track = getPolyline(d['Points'], '#0066cc', 0.8, 0.2);
+    track.setMap(map);
+    var bounds = new google.maps.LatLngBounds();
+    var points = track.getPath().getArray();
+    for (i=0; i<points.length; i++) {
+	bounds.extend(points[i]);
+    }
+    map.fitBounds(bounds);
+
+    initChart();
+}
+
+function start() {
+
+    if (running)
+	    return;
+    running = true;
     interval = setInterval(function() {
         ++animateIndex;
         if (animateIndex >= polygons.length) {
@@ -127,47 +146,46 @@ function initMap() {
         }
     }, 30);
 
-    initChart();
 }
 
 function updatePlot() {
-
+	chart.data.lineAtIndex = animateIndex;
+	chart.update();
 }
 
 function updateOverlay() {
     document.getElementById('temperature').innerHTML = Math.round(d['Temperature'][animateIndex]);
     document.getElementById('index').innerHTML = animateIndex;
-    document.getElementById('current').innerHTML = d['Candidates'][animateIndex]['Score'];
-    document.getElementById('best').innerHTML = d['Bests'][animateIndex]['Score'];
+    document.getElementById('current').innerHTML = Math.round(d['Candidates'][animateIndex]['Score']*100)/100;
+    document.getElementById('best').innerHTML = Math.round(d['Bests'][animateIndex]['Score']*100)/100;
 }
 
 function updateBest() {
     if (best)
 	best.setMap(null);
-    best = getPolyline(d['Bests'][animateIndex], true);
+    best = getPolyline(d['Bests'][animateIndex], '#336666', 0.8, 0.2);
     if (best) {
 	best.setMap(map);
     }
 }
 
-function getPolyline(candidate, best) {
+function getPolyline(points, color, stroke, fill) {
     var coords = new Array();
-    for (var i=0; i<candidate['Task']['Turnpoints'].length; i++) {
+    for (var i=0; i<points.length; i++) {
         coords.push(
 	    {
- 	        lat: toDegrees(candidate['Task']['Turnpoints'][i]['Lat']),
-                lng: toDegrees(candidate['Task']['Turnpoints'][i]['Lng'])
+ 	        lat: toDegrees(points[i]['Lat']),
+                lng: toDegrees(points[i]['Lng'])
 	    }
 	)
     }
-    color = best ? '#FADBD8' : 'red';
     return new google.maps.Polygon({
         paths: coords,
         strokeColor: color,
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
+        strokeOpacity: stroke,
+        strokeWeight: 1,
         fillColor: color,
-        fillOpacity: 0.2
+        fillOpacity: fill
     });
 }
 
@@ -204,7 +222,52 @@ function initChart(ctx) {
 		    }
 	    }
     };
-    var chart = new Chart.Scatter(canvas, { data: data, options: options });
+
+    var originalLineDraw = Chart.controllers.line.prototype.draw;
+    Chart.helpers.extend(Chart.controllers.line.prototype, {
+	  draw: function() {
+	    originalLineDraw.apply(this, arguments);
+
+	    var chart = this.chart;
+	    var ctx = chart.chart.ctx;
+
+	    var index = chart.config.data.lineAtIndex;
+	    if (index) {
+	      var xaxis = chart.scales['x-axis-0'];
+	      var yaxis = chart.scales['y-axis-0'];
+
+	      ctx.save();
+	      ctx.beginPath();
+	      ctx.moveTo(xaxis.getPixelForValue(undefined, index), yaxis.top);
+	      ctx.strokeStyle = '#ff0000';
+	      ctx.lineTo(xaxis.getPixelForValue(undefined, index), yaxis.bottom);
+	      ctx.stroke();
+	      ctx.restore();
+	    }
+	  }
+	});
+
+	labels = new Array();
+	for (i=0; i<d['Candidates'].length; i++)
+		labels.push(i);
+	var config = {
+	  type: 'line',
+	  data: {
+	    labels: labels,
+        datasets: [{
+            label: '',
+            data: chartData,
+	    borderColor: 'black',
+	    borderWidth: 1
+        }],
+	    lineAtIndex: 4
+	  },
+	    options: options
+	};
+
+	var ctx = document.getElementById("chart").getContext("2d");
+	chart = new Chart(ctx, config);
+
 }
     </script>
     <script async defer
