@@ -136,15 +136,15 @@ function start() {
             clearInterval(interval);
             return;
         }
-        updateOverlay();
-	updateBest();
+	candidate = d['Candidates'][animateIndex];
+        updateOverlay(candidate);
 	updatePlot();
         if (polygons[animateIndex - 1])
             polygons[animateIndex - 1].setMap(null);
         if (polygons[animateIndex]) {
             polygons[animateIndex].setMap(map);
         }
-    }, 30);
+    }, 100);
 
 }
 
@@ -153,20 +153,11 @@ function updatePlot() {
 	chart.update();
 }
 
-function updateOverlay() {
-    document.getElementById('temperature').innerHTML = Math.round(d['Temperature'][animateIndex]);
+function updateOverlay(candidate) {
+    document.getElementById('temperature').innerHTML = Math.round(candidate['Metadata']['Temperature']);
     document.getElementById('index').innerHTML = animateIndex;
-    document.getElementById('current').innerHTML = Math.round(d['Candidates'][animateIndex]['Score']*100)/100;
-    document.getElementById('best').innerHTML = Math.round(d['Bests'][animateIndex]['Score']*100)/100;
-}
-
-function updateBest() {
-    if (best)
-	best.setMap(null);
-    best = getPolyline(d['Bests'][animateIndex], '#336666', 0.8, 0.2);
-    if (best) {
-	best.setMap(map);
-    }
+    document.getElementById('current').innerHTML = Math.round(candidate['Score']*100)/100;
+    document.getElementById('best').innerHTML = Math.round(candidate['Metadata']['Best']['Score']*100)/100;
 }
 
 function getPolyline(points, color, stroke, fill) {

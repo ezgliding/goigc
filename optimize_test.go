@@ -17,11 +17,20 @@
 package igc
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"math"
 	"path/filepath"
 	"testing"
 )
+
+// RunLog ...
+type RunLog struct {
+	Reference  []Candidate
+	Candidates []Candidate
+	Points     []Point
+}
 
 const (
 	errorMargin float64 = 0.02
@@ -50,7 +59,7 @@ var benchmarkTests = []optimizeTest{
 	},
 	{
 		name:   "optimize-long-flight-1",
-		result: map[int]float64{5: 492.6},
+		result: map[int]float64{4: 492.6},
 	},
 }
 
@@ -118,15 +127,18 @@ func benchmarkTest(b *testing.B, f getOptimizer) {
 					b.Fatal(err)
 				}
 				b.Run(fmt.Sprintf("%v/%v", test.name, tp), func(b *testing.B) {
-					task, err := opt.Optimize(track, tp, Distance)
+					candidate, err := opt.Optimize(track, tp, Distance)
 					if err != nil {
 						b.Fatal(err)
 					}
-					task.Distance()
-					result := task.Distance()
+					result := candidate.Score
 					if !test.valid(result, tp) {
 						b.Errorf("expected %v got %v", expected, result)
 					}
+					_, err = NewBruteForceOptimizer(true).Optimize(track, tp, Distance)
+					log := RunLog{Points: track.Points}
+					txt, _ := json.Marshal(log)
+					ioutil.WriteFile("tmpdata.js", []byte(fmt.Sprintf("var data = '%v';", string(txt))), 0644)
 				})
 			}
 		}

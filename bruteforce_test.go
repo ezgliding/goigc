@@ -35,11 +35,11 @@ func TestBruteForceOptimize(t *testing.T) {
 				if err != nil {
 					t.Fatal(err)
 				}
-				task, err := opt.Optimize(track, tp, Distance)
+				candidate, err := opt.Optimize(track, tp, Distance)
 				if err != nil {
 					t.Fatal(err)
 				}
-				result := task.Distance()
+				result := candidate.Score
 				if !test.valid(result, tp) {
 					t.Errorf("expected %v got %v", expected, result)
 				}
@@ -61,12 +61,11 @@ func BenchmarkBruteForceOptimize(b *testing.B) {
 				b.Fatal(err)
 			}
 			b.Run(fmt.Sprintf("%v/%v", test.name, tp), func(b *testing.B) {
-				task, err := opt.Optimize(track, tp, Distance)
+				candidate, err := opt.Optimize(track, tp, Distance)
 				if err != nil {
 					b.Fatal(err)
 				}
-				task.Distance()
-				result := task.Distance()
+				result := candidate.Score
 				if !test.valid(result, tp) {
 					b.Errorf("expected %v got %v", expected, result)
 				}

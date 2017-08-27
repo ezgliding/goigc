@@ -48,23 +48,30 @@ func Distance(task Task) float64 {
 // to return an error instead of attempting to finalize the optimization
 // indefinitely.
 type Optimizer interface {
-	Optimize(track Track, nPoints int, score Score) (Task, error)
+	Optimize(track Track, nPoints int, score Score) (Candidate, error)
 }
+
+// KV ...
+type KV map[string]interface{}
 
 // Candidate aggregates Point indexes and a corresponding Task.
 //
 // It is a utility for Optimizer implementations requiring the tracking of the
 // Point indexes to calculate neighbours and variations of a current candidate.
 type Candidate struct {
-	indexes []int
-	track   *Track
-	Task    Task
-	Score   float64
+	indexes  []int
+	track    *Track
+	Metadata KV
+	Task     Task
+	Score    float64
 }
 
 // NewCandidate returns a Candidate initialized with nPoints, all set to zero.
 func NewCandidate(nPoints int, track *Track) Candidate {
-	return Candidate{indexes: make([]int, nPoints), track: track, Task: NewTask(nPoints)}
+	return Candidate{
+		indexes: make([]int, nPoints), track: track, Task: NewTask(nPoints),
+		Metadata: KV{},
+	}
 }
 
 // NewCandidateRandom returns a Candidate with a random set of nPoints of track.

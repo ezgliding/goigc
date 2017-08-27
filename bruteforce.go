@@ -28,7 +28,7 @@ type bruteForceOptimizer struct {
 	cache bool
 }
 
-func (b *bruteForceOptimizer) Optimize(track Track, nPoints int, score Score) (Task, error) {
+func (b *bruteForceOptimizer) Optimize(track Track, nPoints int, score Score) (Candidate, error) {
 	switch nPoints {
 
 	case 1:
@@ -36,11 +36,11 @@ func (b *bruteForceOptimizer) Optimize(track Track, nPoints int, score Score) (T
 	case 2:
 		return b.optimize2(track, score)
 	default:
-		return Task{}, fmt.Errorf("%v turn points not supported by this optimizer", nPoints)
+		return Candidate{}, fmt.Errorf("%v turn points not supported by this optimizer", nPoints)
 	}
 }
 
-func (b *bruteForceOptimizer) optimize1(track Track, score Score) (Task, error) {
+func (b *bruteForceOptimizer) optimize1(track Track, score Score) (Candidate, error) {
 
 	var optimalDistance float64
 	var distance float64
@@ -77,10 +77,10 @@ func (b *bruteForceOptimizer) optimize1(track Track, score Score) (Task, error) 
 			}
 		}
 	}
-	return optimalTask, nil
+	return Candidate{Task: optimalTask, Score: optimalDistance}, nil
 }
 
-func (b *bruteForceOptimizer) optimize2(track Track, score Score) (Task, error) {
+func (b *bruteForceOptimizer) optimize2(track Track, score Score) (Candidate, error) {
 
 	var optimalDistance float64
 	var distance float64
@@ -104,5 +104,5 @@ func (b *bruteForceOptimizer) optimize2(track Track, score Score) (Task, error) 
 			}
 		}
 	}
-	return optimalTask, nil
+	return Candidate{Task: optimalTask, Score: optimalDistance}, nil
 }

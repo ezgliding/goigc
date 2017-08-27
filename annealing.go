@@ -17,9 +17,6 @@
 package igc
 
 import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
 	"math"
 	"math/rand"
 	"time"
@@ -35,17 +32,17 @@ func NewSimAnnealingOptimizerParams(startTemperature float64, minTemperature flo
 	alpha float64, seed int64) Optimizer {
 	rand.Seed(seed)
 	return &simAnnealingOptimizer{
-		currentTemperature: startTemperature,
-		minTemperature:     minTemperature,
-		alpha:              alpha,
+		CurrentTemperature: startTemperature,
+		MinTemperature:     minTemperature,
+		Alpha:              alpha,
 	}
 }
 
 type simAnnealingOptimizer struct {
 	score              Score
-	currentTemperature float64
-	minTemperature     float64
-	alpha              float64
+	CurrentTemperature float64
+	MinTemperature     float64
+	Alpha              float64
 	track              *Track
 	nPoints            int
 	candidate          Candidate
@@ -69,26 +66,20 @@ func (sa *simAnnealingOptimizer) acceptanceProb(task Task) float64 {
 	if diff > 0 {
 		return 1.0
 	}
-	return math.E * (diff / sa.currentTemperature)
+	return math.E * (diff / sa.CurrentTemperature)
 }
 
-type RunLog struct {
-	Candidates  []Candidate
-	Bests       []Candidate
-	Temperature []float64
-	Points      []Point
-}
-
-func (sa *simAnnealingOptimizer) Optimize(track Track, nPoints int, score Score) (Task, error) {
+func (sa *simAnnealingOptimizer) Optimize(track Track, nPoints int, score Score) (Candidate, error) {
 	var acceptanceProb float64
 	var candidate Candidate
 
 	sa.initialize(&track, nPoints, score)
 
-	log := RunLog{Candidates: make([]Candidate, 1), Bests: make([]Candidate, 1), Temperature: make([]float64, 1), Points: track.Points}
 	// loop while the temperature is above min
-	for sa.currentTemperature > sa.minTemperature {
+	for sa.CurrentTemperature > sa.MinTemperature {
 		candidate = sa.neighbour()
+		candidate.Metadata["Temperature"] = sa.CurrentTemperature
+		candidate.Metadata["Best"] = sa.best
 		acceptanceProb = sa.acceptanceProb(candidate.Task)
 		if acceptanceProb > rand.Float64() {
 			sa.candidate = candidate
@@ -97,12 +88,7 @@ func (sa *simAnnealingOptimizer) Optimize(track Track, nPoints int, score Score)
 		if candidate.Score > sa.best.Score {
 			sa.best = Candidate(candidate)
 		}
-		sa.currentTemperature *= (1 - sa.alpha)
-		log.Candidates = append(log.Candidates, candidate)
-		log.Bests = append(log.Bests, sa.best)
-		log.Temperature = append(log.Temperature, sa.currentTemperature)
+		sa.CurrentTemperature *= (1 - sa.Alpha)
 	}
-	txt, _ := json.Marshal(log)
-	ioutil.WriteFile("tmpdata.js", []byte(fmt.Sprintf("var data = '%v';", string(txt))), 0644)
-	return sa.best.Task, nil
+	return sa.best, nil
 }
