@@ -132,7 +132,7 @@ HFPLTPilotincharge:EZ PILOT
 }
 
 func BenchmarkParse(b *testing.B) {
-	c, err := ioutil.ReadFile("test/parse-location-sample-flight.igc")
+	c, err := ioutil.ReadFile("testdata/parse-0-benchmark-0.igc")
 	if err != nil {
 		b.Errorf("failed to load sample flight :: %v", err)
 	}
