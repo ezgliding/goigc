@@ -48,25 +48,25 @@ func runTest(t *testing.T, ok bool, in, out string) {
 	} else if err != nil {
 		t.Error(err)
 	}
-	resultJson, err := json.MarshalIndent(result, "", "  ")
+	resultJSON, err := json.MarshalIndent(result, "", "  ")
 	if err != nil {
 		t.Fatalf("%v :: %+v", err, result)
 	}
 
 	// update golden if flag is passed
 	if *update {
-		if err = ioutil.WriteFile(out, resultJson, 0644); err != nil {
+		if err = ioutil.WriteFile(out, resultJSON, 0644); err != nil {
 			t.Fatal(err)
 		}
 	}
 
-	expectedJson, err := ioutil.ReadFile(out)
+	expectedJSON, err := ioutil.ReadFile(out)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	if string(resultJson) != string(expectedJson) {
-		t.Errorf("expected\n%+v\ngot\n%+v", string(expectedJson), string(resultJson))
+	if string(resultJSON) != string(expectedJSON) {
+		t.Errorf("expected\n%+v\ngot\n%+v", string(expectedJSON), string(resultJSON))
 	}
 }
 

@@ -5,3 +5,4 @@ mem.pprof
 goigc.test
 *swp
 *swo
+go.sum

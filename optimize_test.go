@@ -49,10 +49,10 @@ var benchmarkTests = []optimizeTest{
 }
 
 var optimizeTests = []optimizeTest{
-	{
-		name:   "optimize-short-flight-1",
-		result: map[int]float64{1: 35.44619896425489, 2: 0.0, 3: 507.80108709626626},
-	},
+	//	{
+	//		name:   "optimize-short-flight-1",
+	//		result: map[int]float64{1: 35.44619896425489, 2: 0.0, 3: 507.80108709626626},
+	//	},
 }
 
 type distanceTest struct {
