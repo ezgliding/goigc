@@ -3,8 +3,8 @@ set -e
 set -x
 export TARGET=${1:-master}
 export PATH=/tmp/perf/cmd/benchstat:$PATH
+export GO111MODULE=on
 if [ ! -f /tmp/perf/cmd/benchstat/benchstat ]; then
-	go get golang.org/x/perf/benchstat
 	rm -rf /tmp/perf
 	git clone https://github.com/golang/perf.git /tmp/perf
 	cd /tmp/perf/cmd/benchstat

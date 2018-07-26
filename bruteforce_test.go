@@ -31,7 +31,7 @@ func TestBruteForceOptimize(t *testing.T) {
 				continue
 			}
 			t.Run(fmt.Sprintf("%v/%v", test.name, tp), func(t *testing.T) {
-				track, err := ParseLocation(filepath.Join("test", fmt.Sprintf("%v.igc", test.name)))
+				track, err := ParseLocation(filepath.Join("testdata", fmt.Sprintf("%v.igc", test.name)))
 				if err != nil {
 					t.Fatal(err)
 				}
@@ -56,7 +56,7 @@ func BenchmarkBruteForceOptimize(b *testing.B) {
 			if tp > 1 {
 				continue
 			}
-			track, err := ParseLocation(filepath.Join("test", fmt.Sprintf("%v.igc", test.name)))
+			track, err := ParseLocation(filepath.Join("testdata", fmt.Sprintf("%v.igc", test.name)))
 			if err != nil {
 				b.Fatal(err)
 			}
