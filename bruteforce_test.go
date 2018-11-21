@@ -23,7 +23,7 @@ import (
 )
 
 func TestBruteForceOptimize(t *testing.T) {
-	opt := NewBruteForceOptimizer(false)
+	opt := NewBruteForceOptimizer(O0, false)
 
 	for _, test := range optimizeTests {
 		for tp, expected := range test.result {
@@ -48,12 +48,36 @@ func TestBruteForceOptimize(t *testing.T) {
 	}
 }
 
-func BenchmarkBruteForceOptimize(b *testing.B) {
-	opt := NewBruteForceOptimizer(false)
+func BenchmarkBruteForceOptimizeO0(b *testing.B) {
+	benchmarkBruteForce(O0, b)
+}
+
+func BenchmarkBruteForceOptimizeO1(b *testing.B) {
+	benchmarkBruteForce(O1, b)
+}
+
+func BenchmarkBruteForceOptimizeO2(b *testing.B) {
+	benchmarkBruteForce(O2, b)
+}
+
+func BenchmarkBruteForceOptimizeO3(b *testing.B) {
+	benchmarkBruteForce(O3, b)
+}
+
+func BenchmarkBruteForceOptimizeO4(b *testing.B) {
+	benchmarkBruteForce(O4, b)
+}
+
+func BenchmarkBruteForceOptimizeO5(b *testing.B) {
+	benchmarkBruteForce(O5, b)
+}
+
+func benchmarkBruteForce(otype OType, b *testing.B) {
+	opt := NewBruteForceOptimizer(otype, false)
 
 	for _, test := range benchmarkTests {
 		for tp, expected := range test.result {
-			if tp > 1 {
+			if tp > 1 && otype != O5 {
 				continue
 			}
 			track, err := ParseLocation(filepath.Join("testdata", fmt.Sprintf("%v.igc", test.name)))

@@ -67,39 +67,93 @@ func TestSimplify(t *testing.T) {
 	}
 }
 
+/**
+func TestSimplifyValidate(t *testing.T) {
+	var flights []Flight
+
+	opt := NewBruteForceOptimizer(O5, false)
+
+	data, err := ioutil.ReadFile("/home/ricardo/ws/ezgliding/crawler/db/2018.json")
+	dest := "/home/ricardo/tests/optimize"
+	if err != nil {
+		t.Errorf("failed to open file")
+	}
+	json.Unmarshal(data, &flights)
+
+	for _, flight := range flights {
+		path := fmt.Sprintf("%v/%v", "/home/ricardo/ws/ezgliding/crawler/db/2018/flights", flight.TrackID)
+		track, err := ParseLocation(path)
+		if err != nil {
+			t.Error(err)
+			continue
+		}
+		writeJson(track, fmt.Sprintf("%v/js/%v.js", dest, f.Name()), "path = ")
+		simplified := *track.Simplify(0.0001)
+		task, err := opt.Optimize(simplified, 1, Distance)
+		writeJson(simplified0001, fmt.Sprintf("%v/js/%v-simplified0001.js", dest, f.Name()), "simplified0001 = ")
+		if err != nil {
+			t.Fatal(err)
+		}
+		html := fmt.Sprintf(template, f.Name(), f.Name(), f.Name())
+		ioutil.WriteFile(fmt.Sprintf("%v/%v.html", dest, f.Name()), []byte(html), 0644)
+		fmt.Printf("%v :: %v :: %v\n", flight.ID, flight.Distance, task.Distance())
+	}
+}*/
+
 func TestSimplifyCompare(t *testing.T) {
-	dir := "/home/ricardo/ws/ezgliding/crawler/db/2018/flights"
-	dest := "/home/ricardo/tests"
-	files, _ := ioutil.ReadDir(dir)
+	var flights []Flight
+
+	opt := NewBruteForceOptimizer(O5, false)
+
+	data, err := ioutil.ReadFile("/home/ricardo/ws/ezgliding/crawler/db/2018.json")
+	dest := "/home/ricardo/tests/optimize"
+	if err != nil {
+		t.Errorf("failed to open file")
+	}
+	json.Unmarshal(data, &flights)
 	fmt.Printf("id,original,cleanup,simplified001,simplified0001")
-	for _, f := range files {
-		track, _ := ParseLocation(fmt.Sprintf("%v/%v", dir, f.Name()))
+	for _, flight := range flights {
+		path := fmt.Sprintf("%v/%v.igc", "/home/ricardo/ws/ezgliding/crawler/db/2018/flights", flight.TrackID)
+		track, _ := ParseLocation(path)
 		clean := track.Cleanup()
 		if len(track.Points) == 0 {
 		} else {
-			jsn, _ := toLatLng(track)
+			writeJson(&clean, fmt.Sprintf("%v/js/%v.js", dest, flight.TrackID), "path = ")
 			simplified001 := clean.Simplify(0.001)
 			simplified0001 := clean.Simplify(0.0001)
-			jsnSimplified001, _ := toLatLng(simplified001)
-			jsnSimplified0001, _ := toLatLng(simplified0001)
-			ioutil.WriteFile(fmt.Sprintf("%v/js/%v.js", dest, f.Name()), append([]byte("path ="), jsn...), 0644)
-			ioutil.WriteFile(fmt.Sprintf("%v/js/%v-simplified001.js", dest, f.Name()), append([]byte("simplified001 = "), jsnSimplified001...), 0644)
-			ioutil.WriteFile(fmt.Sprintf("%v/js/%v-simplified0001.js", dest, f.Name()), append([]byte("simplified0001 = "), jsnSimplified0001...), 0644)
-
-			html := fmt.Sprintf(template, f.Name(), f.Name(), f.Name())
-			ioutil.WriteFile(fmt.Sprintf("%v/%v.html", dest, f.Name()), []byte(html), 0644)
-			fmt.Printf("%v,%v,%v,%v,%v\n", f.Name(), len(track.Points), len(clean.Points), len(simplified001.Points), len(simplified0001.Points))
+			writeJson(&simplified001, fmt.Sprintf("%v/js/%v-simplified001.js", dest, flight.TrackID), "simplified001 = ")
+			writeJson(&simplified0001, fmt.Sprintf("%v/js/%v-simplified0001.js", dest, flight.TrackID), "simplified0001 = ")
+			task, err := opt.Optimize(simplified0001, 3, Distance)
+			if err != nil {
+				t.Fatal(err)
+			}
+			tps := []Point{task.Start}
+			for _, tp := range task.Turnpoints {
+				tps = append(tps, tp)
+			}
+			tps = append(tps, task.Finish)
+			taskpoints, _ := toLatLng(tps)
+			ioutil.WriteFile(fmt.Sprintf("%v/js/%v-task.js", dest, flight.TrackID), append([]byte("task = "), taskpoints...), 0644)
+			html := fmt.Sprintf(template, flight.TrackID, flight.TrackID, flight.TrackID, flight.TrackID)
+			ioutil.WriteFile(fmt.Sprintf("%v/%v.html", dest, flight.TrackID), []byte(html), 0644)
+			fmt.Printf("%v\t%v\t%v\t%v\t%v\t%v\t%v\n", flight.TrackID, len(track.Points), len(clean.Points), len(simplified001.Points), len(simplified0001.Points), flight.Distance, task.Distance())
 		}
 	}
 }
 
-func toLatLng(track Track) ([]byte, error) {
+func writeJson(track *Track, path string, prefix string) error {
+	points := track.Points
+	jsn, _ := toLatLng(points)
+	return ioutil.WriteFile(path, append([]byte(prefix), jsn...), 0644)
+}
 
-	points := make([]s2.LatLng, len(track.Points))
-	for i, v := range track.Points {
-		points[i] = v.LatLng
+func toLatLng(points []Point) ([]byte, error) {
+
+	pts := make([]s2.LatLng, len(points))
+	for i, v := range points {
+		pts[i] = v.LatLng
 	}
-	return json.Marshal(points)
+	return json.Marshal(pts)
 }
 
 var template = `
@@ -126,11 +180,13 @@ var template = `
   <body>
     <div id="map"></div>
     <script
-         src="file:///home/ricardo/tests/js/%v.js"></script>
+         src="file:///home/ricardo/tests/optimize/js/%v.js"></script>
     <script
-         src="file:///home/ricardo/tests/js/%v-simplified001.js"></script>
+         src="file:///home/ricardo/tests/optimize/js/%v-simplified001.js"></script>
     <script
-         src="file:///home/ricardo/tests/js/%v-simplified0001.js"></script>
+         src="file:///home/ricardo/tests/optimize/js/%v-simplified0001.js"></script>
+    <script
+         src="file:///home/ricardo/tests/optimize/js/%v-task.js"></script>
     <script>
 
       // This example creates a 2-pixel-wide red polyline showing the path of
@@ -156,6 +212,10 @@ var template = `
             simplified001[i].lat = (simplified001[i].Lat * 180) / Math.PI;
             simplified001[i].lng = (simplified001[i].Lng * 180) / Math.PI;
         }   
+        for (i=0; i<task.length; i++) {
+            task[i].lat = (task[i].Lat * 180) / Math.PI;
+            task[i].lng = (task[i].Lng * 180) / Math.PI;
+        }   
         console.log(path)
         var flightPath = new google.maps.Polyline({
           path: path,
@@ -178,10 +238,18 @@ var template = `
           strokeOpacity: 1.0,
           strokeWeight: 2
         });
+        var flightTask = new google.maps.Polyline({
+          path: task,
+          geodesic: true,
+          strokeColor: '#000000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
 
         flightPath.setMap(map);
         flightSimplified0001.setMap(map);
         flightSimplified001.setMap(map);
+        flightTask.setMap(map);
 
 		var bounds = new google.maps.LatLngBounds();
 		var points = flightPath.getPath().getArray();

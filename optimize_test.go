@@ -44,6 +44,10 @@ func (t *optimizeTest) valid(result float64, nTp int) bool {
 var benchmarkTests = []optimizeTest{
 	{
 		name:   "optimize-short-flight-1",
+		result: map[int]float64{1: 35.44619896425489, 2: 42.1706196102479},
+	},
+	{
+		name:   "optimize-long-flight-1",
 		result: map[int]float64{1: 35.44619896425489},
 	},
 }
