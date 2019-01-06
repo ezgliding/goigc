@@ -18,7 +18,15 @@ package igc
 
 import (
 	"time"
+
+	"github.com/golang/geo/s1"
+	"github.com/golang/geo/s2"
 )
+
+// MaxSpeed is the maximum theoretical speed for a glider.
+//
+// It is used to detect bad GPS coordinates, which should be removed from the track.
+const MaxSpeed float64 = 500.0
 
 // Track holds all IGC flight data (header and GPS points).
 type Track struct {
@@ -170,4 +178,37 @@ var Manufacturers = map[string]Manufacturer{
 	"WES": {'W', "WES", "Westerboer"},
 	"XYY": {'X', "XYY", "Other manufacturer"},
 	"ZAN": {'Z', "ZAN", "Zander"},
+}
+
+func (track *Track) Cleanup() Track {
+	clean := *track
+
+	i := 1
+	for i < len(clean.Points) {
+		if clean.Points[i-1].Speed(clean.Points[i]) > MaxSpeed {
+			clean.Points = append(clean.Points[:i], clean.Points[i+1:]...)
+		}
+		i = i + 1
+	}
+	return clean
+}
+
+func (track *Track) Simplify(tolerance float64) Track {
+	r := polylineFromPoints(track.Points).SubsampleVertices(s1.Angle(tolerance))
+	points := make([]Point, len(r))
+	for i, v := range r {
+		points[i] = track.Points[v]
+	}
+
+	simplified := *track
+	simplified.Points = points
+	return simplified
+}
+
+func polylineFromPoints(points []Point) *s2.Polyline {
+	p := make(s2.Polyline, len(points))
+	for k, v := range points {
+		p[k] = s2.PointFromLatLng(v.LatLng)
+	}
+	return &p
 }
