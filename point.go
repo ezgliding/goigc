@@ -148,3 +148,8 @@ func DecimalFromDMD(dmd string) float64 {
 func (p *Point) Distance(b Point) float64 {
 	return float64(p.LatLng.Distance(b.LatLng) * EarthRadius)
 }
+
+// Speed returns the distance/time to the given point in km/h.
+func (p *Point) Speed(b Point) float64 {
+	return p.Distance(b) / b.Time.Sub(p.Time).Hours()
+}
