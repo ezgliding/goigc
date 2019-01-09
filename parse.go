@@ -158,6 +158,9 @@ func (p *parser) parseB(line string, f *Track) error {
 		return err
 	}
 	for _, f := range p.IFields {
+		if int64(len(line)) < f.end {
+			return fmt.Errorf("wrong line size :: %v", line)
+		}
 		pt.IData[f.tlc] = line[f.start-1 : f.end]
 	}
 	pt.NumSatellites = p.numSat
