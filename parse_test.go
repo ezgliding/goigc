@@ -71,8 +71,8 @@ func runTest(t *testing.T, ok bool, in, out string) {
 }
 
 func TestParse(t *testing.T) {
-	// testdata file name format is testname.[1|0].igc
-	match, err := filepath.Glob("testdata/parse-*.igc")
+	// testdata/parse file name format is testname.[1|0].igc
+	match, err := filepath.Glob("testdata/parse/parse-*.igc")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -132,7 +132,7 @@ HFPLTPilotincharge:EZ PILOT
 }
 
 func BenchmarkParse(b *testing.B) {
-	c, err := ioutil.ReadFile("testdata/parse-0-benchmark-0.igc")
+	c, err := ioutil.ReadFile("testdata/parse/parse-0-benchmark-0.igc")
 	if err != nil {
 		b.Errorf("failed to load sample flight :: %v", err)
 	}

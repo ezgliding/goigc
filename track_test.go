@@ -20,10 +20,15 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"path/filepath"
 	"testing"
 
 	"github.com/golang/geo/s2"
+)
+
+const (
+	testDir = "/tmp/ezgliding/tests"
 )
 
 type simplifyTest struct {
@@ -34,24 +39,27 @@ type simplifyTest struct {
 var simplifyTests = []simplifyTest{
 	{
 		name:   "simplify-short-flight-1",
-		result: "simplify-short-flight-1.simplified",
+		result: "simplify-short-flight-1.simple",
 	},
 }
 
 func TestSimplify(t *testing.T) {
 	for _, test := range simplifyTests {
 		t.Run(fmt.Sprintf("%v\n", test.name), func(t *testing.T) {
-			f := filepath.Join("testdata", fmt.Sprintf("%v.igc", test.name))
+			f := filepath.Join("testdata/simplify", fmt.Sprintf("%v.igc", test.name))
 			golden := fmt.Sprintf("%v.golden", f)
 			track, err := ParseLocation(f)
 			if err != nil {
 				t.Fatal(err)
 			}
-			simplified := track.Simplify(0.0001)
+			simple, err := track.Simplify(0.0001)
+			if err != nil {
+				t.Fatal(err)
+			}
 
 			// update golden if flag is passed
 			if *update {
-				jsn, _ := json.Marshal(simplified)
+				jsn, _ := json.Marshal(simple)
 				if err = ioutil.WriteFile(golden, jsn, 0644); err != nil {
 					t.Fatal(err)
 				}
@@ -60,37 +68,61 @@ func TestSimplify(t *testing.T) {
 			b, _ := ioutil.ReadFile(golden)
 			var goldenTrack Track
 			json.Unmarshal(b, &goldenTrack)
-			if len(simplified.Points) != len(goldenTrack.Points) {
-				t.Errorf("expected %v got %v simplified points", len(goldenTrack.Points), len(simplified.Points))
+			if len(simple.Points) != len(goldenTrack.Points) {
+				t.Errorf("expected %v got %v simple points", len(goldenTrack.Points), len(simple.Points))
 			}
 		})
 	}
 }
 
-func TestSimplifyCompare(t *testing.T) {
-	dir := "/home/ricardo/ws/ezgliding/crawler/db/2018/flights"
-	dest := "/home/ricardo/tests"
-	files, _ := ioutil.ReadDir(dir)
-	fmt.Printf("id,original,cleanup,simplified001,simplified0001")
-	for _, f := range files {
-		track, _ := ParseLocation(fmt.Sprintf("%v/%v", dir, f.Name()))
-		clean := track.Cleanup()
-		if len(track.Points) == 0 {
-		} else {
-			jsn, _ := toLatLng(track)
-			simplified001 := clean.Simplify(0.001)
-			simplified0001 := clean.Simplify(0.0001)
-			jsnSimplified001, _ := toLatLng(simplified001)
-			jsnSimplified0001, _ := toLatLng(simplified0001)
-			ioutil.WriteFile(fmt.Sprintf("%v/js/%v.js", dest, f.Name()), append([]byte("path ="), jsn...), 0644)
-			ioutil.WriteFile(fmt.Sprintf("%v/js/%v-simplified001.js", dest, f.Name()), append([]byte("simplified001 = "), jsnSimplified001...), 0644)
-			ioutil.WriteFile(fmt.Sprintf("%v/js/%v-simplified0001.js", dest, f.Name()), append([]byte("simplified0001 = "), jsnSimplified0001...), 0644)
+func TestSimplifyStats(t *testing.T) {
 
+	simplifyDB := "testdata/simplify/db"
+	csvfile, _ := os.Create(fmt.Sprintf("%v/simplify-stats.csv", testDir))
+
+	files, _ := ioutil.ReadDir(simplifyDB)
+	fmt.Fprintf(csvfile, "id,total,clean,clean%%,simple001,simple001%%,simple0001,simple0001%%\n")
+	for _, f := range files {
+		track, _ := ParseLocation(fmt.Sprintf("%v/%v", simplifyDB, f.Name()))
+		clean, err := track.Cleanup()
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(track.Points) == 0 {
+			//t.Fatalf("track has no points :: %v", track)
+		} else {
+			// simplify using two different precisions
+			simple001, err := clean.Simplify(0.001)
+			if err != nil {
+				t.Fatal(err)
+			}
+			simple0001, err := clean.Simplify(0.0001)
+			if err != nil {
+				t.Fatal(err)
+			}
+			// convert the whole lot to json for js usage
+			jsn, _ := toLatLng(track)
+			jsnClean, _ := toLatLng(clean)
+			jsnSimple001, _ := toLatLng(simple001)
+			jsnSimple0001, _ := toLatLng(simple0001)
+			// generate the html/js content for visualization
+			df := fmt.Sprintf("%v/js/%v.js", testDir, f.Name())
+			d, _ := os.Create(df)
+			d.WriteString(fmt.Sprintf("%s\n%s\n%s\n%s\n", append([]byte("path ="), jsn...), append([]byte("clean ="), jsnClean...), append([]byte("simple001 ="), jsnSimple001...), append([]byte("simple0001 ="), jsnSimple0001...)))
+			d.Close()
 			html := fmt.Sprintf(template, f.Name(), f.Name(), f.Name())
-			ioutil.WriteFile(fmt.Sprintf("%v/%v.html", dest, f.Name()), []byte(html), 0644)
-			fmt.Printf("%v,%v,%v,%v,%v\n", f.Name(), len(track.Points), len(clean.Points), len(simplified001.Points), len(simplified0001.Points))
+			ioutil.WriteFile(fmt.Sprintf("%v/%v.html", testDir, f.Name()), []byte(html), 0644)
+			ptsClean := float64(len(clean.Points))
+			// fill in the csv line for this flight with simplify stats
+			fmt.Fprintf(csvfile, "%v,%v,%v,%.1f,%v,%.1f,%v,%.1f\n",
+				f.Name(),
+				len(track.Points),
+				len(clean.Points), float64(len(clean.Points))/ptsClean*100.0,
+				len(simple001.Points), float64(len(simple001.Points))/ptsClean*100.0,
+				len(simple0001.Points), float64(len(simple0001.Points))/ptsClean*100.0)
 		}
 	}
+	csvfile.Close()
 }
 
 func toLatLng(track Track) ([]byte, error) {
@@ -108,7 +140,7 @@ var template = `
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Simple Polylines</title>
+    <title>EzGliding Simplify</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -126,17 +158,9 @@ var template = `
   <body>
     <div id="map"></div>
     <script
-         src="file:///home/ricardo/tests/js/%v.js"></script>
-    <script
-         src="file:///home/ricardo/tests/js/%v-simplified001.js"></script>
-    <script
-         src="file:///home/ricardo/tests/js/%v-simplified0001.js"></script>
-    <script>
+         src="file:///tmp/ezgliding/tests/js/%v.js"></script>
 
-      // This example creates a 2-pixel-wide red polyline showing the path of
-      // the first trans-Pacific flight between Oakland, CA, and Brisbane,
-      // Australia which was made by Charles Kingsford Smith.
-
+	<script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 3,
@@ -148,40 +172,52 @@ var template = `
             path[i].lat = (path[i].Lat * 180) / Math.PI;
             path[i].lng = (path[i].Lng * 180) / Math.PI;
         }   
-        for (i=0; i<simplified0001.length; i++) {
-            simplified0001[i].lat = (simplified0001[i].Lat * 180) / Math.PI;
-            simplified0001[i].lng = (simplified0001[i].Lng * 180) / Math.PI;
+        for (i=0; i<clean.length; i++) {
+            clean[i].lat = (clean[i].Lat * 180) / Math.PI;
+            clean[i].lng = (clean[i].Lng * 180) / Math.PI;
         }   
-        for (i=0; i<simplified001.length; i++) {
-            simplified001[i].lat = (simplified001[i].Lat * 180) / Math.PI;
-            simplified001[i].lng = (simplified001[i].Lng * 180) / Math.PI;
+        for (i=0; i<simple0001.length; i++) {
+            simple0001[i].lat = (simple0001[i].Lat * 180) / Math.PI;
+            simple0001[i].lng = (simple0001[i].Lng * 180) / Math.PI;
+        }   
+        for (i=0; i<simple001.length; i++) {
+            simple001[i].lat = (simple001[i].Lat * 180) / Math.PI;
+            simple001[i].lng = (simple001[i].Lng * 180) / Math.PI;
         }   
         console.log(path)
         var flightPath = new google.maps.Polyline({
           path: path,
           geodesic: true,
           strokeColor: '#FF0000',
-          strokeOpacity: 1.0,
+          strokeOpacity: 0.5,
           strokeWeight: 2
         });
-        var flightSimplified0001 = new google.maps.Polyline({
-          path: simplified0001,
+        var flightClean = new google.maps.Polyline({
+          path: clean,
+          geodesic: true,
+          strokeColor: '#FFFF00',
+          strokeOpacity: 0.5,
+          strokeWeight: 2
+        });
+        var flightsimple0001 = new google.maps.Polyline({
+          path: simple0001,
           geodesic: true,
           strokeColor: '#00FF00',
           strokeOpacity: 1.0,
           strokeWeight: 2
         });
-        var flightSimplified001 = new google.maps.Polyline({
-          path: simplified001,
+        var flightsimple001 = new google.maps.Polyline({
+          path: simple001,
           geodesic: true,
           strokeColor: '#0000FF',
           strokeOpacity: 1.0,
           strokeWeight: 2
         });
 
+		flightClean.setMap(map);
         flightPath.setMap(map);
-        flightSimplified0001.setMap(map);
-        flightSimplified001.setMap(map);
+        flightsimple001.setMap(map);
+        flightsimple0001.setMap(map);
 
 		var bounds = new google.maps.LatLngBounds();
 		var points = flightPath.getPath().getArray();
