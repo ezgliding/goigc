@@ -180,7 +180,7 @@ var Manufacturers = map[string]Manufacturer{
 	"ZAN": {'Z', "ZAN", "Zander"},
 }
 
-func (track *Track) Cleanup() Track {
+func (track *Track) Cleanup() (Track, error) {
 	clean := *track
 
 	i := 1
@@ -190,10 +190,10 @@ func (track *Track) Cleanup() Track {
 		}
 		i = i + 1
 	}
-	return clean
+	return clean, nil
 }
 
-func (track *Track) Simplify(tolerance float64) Track {
+func (track *Track) Simplify(tolerance float64) (Track, error) {
 	r := polylineFromPoints(track.Points).SubsampleVertices(s1.Angle(tolerance))
 	points := make([]Point, len(r))
 	for i, v := range r {
@@ -202,7 +202,7 @@ func (track *Track) Simplify(tolerance float64) Track {
 
 	simplified := *track
 	simplified.Points = points
-	return simplified
+	return simplified, nil
 }
 
 func polylineFromPoints(points []Point) *s2.Polyline {

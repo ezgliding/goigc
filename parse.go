@@ -56,6 +56,28 @@ func ParseLocation(location string) (Track, error) {
 	return Parse(string(content))
 }
 
+// ParseCleanLocation returns a cleaned up Track object.
+//
+// See ParseLocation().
+func ParseCleanLocation(location string) (Track, error) {
+	t, err := ParseLocation(location)
+	if err != nil {
+		return Track{}, err
+	}
+	return t.Cleanup()
+}
+
+// ParseClean returns a cleaned up Track object.
+//
+// See Parse().
+func ParseClean(content string) (Track, error) {
+	t, err := Parse(content)
+	if err != nil {
+		return Track{}, err
+	}
+	return t.Cleanup()
+}
+
 // Parse returns a Track object corresponding to the given content.
 //
 // The value of content should be a text string with all the flight data

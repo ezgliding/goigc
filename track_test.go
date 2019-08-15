@@ -113,13 +113,26 @@ func TestSimplifyStats(t *testing.T) {
 			html := fmt.Sprintf(template, f.Name(), f.Name(), f.Name())
 			ioutil.WriteFile(fmt.Sprintf("%v/%v.html", testDir, f.Name()), []byte(html), 0644)
 			ptsClean := float64(len(clean.Points))
+			// optimize for both simplified tracks
+			opt := NewBruteForceOptimizer(false)
+			//task001, err := opt.Optimize(simple001, 3, Distance)
+			task001, err := Task{}, nil
+			task0001, err := opt.Optimize(simple0001, 2, Distance)
+			if err != nil {
+				t.Fatal(err)
+			}
 			// fill in the csv line for this flight with simplify stats
-			fmt.Fprintf(csvfile, "%v,%v,%v,%.1f,%v,%.1f,%v,%.1f\n",
+			fmt.Fprintf(csvfile, "%v,%v,%v,%.1f,%v,%.1f,%v,%v,%.1f,%.1f\n",
 				f.Name(),
 				len(track.Points),
-				len(clean.Points), float64(len(clean.Points))/ptsClean*100.0,
-				len(simple001.Points), float64(len(simple001.Points))/ptsClean*100.0,
-				len(simple0001.Points), float64(len(simple0001.Points))/ptsClean*100.0)
+				len(clean.Points),
+				float64(len(clean.Points))/ptsClean*100.0,
+				len(simple001.Points),
+				float64(len(simple001.Points))/ptsClean*100.0,
+				task001.Distance(),
+				len(simple0001.Points),
+				float64(len(simple0001.Points))/ptsClean*100.0,
+				task0001.Distance())
 		}
 	}
 	csvfile.Close()
