@@ -71,4 +71,5 @@ jobs:
       - name: Push docker images
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
+          sudo docker login -u ${{ secrets.DOCKER_REGISTRY_ID }} -p ${{ secrets.DOCKER_REGISTRY_PASS }}
           make docker-push
