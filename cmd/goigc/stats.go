@@ -1,5 +1,6 @@
 // Copyright The ezgliding Authors.
 //
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,19 +13,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+package main
 
-/*
-Package igc provides means to parse and analyse files in the IGC format.
+import (
+	"fmt"
 
-This format is defined by the International Gliding Commission (IGC) and
-was created to set a standard for recording gliding flights.
+	"github.com/spf13/cobra"
+)
 
-The full specification is available in Appendix A of the IGC FR Specification:
-http://www.fai.org/component/phocadownload/category/?download=11005
+func init() {
+	rootCmd.AddCommand(statsCmd)
+}
 
-Calculation of the optimal flight distance considering multiple turnpoints and
-FAI triangles are available via Optimizers. Available Optimizers include brute
-force, montecarlo method, genetic algorithms, etc.
-
-*/
-package igc
+var statsCmd = &cobra.Command{
+	Use:   "stats",
+	Short: "",
+	Long:  "",
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Hugo Static Site Generator v0.9 -- HEAD")
+	},
+}

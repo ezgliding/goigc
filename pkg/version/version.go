@@ -1,5 +1,6 @@
 // Copyright The ezgliding Authors.
 //
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -13,18 +14,27 @@
 // limitations under the License.
 //
 
-/*
-Package igc provides means to parse and analyse files in the IGC format.
+package version
 
-This format is defined by the International Gliding Commission (IGC) and
-was created to set a standard for recording gliding flights.
+// Values to be injected during build (ldflags).
+var (
+	version  = "unreleased"
+	commit   string
+	metadata string
+)
 
-The full specification is available in Appendix A of the IGC FR Specification:
-http://www.fai.org/component/phocadownload/category/?download=11005
+// Version returns the goigc version. It is expected this is defined
+// as a semantic version number, or 'unreleased' for unreleased code.
+func Version() string {
+	return version
+}
 
-Calculation of the optimal flight distance considering multiple turnpoints and
-FAI triangles are available via Optimizers. Available Optimizers include brute
-force, montecarlo method, genetic algorithms, etc.
+// Commit returns the git commit SHA for the code that goigc was built from.
+func Commit() string {
+	return commit
+}
 
-*/
-package igc
+// Metadata returns metadata passed during build.
+func Metadata() string {
+	return metadata
+}

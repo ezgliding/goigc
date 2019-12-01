@@ -1,5 +1,6 @@
 // Copyright The ezgliding Authors.
 //
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -13,18 +14,42 @@
 // limitations under the License.
 //
 
-/*
-Package igc provides means to parse and analyse files in the IGC format.
+package main
 
-This format is defined by the International Gliding Commission (IGC) and
-was created to set a standard for recording gliding flights.
+import (
+	"bytes"
+	"os"
+	"testing"
+)
 
-The full specification is available in Appendix A of the IGC FR Specification:
-http://www.fai.org/component/phocadownload/category/?download=11005
+func TestRootCmd(t *testing.T) {
 
-Calculation of the optimal flight distance considering multiple turnpoints and
-FAI triangles are available via Optimizers. Available Optimizers include brute
-force, montecarlo method, genetic algorithms, etc.
+	tests := []struct {
+		name   string
+		args   []string
+		envars map[string]string
+	}{
+		{
+			name: "defaults",
+			args: []string{""},
+		},
+	}
 
-*/
-package igc
+	cmd := rootCmd
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			buf := new(bytes.Buffer)
+			for k, v := range tt.envars {
+				os.Setenv(k, v)
+			}
+			cmd.SetOutput(buf)
+			cmd.SetArgs(tt.args)
+			err := cmd.Execute()
+			if err != nil {
+				t.Fatal()
+			}
+
+		})
+	}
+}

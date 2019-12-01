@@ -1,5 +1,6 @@
 // Copyright The ezgliding Authors.
 //
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,19 +13,40 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+package main
 
-/*
-Package igc provides means to parse and analyse files in the IGC format.
+import (
+	"fmt"
+	"os"
 
-This format is defined by the International Gliding Commission (IGC) and
-was created to set a standard for recording gliding flights.
+	"github.com/ezgliding/goigc/pkg/version"
+	"github.com/spf13/cobra"
+)
 
-The full specification is available in Appendix A of the IGC FR Specification:
-http://www.fai.org/component/phocadownload/category/?download=11005
+var (
+	rootCmd = &cobra.Command{
+		Use:   "goigc",
+		Short: "goigc is a parser and analyser for gliding flights",
+		Long:  "",
+		Version: fmt.Sprintf("%v %.7v %v", version.Version(), version.Commit(),
+			version.Metadata()),
+		Hidden: true,
+	}
+)
 
-Calculation of the optimal flight distance considering multiple turnpoints and
-FAI triangles are available via Optimizers. Available Optimizers include brute
-force, montecarlo method, genetic algorithms, etc.
+func init() {
+}
 
-*/
-package igc
+func Execute() {
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+}
+
+func main() {
+	rootCmd.SetVersionTemplate(
+		`{{with .Name}}{{printf "%s " .}}{{end}}{{printf "%s" .Version}}
+`)
+	Execute()
+}

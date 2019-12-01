@@ -1,4 +1,4 @@
-// Copyright ©2017 The ezgliding Authors.
+// Copyright The ezgliding Authors.
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,7 +28,7 @@ const (
 type optimizeTest struct {
 	name   string
 	result map[int]float64
-	margin float64
+	//margin float64
 }
 
 func (t *optimizeTest) validWithMargin(result float64, nTp int, errorMargin float64) bool {

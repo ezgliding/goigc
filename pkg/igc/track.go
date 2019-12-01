@@ -1,4 +1,4 @@
-// Copyright ©2017 The ezgliding Authors.
+// Copyright The ezgliding Authors.
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -146,9 +146,9 @@ type LogEntry struct {
 // The list of manufacturers is defined in the IGC specification,
 // section A2.5.6. A map Manufacturers is available in this library.
 type Manufacturer struct {
-	char  byte
-	short string
-	name  string
+	char  byte   //nolint
+	short string //nolint
+	name  string //nolint
 }
 
 // Manufacturers holds the list of available manufacturers.

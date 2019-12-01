@@ -1,4 +1,4 @@
-// Copyright ©2019 The ezgliding Authors.
+// Copyright The ezgliding Authors.
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,7 +33,7 @@ const (
 
 type simplifyTest struct {
 	name   string
-	result string
+	result string //nolint
 }
 
 var simplifyTests = []simplifyTest{
@@ -46,7 +46,7 @@ var simplifyTests = []simplifyTest{
 func TestSimplify(t *testing.T) {
 	for _, test := range simplifyTests {
 		t.Run(fmt.Sprintf("%v\n", test.name), func(t *testing.T) {
-			f := filepath.Join("testdata/simplify", fmt.Sprintf("%v.igc", test.name))
+			f := filepath.Join("../../testdata/simplify", fmt.Sprintf("%v.igc", test.name))
 			golden := fmt.Sprintf("%v.golden", f)
 			track, err := ParseLocation(f)
 			if err != nil {
@@ -67,7 +67,7 @@ func TestSimplify(t *testing.T) {
 
 			b, _ := ioutil.ReadFile(golden)
 			var goldenTrack Track
-			json.Unmarshal(b, &goldenTrack)
+			_ = json.Unmarshal(b, &goldenTrack)
 			if len(simple.Points) != len(goldenTrack.Points) {
 				t.Errorf("expected %v got %v simple points", len(goldenTrack.Points), len(simple.Points))
 			}
@@ -108,15 +108,15 @@ func TestSimplifyStats(t *testing.T) {
 			// generate the html/js content for visualization
 			df := fmt.Sprintf("%v/js/%v.js", testDir, f.Name())
 			d, _ := os.Create(df)
-			d.WriteString(fmt.Sprintf("%s\n%s\n%s\n%s\n", append([]byte("path ="), jsn...), append([]byte("clean ="), jsnClean...), append([]byte("simple001 ="), jsnSimple001...), append([]byte("simple0001 ="), jsnSimple0001...)))
+			_, _ = d.WriteString(fmt.Sprintf("%s\n%s\n%s\n%s\n", append([]byte("path ="), jsn...), append([]byte("clean ="), jsnClean...), append([]byte("simple001 ="), jsnSimple001...), append([]byte("simple0001 ="), jsnSimple0001...)))
 			d.Close()
 			html := fmt.Sprintf(template, f.Name(), f.Name(), f.Name())
-			ioutil.WriteFile(fmt.Sprintf("%v/%v.html", testDir, f.Name()), []byte(html), 0644)
+			_ = ioutil.WriteFile(fmt.Sprintf("%v/%v.html", testDir, f.Name()), []byte(html), 0644)
 			ptsClean := float64(len(clean.Points))
 			// optimize for both simplified tracks
 			opt := NewBruteForceOptimizer(false)
 			//task001, err := opt.Optimize(simple001, 3, Distance)
-			task001, err := Task{}, nil
+			task001 := Task{}
 			task0001, err := opt.Optimize(simple0001, 2, Distance)
 			if err != nil {
 				t.Fatal(err)

@@ -1,8 +1,7 @@
-goigc
-profile.cov
-cpu.pprof
-mem.pprof
-goigc.test
-*swp
-*swo
+*.swp
+*.swo
+.coverage/
+_dist/
+bin/
 go.sum
+vendor/

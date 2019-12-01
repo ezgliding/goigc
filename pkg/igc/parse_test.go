@@ -1,4 +1,4 @@
-// Copyright ©2017 The ezgliding Authors.
+// Copyright The ezgliding Authors.
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,12 +26,6 @@ import (
 	"strings"
 	"testing"
 )
-
-type ParseTest struct {
-	t string
-	c string
-	e bool
-}
 
 var update = flag.Bool("update", false, "update golden test data")
 
@@ -139,12 +133,6 @@ func BenchmarkParse(b *testing.B) {
 	content := string(c)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		Parse(content)
+		_, _ = Parse(content)
 	}
-}
-
-func getTrack(task Task) Track {
-	f := NewTrack()
-	f.Task = task
-	return f
 }
