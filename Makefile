@@ -1,3 +1,18 @@
+# Copyright The ezgliding Authors.
+#
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 # Based on the helm Makefile:
 # https://github.com/helm/helm/blob/master/Makefile
 
@@ -22,6 +37,7 @@ SRC        := $(shell find . -type f -name '*.go' -print)
 # Required for globs to work correctly
 SHELL      = /bin/bash
 
+GIT_BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
 GIT_COMMIT = $(shell git rev-parse HEAD)
 GIT_SHA    = $(shell git rev-parse --short HEAD)
 GIT_TAG    = $(shell git describe --tags --abbrev=0 --exact-match 2>/dev/null)
@@ -131,6 +147,23 @@ checksum:
 .PHONY: changelog
 changelog:
 	@./scripts/changelog.sh
+
+# ------------------------------------------------------------------------------
+#  docker
+DOCKER_TAG=${GIT_BRANCH}
+ifneq ($(GIT_TAG),)
+	DOCKER_TAG = ${GIT_TAG}
+endif
+
+.PHONY: docker
+docker: build-cross
+	sudo docker build -t ezgliding/goigc:${DOCKER_TAG} -f deployments/docker/Dockerfile .
+	sudo docker build -t ezgliding/goigc:${DOCKER_TAG}-alpine -f deployments/docker/Dockerfile-alpine .
+
+.PHONY: docker-push
+docker-push: docker 
+	sudo docker push ezgliding/goigc:${DOCKER_TAG}
+	sudo docker push ezgliding/goigc:${DOCKER_TAG}-alpine
 
 # ------------------------------------------------------------------------------
 .PHONY: clean

@@ -13,13 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-FROM alpine:3 as alpine
-RUN apk add -U --no-cache ca-certificates
- 
-FROM scratch
-WORKDIR /
-COPY --from=alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+FROM alpine:3
+RUN apk add -U --no-cache ca-certificates bash
 ADD _dist/linux-amd64/goigc_linux_amd64 /usr/bin/goigc
+WORKDIR /
 USER 1000
 ENTRYPOINT ["goigc"]
 CMD ["--help"]
