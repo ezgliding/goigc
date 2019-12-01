@@ -1,44 +1,21 @@
-# goigc [![Build Status](https://travis-ci.org/ezgliding/goigc.svg?branch=master)](http://travis-ci.org/ezgliding/goigc) [![Coverage Status](https://coveralls.io/repos/github/ezgliding/goigc/badge.svg?branch=master)](https://coveralls.io/github/ezgliding/goigc?branch=vendor) [![GoDoc](https://godoc.org/github.com/ezgliding/goigc?status.png)](https://godoc.org/github.com/ezgliding/goigc) [![Go Report Card](https://goreportcard.com/badge/github.com/ezgliding/goigc)](https://goreportcard.com/report/github.com/ezgliding/goigc) ![Project Status](http://img.shields.io/badge/status-prealpha-red.svg)
+# goigc
 
-Handles flight tracks in [IGC](http://www.fai.org/component/phocadownload/category/?download=5745:igc-flight-recorder-specification-edition-2-with-al1-2011-5-31) format.
+[![Build Status](https://github.com/ezgliding/goigc/workflows/goigc/badge.svg?event=push&branch=master)](https://github.com/ezgliding/goigc/actions?workflow=goigc)
+[![Coverage Status](https://coveralls.io/repos/github/ezgliding/goigc/badge.svg?branch=master)](https://coveralls.io/github/ezgliding/goigc?branch=vendor) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/ezgliding/goigc)](https://goreportcard.com/report/github.com/ezgliding/goigc)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## Usage
+goigc is a portable utility to parse and analyse gliding flights, supporting
+[igc](http://www.fai.org/component/phocadownload/category/?download=5745:igc-flight-recorder-specification-edition-2-with-al1-2011-5-31) as well as other popular
+gps formats such as gpx.
 
-    $ go get github.com/rochaporto/goigc
+You can use goigc to:
+* Parse and get metadata for flights in multiple formats (igc, gpx, ...)
+* Convert flights between all formats
+* Run flight optimization following popular competition rules (OLC, netcoupe,
+  ...)
 
-    $ ./goigc 
-    $ Parse and analyse flight tracks in IGC format.
-    $                          _______
-    $                             |
-    $ /--------------------------(_)--------------------------\
-    $ 
-    $ Usage:
-    $   goigc [command]
-    $ 
-    $ Available Commands:
-    $   convert     Convert track between different formats
-    $   optimize    Optimize the track (for distance and score)
-    $   show        Show track details
-    $   version     Print version of goigc
-    $ 
-    $ Flags:
-    $       --config="": config file (default is $HOME/.goigc.yaml)
-    $   -h, --help[=false]: help for goigc
-    $ 
-    $ Use "goigc [command] --help" for more information about a command.
+## Community and Contributing
 
-    $ goigc stats sample-flight.igc
+## Roadmap
 
-    $ goigc optimize sample-flight.igc
-
-## Testing
-
-Tests rely on the golden test pattern. To update the test data under the trest
-directory run the tests with the `update` flag:
-```
-go test -update .
-```
-
-## Documentation
-
-    $ godoc github.com/rochaporto/goigc
