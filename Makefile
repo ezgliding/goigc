@@ -110,7 +110,7 @@ $(GOIMPORTS):
 .PHONY: build-cross
 build-cross: LDFLAGS += -extldflags "-static"
 build-cross: $(GOX)
-	GO111MODULE=on CGO_ENABLED=0 $(GOX) -parallel=3 -output="_dist/{{.OS}}-{{.Arch}}/$(BINNAME)" -osarch='$(TARGETS)' $(GOFLAGS) -tags '$(TAGS)' -ldflags '$(LDFLAGS)' ./cmd/goigc
+	GO111MODULE=on CGO_ENABLED=0 $(GOX) -parallel=3 -output="_dist/{{.OS}}-{{.Arch}}/$(BINNAME)_{{.OS}}_{{.Arch}}" -osarch='$(TARGETS)' $(GOFLAGS) -tags '$(TAGS)' -ldflags '$(LDFLAGS)' ./cmd/goigc
 
 .PHONY: dist
 dist:
@@ -128,8 +128,11 @@ checksum:
 		shasum -a 256 "$${f}"  | awk '{print $$1}' > "$${f}.sha256" ; \
 	done
 
-# ------------------------------------------------------------------------------
+.PHONY: changelog
+changelog:
+	@./scripts/changelog.sh
 
+# ------------------------------------------------------------------------------
 .PHONY: clean
 clean:
 	@rm -rf $(BINDIR) ./_dist

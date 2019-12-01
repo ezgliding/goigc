@@ -3,6 +3,7 @@
 .coverage/
 _dist/
 bin/
+CHANGELOG.md
 go.sum
 profile.cov
 vendor/
