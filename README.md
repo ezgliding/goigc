@@ -7,12 +7,12 @@
 
 goigc is a portable utility to parse and analyse gliding flights, supporting
 [igc](http://www.fai.org/component/phocadownload/category/?download=5745:igc-flight-recorder-specification-edition-2-with-al1-2011-5-31) as well as other popular
-gps formats such as gpx.
+gps formats.
 
 You can use goigc to:
 * Parse and get metadata for flights in multiple formats (igc, gpx, ...)
 * Convert flights between all formats
-* Run flight optimization following popular competition rules (OLC, netcoupe,
+* Run flight optimization following popular competition rules (olc, netcoupe,
   ...)
 
 ## Community and Contributing
