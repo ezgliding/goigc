@@ -15,7 +15,15 @@ You can use goigc to:
 * Run flight optimization following popular competition rules (olc, netcoupe,
   ...)
 
+## Install
+
+Binary downloads of the goigc client can be found in the
+[releases page](https://github.com/ezgliding/goigc/releases).
+
 ## Community and Contributing
 
 ## Roadmap
 
+The goigc roadmap uses [github
+milestones](https://github.com/ezgliding/goigc/milestones) to track the
+progress of the project.
