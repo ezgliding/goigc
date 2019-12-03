@@ -24,6 +24,7 @@ on:
     tags:
       - 'v*'
     paths-ignore:
+      - 'CONTRIBUTING.md'
       - 'README.md'
       - 'docs/**'
 jobs:
