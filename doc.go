@@ -10,8 +10,6 @@ package goigc
 
 // blank imports help docs.
 import (
-	// cmd/goigc package
-	_ "github.com/ezgliding/goigc/cmd/goigc"
 	// pkg/igc package
 	_ "github.com/ezgliding/goigc/pkg/igc"
 	// pkg/version package
