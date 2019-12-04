@@ -14,6 +14,7 @@
 // limitations under the License.
 //
 
+// Package version holds version metadata for goigc.
 package version
 
 // Values to be injected during build (ldflags).
