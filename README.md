@@ -3,6 +3,7 @@
 [![Build Status](https://github.com/ezgliding/goigc/workflows/goigc/badge.svg?event=push&branch=master)](https://github.com/ezgliding/goigc/actions?workflow=goigc)
 [![Coverage Status](https://coveralls.io/repos/github/ezgliding/goigc/badge.svg?branch=master)](https://coveralls.io/github/ezgliding/goigc?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ezgliding/goigc)](https://goreportcard.com/report/github.com/ezgliding/goigc)
+[![GoDoc](https://godoc.org/github.com/ezgliding/goigc?status.svg)](https://godoc.org/github.com/ezgliding/goigc)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 goigc is a portable utility to parse and analyse gliding flights, supporting
