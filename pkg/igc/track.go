@@ -17,6 +17,7 @@
 package igc
 
 import (
+	"archive/zip"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -216,7 +217,7 @@ func (track *Track) Encode(format string) ([]byte, error) {
 	case "json":
 		return json.MarshalIndent(track, "", "  ")
 	case "kml", "kmz":
-		return encodeKML(track)
+		return encodeKML(track, format)
 	case "yaml":
 		return yaml.Marshal(track)
 	default:
@@ -224,7 +225,7 @@ func (track *Track) Encode(format string) ([]byte, error) {
 	}
 }
 
-func encodeKML(track *Track) ([]byte, error) {
+func encodeKML(track *Track, format string) ([]byte, error) {
 
 	coords := make([]kml.Coordinate, len(track.Points))
 	for i, p := range track.Points {
@@ -258,12 +259,31 @@ func encodeKML(track *Track) ([]byte, error) {
 			),
 		),
 	)
-	bytes := new(bytes.Buffer)
-	if err := k.WriteIndent(bytes, "", "  "); err != nil {
-		return bytes.Bytes(), err
+	buf := new(bytes.Buffer)
+	if err := k.WriteIndent(buf, "", "  "); err != nil {
+		return buf.Bytes(), err
 	}
 
-	return bytes.Bytes(), nil
+	if format == "kmz" {
+		zipbuf := new(bytes.Buffer)
+
+		w := zip.NewWriter(zipbuf)
+		f, err := w.Create("flight.kml")
+		if err != nil {
+			return []byte{}, err
+		}
+		_, err = f.Write(buf.Bytes())
+		if err != nil {
+			return []byte{}, err
+		}
+		err = w.Close()
+		if err != nil {
+			return []byte{}, err
+		}
+
+		return zipbuf.Bytes(), nil
+	}
+	return buf.Bytes(), nil
 }
 
 func polylineFromPoints(points []Point) *s2.Polyline {
