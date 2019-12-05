@@ -17,10 +17,16 @@
 package igc
 
 import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"image/color"
 	"time"
 
 	"github.com/golang/geo/s1"
 	"github.com/golang/geo/s2"
+	kml "github.com/twpayne/go-kml"
+	"gopkg.in/yaml.v3"
 )
 
 // MaxSpeed is the maximum theoretical speed for a glider.
@@ -203,6 +209,61 @@ func (track *Track) Simplify(tolerance float64) (Track, error) {
 	simplified := *track
 	simplified.Points = points
 	return simplified, nil
+}
+
+func (track *Track) Encode(format string) ([]byte, error) {
+	switch format {
+	case "json":
+		return json.MarshalIndent(track, "", "  ")
+	case "kml", "kmz":
+		return encodeKML(track)
+	case "yaml":
+		return yaml.Marshal(track)
+	default:
+		return []byte{}, fmt.Errorf("unsupported format '%v'", format)
+	}
+}
+
+func encodeKML(track *Track) ([]byte, error) {
+
+	coords := make([]kml.Coordinate, len(track.Points))
+	for i, p := range track.Points {
+		coords[i].Lat = p.Lat.Degrees()
+		coords[i].Lon = p.Lng.Degrees()
+		coords[i].Alt = float64(p.GNSSAltitude)
+	}
+
+	metadata := fmt.Sprintf("%v : %v : %v", track.Date, track.Pilot, track.GliderType)
+
+	k := kml.KML(
+		kml.Document(
+			kml.Name(metadata),
+			kml.Description(""),
+			kml.SharedStyle(
+				"yellowLineGreenPoly",
+				kml.LineStyle(
+					kml.Color(color.RGBA{R: 255, G: 255, B: 0, A: 127}),
+					kml.Width(4),
+				),
+			),
+			kml.Placemark(
+				kml.Name(metadata),
+				kml.StyleURL("#yellowLineGreenPoly"),
+				kml.LineString(
+					kml.Extrude(false),
+					kml.Tessellate(false),
+					kml.AltitudeMode("absolute"),
+					kml.Coordinates(coords...),
+				),
+			),
+		),
+	)
+	bytes := new(bytes.Buffer)
+	if err := k.WriteIndent(bytes, "", "  "); err != nil {
+		return bytes.Bytes(), err
+	}
+
+	return bytes.Bytes(), nil
 }
 
 func polylineFromPoints(points []Point) *s2.Polyline {
