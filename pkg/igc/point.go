@@ -17,9 +17,11 @@
 package igc
 
 import (
+	"math"
 	"strconv"
 	"time"
 
+	"github.com/golang/geo/s1"
 	"github.com/golang/geo/s2"
 )
 
@@ -44,6 +46,9 @@ type Point struct {
 	IData            map[string]string
 	NumSatellites    int
 	Description      string
+	bearing          s1.Angle
+	distance         float64
+	speed            float64
 }
 
 // NewPoint returns a new Point set to latitude and longitude 0.
@@ -144,12 +149,34 @@ func DecimalFromDMD(dmd string) float64 {
 // Distance returns the great circle distance in kms to the given point.
 //
 // Internally it uses the golang-geo s2 LatLng.Distance() method, but converts
-// its result (an angle) to kms considering the constance EarthRadius.
+// its result (an angle) to kms considering the constant EarthRadius.
 func (p *Point) Distance(b Point) float64 {
 	return float64(p.LatLng.Distance(b.LatLng) * EarthRadius)
 }
 
 // Speed returns the distance/time to the given point in km/h.
 func (p *Point) Speed(b Point) float64 {
-	return p.Distance(b) / b.Time.Sub(p.Time).Hours()
+	h := b.Time.Sub(p.Time).Hours()
+	if h == 0 {
+		return 0
+	}
+	return p.Distance(b) / h
+}
+
+// Bearing returns the bearing to the given point in degrees.
+func (p *Point) Bearing(b Point) s1.Angle {
+
+	lat1 := p.Lat.Radians()
+	lng1 := p.Lng.Radians()
+	lat2 := b.Lat.Radians()
+	lng2 := b.Lng.Radians()
+
+	// https://www.movable-type.co.uk/scripts/latlong.html
+	// ATAN2(COS(lat1)*SIN(lat2)-SIN(lat1)*COS(lat2)*COS(lon2-lon1),
+	//   SIN(lon2-lon1)*COS(lat2))
+	bearing := math.Atan2(
+		math.Sin(lng2-lng1)*math.Cos(lat2),
+		math.Cos(lat1)*math.Sin(lat2)-math.Sin(lat1)*math.Cos(lat2)*math.Cos(lng2-lng1))
+
+	return s1.Angle(bearing)
 }
