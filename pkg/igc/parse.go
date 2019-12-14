@@ -166,6 +166,7 @@ func (p *parser) parseB(line string, f *Track) error {
 	if err != nil {
 		return err
 	}
+	pt.Time = pt.Time.AddDate(f.Date.Year(), int(f.Date.Month()), f.Date.Day())
 	if line[24] == 'A' || line[24] == 'V' {
 		pt.FixValidity = line[24]
 	} else {
@@ -301,7 +302,11 @@ func (p *parser) parseH(line string, f *Track) error {
 		if len(line) < 11 {
 			return fmt.Errorf("line too short :: %v", line)
 		}
-		f.Date, err = time.Parse(DateFormat, line[5:11])
+		if len(line) > 12 {
+			f.Date, err = time.Parse(DateFormat, line[10:16])
+		} else {
+			f.Date, err = time.Parse(DateFormat, line[5:11])
+		}
 	case "FXA":
 		if len(line) < 8 {
 			return fmt.Errorf("line too short :: %v", line)

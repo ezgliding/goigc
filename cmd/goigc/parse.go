@@ -16,24 +16,18 @@
 package main
 
 import (
-	"fmt"
+	"io/ioutil"
 
 	"github.com/spf13/cobra"
 
 	"github.com/ezgliding/goigc/pkg/igc"
 )
 
-var (
-	format       string
-	outputFormat string
-	outputFile   string
-)
-
 func init() {
 	// TODO(rochaporto): not yet supported, only igc
-	parseCmd.Flags().StringVar(&format, "format", "", "input file format - auto detection by default")
-	parseCmd.Flags().StringVar(&outputFormat, "output-format", "yaml", "output format for display")
-	parseCmd.Flags().StringVar(&outputFile, "output-file", "", "output file to write to")
+	parseCmd.Flags().String("format", "", "input file format - auto detection by default")
+	parseCmd.Flags().String("output-format", "yaml", "output format for display")
+	parseCmd.Flags().String("output-file", "/dev/stdout", "output file to write to")
 	rootCmd.AddCommand(parseCmd)
 }
 
@@ -43,15 +37,28 @@ var parseCmd = &cobra.Command{
 	Long:  "",
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
+		outputFile, err := cmd.Flags().GetString("output-file")
+		if err != nil {
+			return err
+		}
+		outputFormat, err := cmd.Flags().GetString("output-format")
+		if err != nil {
+			return err
+		}
+
 		trk, err := igc.ParseLocation(args[0])
 		if err != nil {
 			return err
 		}
-		output, err := trk.Encode(outputFormat)
+		result, err := trk.Encode(outputFormat)
 		if err != nil {
 			return err
 		}
-		fmt.Printf("%v\n", string(output))
+		err = ioutil.WriteFile(outputFile, result, 0644)
+		if err != nil {
+			return err
+		}
+
 		return nil
 	},
 }

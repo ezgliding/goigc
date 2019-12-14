@@ -21,7 +21,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"image/color"
 	"time"
 
 	"github.com/golang/geo/s1"
@@ -46,6 +45,7 @@ type Track struct {
 	Task          Task
 	DGPSStationID string
 	Signature     string
+	phases        []Phase
 }
 
 // NewTrack returns a new instance of Track, with fields initialized to zero.
@@ -227,38 +227,13 @@ func (track *Track) Encode(format string) ([]byte, error) {
 
 func encodeKML(track *Track, format string) ([]byte, error) {
 
-	coords := make([]kml.Coordinate, len(track.Points))
-	for i, p := range track.Points {
-		coords[i].Lat = p.Lat.Degrees()
-		coords[i].Lon = p.Lng.Degrees()
-		coords[i].Alt = float64(p.GNSSAltitude)
-	}
-
 	metadata := fmt.Sprintf("%v : %v : %v", track.Date, track.Pilot, track.GliderType)
 
-	k := kml.KML(
-		kml.Document(
-			kml.Name(metadata),
-			kml.Description(""),
-			kml.SharedStyle(
-				"yellowLineGreenPoly",
-				kml.LineStyle(
-					kml.Color(color.RGBA{R: 255, G: 255, B: 0, A: 127}),
-					kml.Width(4),
-				),
-			),
-			kml.Placemark(
-				kml.Name(metadata),
-				kml.StyleURL("#yellowLineGreenPoly"),
-				kml.LineString(
-					kml.Extrude(false),
-					kml.Tessellate(false),
-					kml.AltitudeMode("absolute"),
-					kml.Coordinates(coords...),
-				),
-			),
-		),
+	k := kml.Document(
+		kml.Name(metadata),
+		kml.Description(""),
 	)
+
 	buf := new(bytes.Buffer)
 	if err := k.WriteIndent(buf, "", "  "); err != nil {
 		return buf.Bytes(), err
