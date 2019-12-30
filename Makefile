@@ -88,6 +88,14 @@ test-unit:
 	@echo "==> Running unit tests <=="
 	GO111MODULE=on go test $(GOFLAGS) -run $(TESTS) $(PKG) $(TESTFLAGS)
 
+.PHONY: test-golden
+test-golden:
+	@echo
+	@echo "==> Running unit tests with golden flag <=="
+	# TODO(rochaporto): drop this mv once issue below is solved in corba
+	# https://github.com/golang/go/issues/31859
+	GO111MODULE=on mv cmd /tmp; go test $(GOFLAGS) -run $(TESTS) $(PKG) $(TESTFLAGS) -update || true; mv /tmp/cmd .
+
 .PHONY: test-coverage
 test-coverage:
 	@echo
