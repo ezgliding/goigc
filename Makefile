@@ -22,6 +22,7 @@ TARGETS    := darwin/amd64 linux/amd64 linux/386 linux/arm linux/arm64 linux/ppc
 BINNAME    ?= goigc
 
 GOPATH        = $(shell go env GOPATH)
+GOROOT        ?= /usr/share/go
 GOX           = $(GOPATH)/bin/gox
 GOIMPORTS     = $(GOPATH)/bin/goimports
 
@@ -172,6 +173,12 @@ docker: build-cross
 docker-push: docker 
 	sudo docker push ezgliding/goigc:${DOCKER_TAG}
 	sudo docker push ezgliding/goigc:${DOCKER_TAG}-alpine
+
+# ------------------------------------------------------------------------------
+.PHONY: doc
+doc:
+	godoc -http=:6060 -goroot $(GOROOT) 2>&1 &
+	browse http://localhost:6060
 
 # ------------------------------------------------------------------------------
 .PHONY: clean
