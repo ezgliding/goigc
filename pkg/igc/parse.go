@@ -170,7 +170,7 @@ func (p *parser) parseB(line string, f *Track) error {
 	if line[24] == 'A' || line[24] == 'V' {
 		pt.FixValidity = line[24]
 	} else {
-		return fmt.Errorf("invalid fix validity :: %v", line[24])
+		return fmt.Errorf("invalid fix validity :: %v", line)
 	}
 	pt.PressureAltitude, err = strconv.ParseInt(line[25:30], 10, 64)
 	if err != nil {
