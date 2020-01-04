@@ -21,7 +21,7 @@
     {
       "Lat": 0.89219078789206,
       "Lng": -0.03179408120716337,
-      "Time": "0000-01-01T16:02:45Z",
+      "Time": "0001-02-02T16:02:45Z",
       "FixValidity": 65,
       "PressureAltitude": 288,
       "GNSSAltitude": 429,
@@ -36,7 +36,7 @@
     {
       "Lat": 0.8922158042780052,
       "Lng": -0.03175742929287149,
-      "Time": "0000-01-01T16:03:10Z",
+      "Time": "0001-02-02T16:03:10Z",
       "FixValidity": 86,
       "PressureAltitude": 293,
       "GNSSAltitude": 435,

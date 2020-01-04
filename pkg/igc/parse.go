@@ -145,12 +145,14 @@ type parser struct {
 }
 
 func (p *parser) parseA(line string, f *Track) error {
-	if len(line) < 7 {
+	if len(line) < 4 {
 		return fmt.Errorf("line too short :: %v", line)
 	}
 	f.Manufacturer = line[1:4]
-	f.UniqueID = line[4:7]
-	f.AdditionalData = line[7:]
+	if len(line) >= 7 {
+		f.UniqueID = line[4:7]
+		f.AdditionalData = line[7:]
+	}
 	return nil
 }
 
