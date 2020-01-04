@@ -54,9 +54,6 @@ func TestPhases(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			for _, ph := range phases {
-				fmt.Printf("%v %v %v\n", ph.Type, ph.Start.Time, ph.End.Time)
-			}
 
 			// update golden if flag is passed
 			if *update {

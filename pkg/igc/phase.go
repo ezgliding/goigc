@@ -236,7 +236,6 @@ func (track *Track) encodePhasesKML() (*kml.CompoundElement, error) {
 
 	for i := 0; i < len(phases)-2; i++ {
 		phase := phases[i]
-		//fmt.Printf("%v\t%v\n", ph.Start, ph.End)
 		coords := make([]kml.Coordinate, phase.EndIndex-phase.StartIndex+1)
 		for i := phase.StartIndex; i <= phase.EndIndex; i++ {
 			p := track.Points[i]
