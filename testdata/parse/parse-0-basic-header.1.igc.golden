@@ -14,6 +14,7 @@
   "FlightRecorder": "EZ RECORDER,001",
   "GPS": "EZ GPS,002,12,5000",
   "PressureSensor": "EZ PRESSURE",
+  "AltimeterPressure": 1013.69,
   "CompetitionID": "EZ COMPID",
   "CompetitionClass": "EZ COMPCLASS",
   "Timezone": 2,

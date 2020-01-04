@@ -58,24 +58,25 @@ func NewTrack() Track {
 //
 // This is the H record in the IGC specification, section A3.2.
 type Header struct {
-	Manufacturer     string
-	UniqueID         string
-	AdditionalData   string
-	Date             time.Time
-	FixAccuracy      int64
-	Pilot            string
-	Crew             string
-	GliderType       string
-	GliderID         string
-	GPSDatum         string
-	FirmwareVersion  string
-	HardwareVersion  string
-	FlightRecorder   string
-	GPS              string
-	PressureSensor   string
-	CompetitionID    string
-	CompetitionClass string
-	Timezone         int
+	Manufacturer      string
+	UniqueID          string
+	AdditionalData    string
+	Date              time.Time
+	FixAccuracy       int64
+	Pilot             string
+	Crew              string
+	GliderType        string
+	GliderID          string
+	GPSDatum          string
+	FirmwareVersion   string
+	HardwareVersion   string
+	FlightRecorder    string
+	GPS               string
+	PressureSensor    string
+	AltimeterPressure float64
+	CompetitionID     string
+	CompetitionClass  string
+	Timezone          int
 }
 
 // K holds flight data needed less often than Points.

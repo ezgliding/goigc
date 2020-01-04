@@ -347,6 +347,12 @@ func (p *parser) parseH(line string, f *Track) error {
 			return err
 		}
 		f.Timezone = int(z)
+	case "ATS":
+		ats, err := strconv.ParseFloat(stripUpTo(line[5:], ":"), 64)
+		if err != nil {
+			return err
+		}
+		f.AltimeterPressure = ats / 100
 	default:
 		err = fmt.Errorf("unknown record :: %v", line)
 	}
