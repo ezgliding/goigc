@@ -90,6 +90,11 @@ func (track *Track) Phases() ([]Phase, error) {
 		return track.phases, nil
 	}
 
+	if len(track.Points) < 2 {
+		return []Phase{}, fmt.Errorf("track has %v points, min 2 required",
+			len(track.Points))
+	}
+
 	var currPhase PhaseType
 	var startIndex int
 	var currPoint Point

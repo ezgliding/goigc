@@ -79,6 +79,20 @@ func TestPhases(t *testing.T) {
 	}
 }
 
+func TestPhasesZeroOnePoints(t *testing.T) {
+	trk := NewTrack()
+	_, err := trk.Phases()
+	if err == nil {
+		t.Fatal("should get an error for track with 0 points")
+	}
+
+	trk.Points = []Point{Point{}}
+	_, err = trk.Phases()
+	if err == nil {
+		t.Fatal("should get an error for track with 1 point")
+	}
+}
+
 func TestEncodePhasesKML(t *testing.T) {
 	for _, test := range phaseTests {
 		t.Run(fmt.Sprintf("%v\n", test.name), func(t *testing.T) {
