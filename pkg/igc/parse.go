@@ -342,7 +342,8 @@ func (p *parser) parseH(line string, f *Track) error {
 	case "CCL":
 		f.CompetitionClass = stripUpTo(line[5:], ":")
 	case "TZN":
-		z, err := strconv.ParseFloat(stripUpTo(line[5:], ":"), 64)
+		z, err := strconv.ParseFloat(
+			strings.TrimLeft(stripUpTo(line[5:], ":"), " "), 64)
 		if err != nil {
 			return err
 		}
