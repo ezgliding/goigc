@@ -167,12 +167,13 @@ func (track *Track) wrapPhase(index int, phaseType PhaseType) {
 	// compute phase stats
 	altGain := float64(p.End.GNSSAltitude - p.Start.GNSSAltitude)
 	p.Distance = p.End.distance - p.Start.distance
-	if p.Duration().Seconds() != 0 {
-		p.AvgVario = altGain / p.Duration().Seconds()
+	duration := p.Duration().Seconds()
+	if duration != 0 {
+		p.AvgVario = altGain / duration
+		p.AvgGndSpeed = p.Distance / (duration / 3600)
 	}
-	p.AvgGndSpeed = p.Distance / (p.Duration().Seconds() / 3600)
 
-	if p.Type == Cruising {
+	if p.Type == Cruising && altGain != 0 {
 		p.LD = p.Distance * 1000.0 / math.Abs(altGain)
 	}
 	pts := make([]s2.LatLng, p.EndIndex-p.StartIndex)
