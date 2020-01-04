@@ -55,9 +55,10 @@ var phasesCmd = &cobra.Command{
 		}
 		records := make([][]string, len(phases)+1)
 		records[0] = []string{
-			"Flight", "Type", "CirclingType", "StartAlt", "StartIndex", "EndAlt",
-			"EndIndex", "AvgVario", "TopVario", "AvgGndSpeed", "TopGndSpeed",
-			"Distance", "LD", "CentroidLat", "CentroidLng", "CellID"}
+			"Flight", "Type", "CirclingType", "StartTime", "StartAlt",
+			"StartIndex", "EndTime", "EndAlt", "EndIndex", "Duration",
+			"AvgVario", "TopVario", "AvgGndSpeed", "TopGndSpeed", "Distance",
+			"LD", "CentroidLat", "CentroidLng", "CellID"}
 		var p igc.Phase
 		for i := 0; i < len(phases); i++ {
 			p = phases[i]
@@ -65,10 +66,13 @@ var phasesCmd = &cobra.Command{
 				"",
 				fmt.Sprintf("%d", p.Type),
 				fmt.Sprintf("%d", p.CirclingType),
+				fmt.Sprintf("%v", p.Start.Time.Format("15:04:05")),
 				fmt.Sprintf("%d", p.Start.GNSSAltitude),
 				fmt.Sprintf("%d", p.StartIndex),
+				fmt.Sprintf("%v", p.End.Time.Format("15:04:05")),
 				fmt.Sprintf("%d", p.End.GNSSAltitude),
 				fmt.Sprintf("%d", p.EndIndex),
+				fmt.Sprintf("%f", p.Duration().Seconds()),
 				fmt.Sprintf("%f", p.AvgVario), fmt.Sprintf("%f", p.TopVario),
 				fmt.Sprintf("%f", p.AvgGndSpeed),
 				fmt.Sprintf("%f", p.TopGndSpeed),
