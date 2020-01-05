@@ -166,7 +166,9 @@ func (p *parser) parseB(line string, f *Track) error {
 	var err error
 	pt.Time, err = time.Parse(TimeFormat, line[1:7])
 	if err != nil {
-		return err
+		if !strings.Contains(err.Error(), "out of range") {
+			return err
+		}
 	}
 	pt.Time = pt.Time.AddDate(f.Date.Year(), int(f.Date.Month()), f.Date.Day())
 	if line[24] == 'A' || line[24] == 'V' {
