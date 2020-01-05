@@ -62,6 +62,7 @@ type Header struct {
 	UniqueID          string
 	AdditionalData    string
 	Date              time.Time
+	Site              string
 	FixAccuracy       int64
 	Pilot             string
 	PilotBirth        time.Time

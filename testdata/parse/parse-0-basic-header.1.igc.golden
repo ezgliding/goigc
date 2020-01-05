@@ -3,6 +3,7 @@
   "UniqueID": "001",
   "AdditionalData": "Some Additional Data",
   "Date": "2003-02-01T00:00:00Z",
+  "Site": "EZ SITE",
   "FixAccuracy": 500,
   "Pilot": "EZ PILOT",
   "PilotBirth": "1958-12-11T00:00:00Z",
