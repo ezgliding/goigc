@@ -310,10 +310,10 @@ func (p *parser) parseH(line string, f *Track) error {
 			f.Date, err = time.Parse(DateFormat, line[5:11])
 		}
 	case "FXA":
-		if len(line) < 8 {
+		if len(line) < 6 {
 			return fmt.Errorf("line too short :: %v", line)
 		}
-		f.FixAccuracy, err = strconv.ParseInt(line[5:8], 10, 64)
+		f.FixAccuracy, err = strconv.ParseInt(line[5:], 10, 64)
 	case "PLT":
 		f.Pilot = stripUpTo(line[5:], ":")
 	case "CM2":
