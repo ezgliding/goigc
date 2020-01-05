@@ -354,6 +354,11 @@ func (p *parser) parseH(line string, f *Track) error {
 			return err
 		}
 		f.AltimeterPressure = ats / 100
+	case "DB1":
+		f.PilotBirth, err = time.Parse(DateFormat, stripUpTo(line[5:], ":"))
+		if f.PilotBirth.After(time.Now()) {
+			f.PilotBirth = f.PilotBirth.AddDate(-100, 0, 0)
+		}
 	default:
 		err = fmt.Errorf("unknown record :: %v", line)
 	}

@@ -64,6 +64,7 @@ type Header struct {
 	Date              time.Time
 	FixAccuracy       int64
 	Pilot             string
+	PilotBirth        time.Time
 	Crew              string
 	GliderType        string
 	GliderID          string
