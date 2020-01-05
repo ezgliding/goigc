@@ -69,6 +69,7 @@ type Header struct {
 	Crew              string
 	GliderType        string
 	GliderID          string
+	Observation       string
 	GPSDatum          string
 	FirmwareVersion   string
 	HardwareVersion   string

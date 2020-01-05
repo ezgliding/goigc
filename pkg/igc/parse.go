@@ -363,6 +363,8 @@ func (p *parser) parseH(line string, f *Track) error {
 		f.MOPSensor = stripUpTo(line[5:], ":")
 	case "SIT":
 		f.Site = stripUpTo(line[5:], ":")
+	case "OOI":
+		f.Observation = stripUpTo(line[5:], ":")
 	default:
 		err = fmt.Errorf("unknown record :: %v", line)
 	}
