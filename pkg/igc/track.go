@@ -41,7 +41,7 @@ type Track struct {
 	K             []K
 	Events        []Event
 	Satellites    []Satellite
-	Logbook       []LogEntry
+	Logbook       []string
 	Task          Task
 	DGPSStationID string
 	Signature     string
@@ -142,14 +142,6 @@ func (task *Task) Distance() float64 {
 		d += p[i].Distance(p[i+1])
 	}
 	return d
-}
-
-// LogEntry holds a logbook/comment entry, in free format.
-//
-// This is the L record in the IGC specification, section A4.5.
-type LogEntry struct {
-	Type string
-	Text string
 }
 
 // Manufacturer holds manufacturer name, short ID and char identifier.

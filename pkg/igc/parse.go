@@ -429,10 +429,7 @@ func (p *parser) parseK(line string, f *Track) error {
 }
 
 func (p *parser) parseL(line string, f *Track) error {
-	if len(line) < 4 {
-		return fmt.Errorf("line too short :: %v", line)
-	}
-	f.Logbook = append(f.Logbook, LogEntry{Type: line[1:4], Text: line[4:]})
+	f.Logbook = append(f.Logbook, line[1:])
 	return nil
 }
 

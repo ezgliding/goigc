@@ -82,10 +82,7 @@
     }
   ],
   "Logbook": [
-    {
-      "Type": "PLT",
-      "Text": "LOG TEXT"
-    }
+    "PLTLOG TEXT"
   ],
   "Task": {
     "DeclarationDate": "2001-07-15T21:38:41Z",
