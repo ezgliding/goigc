@@ -19,6 +19,7 @@
   "CompetitionID": "",
   "CompetitionClass": "",
   "Timezone": 0,
+  "MOPSensor": "",
   "Points": null,
   "K": null,
   "Events": null,

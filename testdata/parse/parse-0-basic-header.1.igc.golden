@@ -19,6 +19,7 @@
   "CompetitionID": "EZ COMPID",
   "CompetitionClass": "EZ COMPCLASS",
   "Timezone": 2,
+  "MOPSensor": "EZ MOPSENSOR",
   "Points": null,
   "K": null,
   "Events": null,

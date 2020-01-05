@@ -359,6 +359,8 @@ func (p *parser) parseH(line string, f *Track) error {
 		if f.PilotBirth.After(time.Now()) {
 			f.PilotBirth = f.PilotBirth.AddDate(-100, 0, 0)
 		}
+	case "MOP":
+		f.MOPSensor = stripUpTo(line[5:], ":")
 	default:
 		err = fmt.Errorf("unknown record :: %v", line)
 	}

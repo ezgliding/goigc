@@ -78,6 +78,7 @@ type Header struct {
 	CompetitionID     string
 	CompetitionClass  string
 	Timezone          int
+	MOPSensor         string
 }
 
 // K holds flight data needed less often than Points.
