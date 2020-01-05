@@ -73,8 +73,12 @@ type Header struct {
 	GPSDatum          string
 	FirmwareVersion   string
 	HardwareVersion   string
+	SoftwareVersion   string // for non-igc flight recorders
+	Specification     string
 	FlightRecorder    string
 	GPS               string
+	GNSSModel         string
+	PressureModel     string
 	PressureSensor    string
 	AltimeterPressure float64
 	CompetitionID     string

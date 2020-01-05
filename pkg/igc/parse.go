@@ -365,6 +365,14 @@ func (p *parser) parseH(line string, f *Track) error {
 		f.Site = stripUpTo(line[5:], ":")
 	case "OOI":
 		f.Observation = stripUpTo(line[5:], ":")
+	case "SOF":
+		f.SoftwareVersion = stripUpTo(line[5:], ":")
+	case "FSP":
+		f.Specification = stripUpTo(line[5:], ":")
+	case "ALG":
+		f.GNSSModel = stripUpTo(line[5:], ":")
+	case "ALP":
+		f.PressureModel = stripUpTo(line[5:], ":")
 	default:
 		err = fmt.Errorf("unknown record :: %v", line)
 	}
