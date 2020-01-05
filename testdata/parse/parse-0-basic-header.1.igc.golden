@@ -10,7 +10,7 @@
   "Crew": "EZ CREW",
   "GliderType": "EZ TYPE",
   "GliderID": "EZ ID",
-  "Observation": "",
+  "Observation": "EZ OOID",
   "GPSDatum": "WGS84",
   "FirmwareVersion": "v 0.1",
   "HardwareVersion": "v 0.2",
