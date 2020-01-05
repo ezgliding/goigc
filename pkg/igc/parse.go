@@ -341,7 +341,7 @@ func (p *parser) parseH(line string, f *Track) error {
 		f.CompetitionID = stripUpTo(line[5:], ":")
 	case "CCL":
 		f.CompetitionClass = stripUpTo(line[5:], ":")
-	case "TZN":
+	case "TZN", "TZO":
 		z, err := strconv.ParseFloat(
 			strings.TrimLeft(stripUpTo(line[5:], ":"), " "), 64)
 		if err != nil {
