@@ -318,7 +318,7 @@ func (p *parser) parseH(line string, f *Track) error {
 		f.Pilot = stripUpTo(line[5:], ":")
 	case "CM2":
 		f.Crew = stripUpTo(line[5:], ":")
-	case "GTY":
+	case "GTY", "GYT":
 		f.GliderType = stripUpTo(line[5:], ":")
 	case "GID":
 		f.GliderID = stripUpTo(line[5:], ":")
@@ -373,6 +373,8 @@ func (p *parser) parseH(line string, f *Track) error {
 		f.GNSSModel = stripUpTo(line[5:], ":")
 	case "ALP":
 		f.PressureModel = stripUpTo(line[5:], ":")
+	case "UNT":
+		// seen once, not sure what it's supposed to mean
 	default:
 		err = fmt.Errorf("unknown record :: %v", line)
 	}
