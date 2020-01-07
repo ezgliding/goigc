@@ -19,6 +19,7 @@ package igc
 import (
 	"archive/zip"
 	"bytes"
+	"encoding/csv"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -221,18 +222,49 @@ func (track *Track) Encode(format string) ([]byte, error) {
 		return encodeKML(track, format)
 	case "yaml":
 		return yaml.Marshal(track)
+	case "csv":
+		return track.encodeCSV()
 	default:
 		return []byte{}, fmt.Errorf("unsupported format '%v'", format)
 	}
+}
+
+func (track *Track) encodeCSV() ([]byte, error) {
+
+	values := []string{
+		track.Manufacturer, track.UniqueID, track.AdditionalData,
+		track.Date.Format("020106"), track.Site, fmt.Sprintf("%d", track.FixAccuracy), track.Pilot,
+		track.PilotBirth.Format("020106"), track.Crew, track.GliderType, track.GliderID,
+		track.Observation, track.GPSDatum, track.FirmwareVersion,
+		track.HardwareVersion, track.SoftwareVersion, track.Specification,
+		track.FlightRecorder, track.GPS, track.GNSSModel, track.PressureModel,
+		track.PressureSensor, fmt.Sprintf("%f", track.AltimeterPressure),
+		track.CompetitionID, track.CompetitionClass, fmt.Sprintf("%d", track.Timezone),
+		track.MOPSensor}
+
+	buff := new(bytes.Buffer)
+	w := csv.NewWriter(buff)
+	err := w.Write(values)
+	w.Flush()
+	if err != nil {
+		return buff.Bytes(), err
+	}
+	return buff.Bytes(), nil
 }
 
 func encodeKML(track *Track, format string) ([]byte, error) {
 
 	metadata := fmt.Sprintf("%v : %v : %v", track.Date, track.Pilot, track.GliderType)
 
+	phasesKML, err := track.encodePhasesKML()
+	if err != nil {
+		return []byte{}, err
+	}
+
 	k := kml.Document(
 		kml.Name(metadata),
 		kml.Description(""),
+		phasesKML,
 	)
 
 	buf := new(bytes.Buffer)

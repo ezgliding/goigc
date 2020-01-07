@@ -16,6 +16,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 
 	"github.com/spf13/cobra"
@@ -54,9 +55,13 @@ var parseCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		err = ioutil.WriteFile(outputFile, result, 0644)
-		if err != nil {
-			return err
+		if outputFile == "/dev/stdout" {
+			fmt.Printf("%v", string(result))
+		} else {
+			err = ioutil.WriteFile(outputFile, result, 0644)
+			if err != nil {
+				return err
+			}
 		}
 
 		return nil
