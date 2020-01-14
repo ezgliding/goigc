@@ -26,6 +26,7 @@
   "CompetitionClass": "EZ COMPCLASS",
   "Timezone": 2,
   "MOPSensor": "EZ MOPSENSOR",
+  "ID": "",
   "Points": null,
   "K": null,
   "Events": null,

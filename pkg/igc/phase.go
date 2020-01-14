@@ -16,6 +16,9 @@
 package igc
 
 import (
+	"bytes"
+	"encoding/csv"
+	"encoding/json"
 	"fmt"
 	"image/color"
 	"math"
@@ -23,6 +26,7 @@ import (
 
 	"github.com/golang/geo/s2"
 	kml "github.com/twpayne/go-kml"
+	"gopkg.in/yaml.v3"
 )
 
 // PhaseType represents a flight phase.
@@ -200,6 +204,80 @@ func (track *Track) isTurning(i int) (bool, float64) {
 // Duration returns the duration of this flight phase.
 func (p *Phase) Duration() time.Duration {
 	return p.End.Time.Sub(p.Start.Time)
+}
+
+func (track *Track) EncodePhases(format string) ([]byte, error) {
+
+	phases, err := track.Phases()
+	if err != nil {
+		return []byte{}, err
+	}
+
+	switch format {
+	case "json":
+		return json.MarshalIndent(phases, "", "  ")
+	case "kml", "kmz":
+		buf := new(bytes.Buffer)
+		k, err := track.encodePhasesKML()
+		if err != nil {
+			return buf.Bytes(), err
+		}
+		if err := k.WriteIndent(buf, "", "  "); err != nil {
+			return buf.Bytes(), err
+		}
+		return buf.Bytes(), nil
+	case "yaml":
+		return yaml.Marshal(phases)
+	case "csv":
+		return track.encodePhasesCSV()
+	default:
+		return []byte{}, fmt.Errorf("unsupported format '%v'", format)
+	}
+}
+
+func (track *Track) encodePhasesCSV() ([]byte, error) {
+
+	phases, err := track.Phases()
+	if err != nil {
+		return []byte{}, err
+	}
+	records := make([][]string, len(phases))
+	/**records[0] = []string{
+	"TrackID", "Type", "CirclingType", "StartTime", "StartAlt",
+	"StartIndex", "EndTime", "EndAlt", "EndIndex", "Duration",
+	"AvgVario", "TopVario", "AvgGndSpeed", "TopGndSpeed", "Distance",
+	"LD", "CentroidLat", "CentroidLng", "CellID"}*/
+	var p Phase
+	for i := 0; i < len(phases); i++ {
+		p = phases[i]
+		records[i] = []string{
+			fmt.Sprintf("%d", track.Date.Year()),
+			track.ID,
+			fmt.Sprintf("%d", p.Type),
+			fmt.Sprintf("%d", p.CirclingType),
+			fmt.Sprintf("%v", p.Start.Time.Format("15:04:05")),
+			fmt.Sprintf("%d", p.Start.GNSSAltitude),
+			fmt.Sprintf("%d", p.StartIndex),
+			fmt.Sprintf("%v", p.End.Time.Format("15:04:05")),
+			fmt.Sprintf("%d", p.End.GNSSAltitude),
+			fmt.Sprintf("%d", p.EndIndex),
+			fmt.Sprintf("%f", p.Duration().Seconds()),
+			fmt.Sprintf("%f", p.AvgVario), fmt.Sprintf("%f", p.TopVario),
+			fmt.Sprintf("%f", p.AvgGndSpeed),
+			fmt.Sprintf("%f", p.TopGndSpeed),
+			fmt.Sprintf("%f", p.Distance), fmt.Sprintf("%f", p.LD),
+			fmt.Sprintf("%f", p.Centroid.Lat.Degrees()),
+			fmt.Sprintf("%f", p.Centroid.Lng.Degrees()),
+			fmt.Sprintf("%d", p.CellID)}
+	}
+
+	buf := new(bytes.Buffer)
+	w := csv.NewWriter(buf)
+	err = w.WriteAll(records)
+	if err != nil {
+		return buf.Bytes(), err
+	}
+	return buf.Bytes(), nil
 }
 
 func (track *Track) encodePhasesKML() (*kml.CompoundElement, error) {

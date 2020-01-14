@@ -18,6 +18,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"strings"
 
 	"github.com/spf13/cobra"
 
@@ -51,6 +52,7 @@ var parseCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
+		trk.ID = strings.Split(strings.Split(args[0], "/")[7], ".")[0]
 		result, err := trk.Encode(outputFormat)
 		if err != nil {
 			return err

@@ -38,6 +38,7 @@ const MaxSpeed float64 = 500.0
 // Track holds all IGC flight data (header and GPS points).
 type Track struct {
 	Header
+	ID            string
 	Points        []Point
 	K             []K
 	Events        []Event
@@ -232,6 +233,7 @@ func (track *Track) Encode(format string) ([]byte, error) {
 func (track *Track) encodeCSV() ([]byte, error) {
 
 	values := []string{
+		fmt.Sprintf("%d", track.Date.Year()), track.ID,
 		track.Manufacturer, track.UniqueID, track.AdditionalData,
 		track.Date.Format("020106"), track.Site, fmt.Sprintf("%d", track.FixAccuracy), track.Pilot,
 		track.PilotBirth.Format("020106"), track.Crew, track.GliderType, track.GliderID,

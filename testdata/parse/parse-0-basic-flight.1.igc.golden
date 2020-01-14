@@ -26,6 +26,7 @@
   "CompetitionClass": "",
   "Timezone": 0,
   "MOPSensor": "",
+  "ID": "",
   "Points": [
     {
       "Lat": 0.89219078789206,
