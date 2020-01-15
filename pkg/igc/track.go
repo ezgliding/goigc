@@ -186,6 +186,7 @@ var Manufacturers = map[string]Manufacturer{
 	"TRI": {'T', "TRI", "Triadis Engineering GmbH"},
 	"LXV": {'V', "LXV", "LXNAV d.o.o."},
 	"WES": {'W', "WES", "Westerboer"},
+	"XCS": {' ', "XCS", "XCSoar"},
 	"XYY": {'X', "XYY", "Other manufacturer"},
 	"ZAN": {'Z', "ZAN", "Zander"},
 }
