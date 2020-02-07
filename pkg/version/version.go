@@ -17,11 +17,14 @@
 // Package version holds version metadata for goigc.
 package version
 
+import "time"
+
 // Values to be injected during build (ldflags).
 var (
-	version  = "unreleased"
-	commit   string
-	metadata string
+	buildTime = time.Now()
+	version   = "unreleased"
+	commit    string
+	metadata  string
 )
 
 // Version returns the goigc version. It is expected this is defined
@@ -38,4 +41,9 @@ func Commit() string {
 // Metadata returns metadata passed during build.
 func Metadata() string {
 	return metadata
+}
+
+// BuildTime returns the date the package was built.
+func BuildTime() time.Time {
+	return buildTime
 }
