@@ -191,6 +191,7 @@ func (track *Track) wrapPhase(index int, phaseType PhaseType) {
 	}
 	centroid := s2.LatLngFromPoint(s2.PolylineFromLatLngs(pts).Centroid())
 	p.CellID = s2.CellIDFromLatLng(centroid)
+	p.CellID = p.CellID.Parent(14)
 	p.Centroid = centroid
 
 	track.phases = append(track.phases, Phase{Type: phaseType, StartIndex: index, Start: track.Points[index]})

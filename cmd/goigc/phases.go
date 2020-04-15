@@ -18,7 +18,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"strings"
 
 	"github.com/ezgliding/goigc/pkg/igc"
 	"github.com/spf13/cobra"
@@ -49,9 +48,6 @@ var phasesCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		// TODO(rochaporto): find a better way to calculate trkID
-		trk.ID = strings.Split(strings.Split(args[0], "/")[7], ".")[0]
-
 		result, err := trk.EncodePhases(outputFormat)
 		if err != nil {
 			return err
