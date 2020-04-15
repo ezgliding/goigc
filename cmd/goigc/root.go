@@ -30,7 +30,8 @@ var (
 		Long:  "",
 		Version: fmt.Sprintf("%v %.7v %v %v", version.Version(), version.Commit(),
 			version.BuildTime().Format("02/01/06 15:04:05"), version.Metadata()),
-		Hidden: true,
+		Hidden:       true,
+		SilenceUsage: true,
 	}
 )
 
