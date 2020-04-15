@@ -32,6 +32,9 @@ var (
 			version.BuildTime().Format("02/01/06 15:04:05"), version.Metadata()),
 		Hidden:       true,
 		SilenceUsage: true,
+		PersistentPreRun: func(cmd *cobra.Command, args []string) {
+			cmd.SilenceErrors, _ = cmd.Flags().GetBool("silent")
+		},
 	}
 )
 
@@ -40,12 +43,12 @@ func init() {
 
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
 		os.Exit(1)
 	}
 }
 
 func main() {
+	rootCmd.PersistentFlags().Bool("silent", false, "do not print any errors")
 	rootCmd.SetVersionTemplate(
 		`{{with .Name}}{{printf "%s " .}}{{end}}{{printf "%s" .Version}}
 `)
