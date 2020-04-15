@@ -18,7 +18,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"strings"
 
 	"github.com/spf13/cobra"
 
@@ -28,6 +27,7 @@ import (
 func init() {
 	// TODO(rochaporto): not yet supported, only igc
 	parseCmd.Flags().String("format", "", "input file format - auto detection by default")
+	parseCmd.Flags().Bool("no-points", false, "do not include individual points")
 	parseCmd.Flags().String("output-format", "yaml", "output format for display")
 	parseCmd.Flags().String("output-file", "/dev/stdout", "output file to write to")
 	rootCmd.AddCommand(parseCmd)
@@ -52,7 +52,11 @@ var parseCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		trk.ID = strings.Split(strings.Split(args[0], "/")[7], ".")[0]
+
+		noPoints, _ := cmd.Flags().GetBool("no-points")
+		if noPoints {
+			trk = igc.Track{Header: trk.Header}
+		}
 		result, err := trk.Encode(outputFormat)
 		if err != nil {
 			return err
