@@ -29,7 +29,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.47262228362582 Lng: 5.938710899683935</name>
-    <description>Alt Gain: 1905m (345m 2250m)&lt;br/&gt;Distance: 42.62km&lt;br/&gt;Speed: 122.15km/h&lt;br/&gt;LD: 22.371674257104118&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 2/033011311123012003331121231032&lt;br/&gt;</description>
+    <description>Alt Gain: 1905m (345m 2250m)&lt;br/&gt;Distance: 42.62km&lt;br/&gt;Speed: 122.15km/h&lt;br/&gt;LD: 22.371674257104118&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 2/03301131112301&lt;br/&gt;</description>
     <Point>
       <coordinates>5.938710899683935,45.47262228362582</coordinates>
     </Point>
@@ -45,7 +45,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.32707468901116 Lng: 5.870092352598968</name>
-    <description>Alt Gain: 52m (2250m 2302m)&lt;br/&gt;Distance: 0.98km&lt;br/&gt;Speed: 97.87km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/033011022320100321313011021323&lt;br/&gt;</description>
+    <description>Alt Gain: 52m (2250m 2302m)&lt;br/&gt;Distance: 0.98km&lt;br/&gt;Speed: 97.87km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/03301102232010&lt;br/&gt;</description>
     <Point>
       <coordinates>5.870092352598968,45.32707468901116</coordinates>
     </Point>
@@ -61,7 +61,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.320479589926464 Lng: 5.866074052610817</name>
-    <description>Alt Gain: -43m (2302m 2259m)&lt;br/&gt;Distance: 1.36km&lt;br/&gt;Speed: 122.19km/h&lt;br/&gt;LD: 31.574551835247444&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/033011022331000300303122110200&lt;br/&gt;</description>
+    <description>Alt Gain: -43m (2302m 2259m)&lt;br/&gt;Distance: 1.36km&lt;br/&gt;Speed: 122.19km/h&lt;br/&gt;LD: 31.574551835247444&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/03301102233100&lt;br/&gt;</description>
     <Point>
       <coordinates>5.866074052610817,45.320479589926464</coordinates>
     </Point>
@@ -77,7 +77,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.313832880537056 Lng: 5.861061404521534</name>
-    <description>Alt Gain: 64m (2259m 2323m)&lt;br/&gt;Distance: 1.50km&lt;br/&gt;Speed: 104.03km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.2m/s&lt;br/&gt;Cell: 2/033011022330331103330212122222&lt;br/&gt;</description>
+    <description>Alt Gain: 64m (2259m 2323m)&lt;br/&gt;Distance: 1.50km&lt;br/&gt;Speed: 104.03km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.2m/s&lt;br/&gt;Cell: 2/03301102233033&lt;br/&gt;</description>
     <Point>
       <coordinates>5.861061404521534,45.313832880537056</coordinates>
     </Point>
@@ -93,7 +93,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.304247336085965 Lng: 5.829270490067713</name>
-    <description>Alt Gain: -159m (2323m 2164m)&lt;br/&gt;Distance: 5.76km&lt;br/&gt;Speed: 136.34km/h&lt;br/&gt;LD: 36.20519457978575&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 2/033011022333303102223012223233&lt;br/&gt;</description>
+    <description>Alt Gain: -159m (2323m 2164m)&lt;br/&gt;Distance: 5.76km&lt;br/&gt;Speed: 136.34km/h&lt;br/&gt;LD: 36.20519457978575&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 2/03301102233330&lt;br/&gt;</description>
     <Point>
       <coordinates>5.829270490067713,45.304247336085965</coordinates>
     </Point>
@@ -109,7 +109,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.29062535967652 Lng: 5.788943130892638</name>
-    <description>Alt Gain: 325m (2164m 2489m)&lt;br/&gt;Distance: 9.41km&lt;br/&gt;Speed: 103.23km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.0m/s&lt;br/&gt;Cell: 2/033011132330202023123300211212&lt;br/&gt;</description>
+    <description>Alt Gain: 325m (2164m 2489m)&lt;br/&gt;Distance: 9.41km&lt;br/&gt;Speed: 103.23km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.0m/s&lt;br/&gt;Cell: 2/03301113233020&lt;br/&gt;</description>
     <Point>
       <coordinates>5.788943130892638,45.29062535967652</coordinates>
     </Point>
@@ -125,7 +125,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.097115965560924 Lng: 5.6262676740775985</name>
-    <description>Alt Gain: -8m (2489m 2481m)&lt;br/&gt;Distance: 50.94km&lt;br/&gt;Speed: 147.89km/h&lt;br/&gt;LD: 6367.425339082982&lt;br/&gt;Vario: -0.0m/s&lt;br/&gt;Cell: 2/033011101233100231001231031023&lt;br/&gt;</description>
+    <description>Alt Gain: -8m (2489m 2481m)&lt;br/&gt;Distance: 50.94km&lt;br/&gt;Speed: 147.89km/h&lt;br/&gt;LD: 6367.425339082982&lt;br/&gt;Vario: -0.0m/s&lt;br/&gt;Cell: 2/03301110123310&lt;br/&gt;</description>
     <Point>
       <coordinates>5.6262676740775985,45.097115965560924</coordinates>
     </Point>
@@ -141,7 +141,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.89593004103307 Lng: 5.5220700990251705</name>
-    <description>Alt Gain: 174m (2481m 2655m)&lt;br/&gt;Distance: 1.83km&lt;br/&gt;Speed: 102.69km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.7m/s&lt;br/&gt;Cell: 2/033011103231101321110233333103&lt;br/&gt;</description>
+    <description>Alt Gain: 174m (2481m 2655m)&lt;br/&gt;Distance: 1.83km&lt;br/&gt;Speed: 102.69km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.7m/s&lt;br/&gt;Cell: 2/03301110323110&lt;br/&gt;</description>
     <Point>
       <coordinates>5.5220700990251705,44.89593004103307</coordinates>
     </Point>
@@ -157,7 +157,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.840862114281066 Lng: 5.517155329588949</name>
-    <description>Alt Gain: -154m (2655m 2501m)&lt;br/&gt;Distance: 12.30km&lt;br/&gt;Speed: 155.97km/h&lt;br/&gt;LD: 79.89766820466164&lt;br/&gt;Vario: -0.5m/s&lt;br/&gt;Cell: 0/211211121213011332233110031320&lt;br/&gt;</description>
+    <description>Alt Gain: -154m (2655m 2501m)&lt;br/&gt;Distance: 12.30km&lt;br/&gt;Speed: 155.97km/h&lt;br/&gt;LD: 79.89766820466164&lt;br/&gt;Vario: -0.5m/s&lt;br/&gt;Cell: 0/21121112121301&lt;br/&gt;</description>
     <Point>
       <coordinates>5.517155329588949,44.840862114281066</coordinates>
     </Point>
@@ -173,7 +173,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.78464293839679 Lng: 5.508549541701107</name>
-    <description>Alt Gain: 608m (2501m 3109m)&lt;br/&gt;Distance: 7.76km&lt;br/&gt;Speed: 105.76km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.3m/s&lt;br/&gt;Cell: 0/211211121310311203320121213113&lt;br/&gt;</description>
+    <description>Alt Gain: 608m (2501m 3109m)&lt;br/&gt;Distance: 7.76km&lt;br/&gt;Speed: 105.76km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.3m/s&lt;br/&gt;Cell: 0/21121112131031&lt;br/&gt;</description>
     <Point>
       <coordinates>5.508549541701107,44.78464293839679</coordinates>
     </Point>
@@ -189,7 +189,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.6767868350634 Lng: 5.441764869172495</name>
-    <description>Alt Gain: -558m (3109m 2551m)&lt;br/&gt;Distance: 27.01km&lt;br/&gt;Speed: 168.79km/h&lt;br/&gt;LD: 48.399775342438105&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 0/211211120313313032212132133021&lt;br/&gt;</description>
+    <description>Alt Gain: -558m (3109m 2551m)&lt;br/&gt;Distance: 27.01km&lt;br/&gt;Speed: 168.79km/h&lt;br/&gt;LD: 48.399775342438105&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 0/21121112031331&lt;br/&gt;</description>
     <Point>
       <coordinates>5.441764869172495,44.6767868350634</coordinates>
     </Point>
@@ -205,7 +205,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.56426712232695 Lng: 5.381257921003158</name>
-    <description>Alt Gain: 50m (2551m 2601m)&lt;br/&gt;Distance: 1.47km&lt;br/&gt;Speed: 110.24km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.0m/s&lt;br/&gt;Cell: 0/211211102222022113123321110113&lt;br/&gt;</description>
+    <description>Alt Gain: 50m (2551m 2601m)&lt;br/&gt;Distance: 1.47km&lt;br/&gt;Speed: 110.24km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.0m/s&lt;br/&gt;Cell: 0/21121110222202&lt;br/&gt;</description>
     <Point>
       <coordinates>5.381257921003158,44.56426712232695</coordinates>
     </Point>
@@ -221,7 +221,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.55339919425107 Lng: 5.3859470388066235</name>
-    <description>Alt Gain: 73m (2601m 2674m)&lt;br/&gt;Distance: 1.78km&lt;br/&gt;Speed: 133.47km/h&lt;br/&gt;LD: 24.377525842982564&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 0/211211102221233121101112311201&lt;br/&gt;</description>
+    <description>Alt Gain: 73m (2601m 2674m)&lt;br/&gt;Distance: 1.78km&lt;br/&gt;Speed: 133.47km/h&lt;br/&gt;LD: 24.377525842982564&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 0/21121110222123&lt;br/&gt;</description>
     <Point>
       <coordinates>5.3859470388066235,44.55339919425107</coordinates>
     </Point>
@@ -237,7 +237,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.54480127151719 Lng: 5.391515676694074</name>
-    <description>Alt Gain: 202m (2674m 2876m)&lt;br/&gt;Distance: 2.25km&lt;br/&gt;Speed: 106.40km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.7m/s&lt;br/&gt;Cell: 0/211211102221122323232313030120&lt;br/&gt;</description>
+    <description>Alt Gain: 202m (2674m 2876m)&lt;br/&gt;Distance: 2.25km&lt;br/&gt;Speed: 106.40km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.7m/s&lt;br/&gt;Cell: 0/21121110222112&lt;br/&gt;</description>
     <Point>
       <coordinates>5.391515676694074,44.54480127151719</coordinates>
     </Point>
@@ -253,7 +253,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.511820395384106 Lng: 5.343930135788273</name>
-    <description>Alt Gain: -387m (2876m 2489m)&lt;br/&gt;Distance: 10.65km&lt;br/&gt;Speed: 165.23km/h&lt;br/&gt;LD: 27.514669631738386&lt;br/&gt;Vario: -1.7m/s&lt;br/&gt;Cell: 0/211211102203022032111011331033&lt;br/&gt;</description>
+    <description>Alt Gain: -387m (2876m 2489m)&lt;br/&gt;Distance: 10.65km&lt;br/&gt;Speed: 165.23km/h&lt;br/&gt;LD: 27.514669631738386&lt;br/&gt;Vario: -1.7m/s&lt;br/&gt;Cell: 0/21121110220302&lt;br/&gt;</description>
     <Point>
       <coordinates>5.343930135788273,44.511820395384106</coordinates>
     </Point>
@@ -269,7 +269,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.4873621701369 Lng: 5.286533730045114</name>
-    <description>Alt Gain: 40m (2489m 2529m)&lt;br/&gt;Distance: 1.26km&lt;br/&gt;Speed: 103.41km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.9m/s&lt;br/&gt;Cell: 0/211211102021331332133030233020&lt;br/&gt;</description>
+    <description>Alt Gain: 40m (2489m 2529m)&lt;br/&gt;Distance: 1.26km&lt;br/&gt;Speed: 103.41km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.9m/s&lt;br/&gt;Cell: 0/21121110202133&lt;br/&gt;</description>
     <Point>
       <coordinates>5.286533730045114,44.4873621701369</coordinates>
     </Point>
@@ -285,7 +285,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.506361824321736 Lng: 5.321184378708025</name>
-    <description>Alt Gain: -301m (2529m 2228m)&lt;br/&gt;Distance: 15.14km&lt;br/&gt;Speed: 154.86km/h&lt;br/&gt;LD: 50.30676841780002&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 0/211211102200101112130023322112&lt;br/&gt;</description>
+    <description>Alt Gain: -301m (2529m 2228m)&lt;br/&gt;Distance: 15.14km&lt;br/&gt;Speed: 154.86km/h&lt;br/&gt;LD: 50.30676841780002&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 0/21121110220010&lt;br/&gt;</description>
     <Point>
       <coordinates>5.321184378708025,44.506361824321736</coordinates>
     </Point>
@@ -301,7 +301,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.54241418867288 Lng: 5.390384025447268</name>
-    <description>Alt Gain: 215m (2228m 2443m)&lt;br/&gt;Distance: 4.48km&lt;br/&gt;Speed: 111.98km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 0/211211102221120202322120201001&lt;br/&gt;</description>
+    <description>Alt Gain: 215m (2228m 2443m)&lt;br/&gt;Distance: 4.48km&lt;br/&gt;Speed: 111.98km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 0/21121110222112&lt;br/&gt;</description>
     <Point>
       <coordinates>5.390384025447268,44.54241418867288</coordinates>
     </Point>
@@ -317,7 +317,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.55278398806221 Lng: 5.383053663721519</name>
-    <description>Alt Gain: -34m (2443m 2409m)&lt;br/&gt;Distance: 4.11km&lt;br/&gt;Speed: 142.37km/h&lt;br/&gt;LD: 120.9668956909319&lt;br/&gt;Vario: -0.3m/s&lt;br/&gt;Cell: 0/211211102221303221202022311103&lt;br/&gt;</description>
+    <description>Alt Gain: -34m (2443m 2409m)&lt;br/&gt;Distance: 4.11km&lt;br/&gt;Speed: 142.37km/h&lt;br/&gt;LD: 120.9668956909319&lt;br/&gt;Vario: -0.3m/s&lt;br/&gt;Cell: 0/21121110222130&lt;br/&gt;</description>
     <Point>
       <coordinates>5.383053663721519,44.55278398806221</coordinates>
     </Point>
@@ -333,7 +333,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.5666442846858 Lng: 5.379435872381315</name>
-    <description>Alt Gain: 319m (2409m 2728m)&lt;br/&gt;Distance: 4.15km&lt;br/&gt;Speed: 113.17km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.4m/s&lt;br/&gt;Cell: 0/211211102222312321132032220011&lt;br/&gt;</description>
+    <description>Alt Gain: 319m (2409m 2728m)&lt;br/&gt;Distance: 4.15km&lt;br/&gt;Speed: 113.17km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.4m/s&lt;br/&gt;Cell: 0/21121110222231&lt;br/&gt;</description>
     <Point>
       <coordinates>5.379435872381315,44.5666442846858</coordinates>
     </Point>
@@ -349,7 +349,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.56998040453023 Lng: 5.379091641646828</name>
-    <description>Alt Gain: -41m (2728m 2687m)&lt;br/&gt;Distance: 1.30km&lt;br/&gt;Speed: 145.87km/h&lt;br/&gt;LD: 31.625440428601962&lt;br/&gt;Vario: -1.3m/s&lt;br/&gt;Cell: 0/211211102222302231203130012032&lt;br/&gt;</description>
+    <description>Alt Gain: -41m (2728m 2687m)&lt;br/&gt;Distance: 1.30km&lt;br/&gt;Speed: 145.87km/h&lt;br/&gt;LD: 31.625440428601962&lt;br/&gt;Vario: -1.3m/s&lt;br/&gt;Cell: 0/21121110222230&lt;br/&gt;</description>
     <Point>
       <coordinates>5.379091641646828,44.56998040453023</coordinates>
     </Point>
@@ -365,7 +365,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.57643542269222 Lng: 5.381005276107154</name>
-    <description>Alt Gain: 81m (2687m 2768m)&lt;br/&gt;Distance: 1.75km&lt;br/&gt;Speed: 112.42km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 0/211211113333011333322302320022&lt;br/&gt;</description>
+    <description>Alt Gain: 81m (2687m 2768m)&lt;br/&gt;Distance: 1.75km&lt;br/&gt;Speed: 112.42km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 0/21121111333301&lt;br/&gt;</description>
     <Point>
       <coordinates>5.381005276107154,44.57643542269222</coordinates>
     </Point>
@@ -381,7 +381,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.647250958467474 Lng: 5.436696146168682</name>
-    <description>Alt Gain: -623m (2768m 2145m)&lt;br/&gt;Distance: 18.83km&lt;br/&gt;Speed: 161.37km/h&lt;br/&gt;LD: 30.21867028188066&lt;br/&gt;Vario: -1.5m/s&lt;br/&gt;Cell: 0/211211120312222202022011320302&lt;br/&gt;</description>
+    <description>Alt Gain: -623m (2768m 2145m)&lt;br/&gt;Distance: 18.83km&lt;br/&gt;Speed: 161.37km/h&lt;br/&gt;LD: 30.21867028188066&lt;br/&gt;Vario: -1.5m/s&lt;br/&gt;Cell: 0/21121112031222&lt;br/&gt;</description>
     <Point>
       <coordinates>5.436696146168682,44.647250958467474</coordinates>
     </Point>
@@ -397,7 +397,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.72134335750259 Lng: 5.499360673410168</name>
-    <description>Alt Gain: 885m (2145m 3030m)&lt;br/&gt;Distance: 10.42km&lt;br/&gt;Speed: 106.56km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.5m/s&lt;br/&gt;Cell: 0/211211121323001031112013300021&lt;br/&gt;</description>
+    <description>Alt Gain: 885m (2145m 3030m)&lt;br/&gt;Distance: 10.42km&lt;br/&gt;Speed: 106.56km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.5m/s&lt;br/&gt;Cell: 0/21121112132300&lt;br/&gt;</description>
     <Point>
       <coordinates>5.499360673410168,44.72134335750259</coordinates>
     </Point>
@@ -413,7 +413,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 44.9146827076154 Lng: 5.542954812410331</name>
-    <description>Alt Gain: -471m (3030m 2559m)&lt;br/&gt;Distance: 44.69km&lt;br/&gt;Speed: 160.25km/h&lt;br/&gt;LD: 94.88894805596075&lt;br/&gt;Vario: -0.5m/s&lt;br/&gt;Cell: 2/033011103213132032222000223111&lt;br/&gt;</description>
+    <description>Alt Gain: -471m (3030m 2559m)&lt;br/&gt;Distance: 44.69km&lt;br/&gt;Speed: 160.25km/h&lt;br/&gt;LD: 94.88894805596075&lt;br/&gt;Vario: -0.5m/s&lt;br/&gt;Cell: 2/03301110321313&lt;br/&gt;</description>
     <Point>
       <coordinates>5.542954812410331,44.9146827076154</coordinates>
     </Point>
@@ -429,7 +429,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.099305573822825 Lng: 5.618371013873703</name>
-    <description>Alt Gain: 373m (2559m 2932m)&lt;br/&gt;Distance: 5.32km&lt;br/&gt;Speed: 113.98km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.2m/s&lt;br/&gt;Cell: 2/033011101233130033301131321023&lt;br/&gt;</description>
+    <description>Alt Gain: 373m (2559m 2932m)&lt;br/&gt;Distance: 5.32km&lt;br/&gt;Speed: 113.98km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.2m/s&lt;br/&gt;Cell: 2/03301110123313&lt;br/&gt;</description>
     <Point>
       <coordinates>5.618371013873703,45.099305573822825</coordinates>
     </Point>
@@ -445,7 +445,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.22719537226139 Lng: 5.7377287333114735</name>
-    <description>Alt Gain: -733m (2932m 2199m)&lt;br/&gt;Distance: 35.18km&lt;br/&gt;Speed: 156.75km/h&lt;br/&gt;LD: 47.99607155369929&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 2/033011132200332033232223231322&lt;br/&gt;</description>
+    <description>Alt Gain: -733m (2932m 2199m)&lt;br/&gt;Distance: 35.18km&lt;br/&gt;Speed: 156.75km/h&lt;br/&gt;LD: 47.99607155369929&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 2/03301113220033&lt;br/&gt;</description>
     <Point>
       <coordinates>5.7377287333114735,45.22719537226139</coordinates>
     </Point>
@@ -461,7 +461,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.33952901300765 Lng: 5.87938173159072</name>
-    <description>Alt Gain: 63m (2199m 2262m)&lt;br/&gt;Distance: 1.29km&lt;br/&gt;Speed: 105.27km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/033011022313321323133121120001&lt;br/&gt;</description>
+    <description>Alt Gain: 63m (2199m 2262m)&lt;br/&gt;Distance: 1.29km&lt;br/&gt;Speed: 105.27km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/03301102231332&lt;br/&gt;</description>
     <Point>
       <coordinates>5.87938173159072,45.33952901300765</coordinates>
     </Point>
@@ -477,7 +477,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.3535529365691 Lng: 5.889759107118426</name>
-    <description>Alt Gain: -12m (2262m 2250m)&lt;br/&gt;Distance: 2.93km&lt;br/&gt;Speed: 131.85km/h&lt;br/&gt;LD: 244.16020300145172&lt;br/&gt;Vario: -0.1m/s&lt;br/&gt;Cell: 2/033011022313121101032223102113&lt;br/&gt;</description>
+    <description>Alt Gain: -12m (2262m 2250m)&lt;br/&gt;Distance: 2.93km&lt;br/&gt;Speed: 131.85km/h&lt;br/&gt;LD: 244.16020300145172&lt;br/&gt;Vario: -0.1m/s&lt;br/&gt;Cell: 2/03301102231312&lt;br/&gt;</description>
     <Point>
       <coordinates>5.889759107118426,45.3535529365691</coordinates>
     </Point>
@@ -493,7 +493,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.36478395845605 Lng: 5.900914476508935</name>
-    <description>Alt Gain: 310m (2250m 2560m)&lt;br/&gt;Distance: 6.45km&lt;br/&gt;Speed: 107.46km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/033011022311012033223203221210&lt;br/&gt;</description>
+    <description>Alt Gain: 310m (2250m 2560m)&lt;br/&gt;Distance: 6.45km&lt;br/&gt;Speed: 107.46km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/03301102231101&lt;br/&gt;</description>
     <Point>
       <coordinates>5.900914476508935,45.36478395845605</coordinates>
     </Point>
@@ -509,7 +509,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.39661225507518 Lng: 5.915472267333889</name>
-    <description>Alt Gain: -125m (2560m 2435m)&lt;br/&gt;Distance: 7.88km&lt;br/&gt;Speed: 150.83km/h&lt;br/&gt;LD: 63.01248664859441&lt;br/&gt;Vario: -0.7m/s&lt;br/&gt;Cell: 2/033011022203203301023210001320&lt;br/&gt;</description>
+    <description>Alt Gain: -125m (2560m 2435m)&lt;br/&gt;Distance: 7.88km&lt;br/&gt;Speed: 150.83km/h&lt;br/&gt;LD: 63.01248664859441&lt;br/&gt;Vario: -0.7m/s&lt;br/&gt;Cell: 2/03301102220320&lt;br/&gt;</description>
     <Point>
       <coordinates>5.915472267333889,45.39661225507518</coordinates>
     </Point>
@@ -525,7 +525,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.43234566544034 Lng: 5.935463980737181</name>
-    <description>Alt Gain: 287m (2435m 2722m)&lt;br/&gt;Distance: 5.84km&lt;br/&gt;Speed: 105.04km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/033011022122332121320320202012&lt;br/&gt;</description>
+    <description>Alt Gain: 287m (2435m 2722m)&lt;br/&gt;Distance: 5.84km&lt;br/&gt;Speed: 105.04km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/03301102212233&lt;br/&gt;</description>
     <Point>
       <coordinates>5.935463980737181,45.43234566544034</coordinates>
     </Point>
@@ -541,7 +541,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.51906075872016 Lng: 6.0074351854353605</name>
-    <description>Alt Gain: -634m (2722m 2088m)&lt;br/&gt;Distance: 22.31km&lt;br/&gt;Speed: 156.85km/h&lt;br/&gt;LD: 35.18560969654236&lt;br/&gt;Vario: -1.2m/s&lt;br/&gt;Cell: 2/033011311303233303133000320320&lt;br/&gt;</description>
+    <description>Alt Gain: -634m (2722m 2088m)&lt;br/&gt;Distance: 22.31km&lt;br/&gt;Speed: 156.85km/h&lt;br/&gt;LD: 35.18560969654236&lt;br/&gt;Vario: -1.2m/s&lt;br/&gt;Cell: 2/03301131130323&lt;br/&gt;</description>
     <Point>
       <coordinates>6.0074351854353605,45.51906075872016</coordinates>
     </Point>
@@ -557,7 +557,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.60288977400394 Lng: 6.086895522725452</name>
-    <description>Alt Gain: 290m (2088m 2378m)&lt;br/&gt;Distance: 5.95km&lt;br/&gt;Speed: 105.08km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/033011313110202010332121232331&lt;br/&gt;</description>
+    <description>Alt Gain: 290m (2088m 2378m)&lt;br/&gt;Distance: 5.95km&lt;br/&gt;Speed: 105.08km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/03301131311020&lt;br/&gt;</description>
     <Point>
       <coordinates>6.086895522725452,45.60288977400394</coordinates>
     </Point>
@@ -573,7 +573,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.617462319347815 Lng: 6.095668980154004</name>
-    <description>Alt Gain: -56m (2378m 2322m)&lt;br/&gt;Distance: 4.12km&lt;br/&gt;Speed: 142.67km/h&lt;br/&gt;LD: 73.60039013998178&lt;br/&gt;Vario: -0.5m/s&lt;br/&gt;Cell: 2/033011313113201010020321311300&lt;br/&gt;</description>
+    <description>Alt Gain: -56m (2378m 2322m)&lt;br/&gt;Distance: 4.12km&lt;br/&gt;Speed: 142.67km/h&lt;br/&gt;LD: 73.60039013998178&lt;br/&gt;Vario: -0.5m/s&lt;br/&gt;Cell: 2/03301131311320&lt;br/&gt;</description>
     <Point>
       <coordinates>6.095668980154004,45.617462319347815</coordinates>
     </Point>
@@ -589,7 +589,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.63454535419183 Lng: 6.109538737471522</name>
-    <description>Alt Gain: 273m (2322m 2595m)&lt;br/&gt;Distance: 4.82km&lt;br/&gt;Speed: 111.18km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.8m/s&lt;br/&gt;Cell: 2/033011313131100220003310332022&lt;br/&gt;</description>
+    <description>Alt Gain: 273m (2322m 2595m)&lt;br/&gt;Distance: 4.82km&lt;br/&gt;Speed: 111.18km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.8m/s&lt;br/&gt;Cell: 2/03301131313110&lt;br/&gt;</description>
     <Point>
       <coordinates>6.109538737471522,45.63454535419183</coordinates>
     </Point>
@@ -605,7 +605,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.63986369919131 Lng: 6.115243994189866</name>
-    <description>Alt Gain: 57m (2595m 2652m)&lt;br/&gt;Distance: 1.47km&lt;br/&gt;Speed: 132.30km/h&lt;br/&gt;LD: 25.789740307060494&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/033011313131020022031002212332&lt;br/&gt;</description>
+    <description>Alt Gain: 57m (2595m 2652m)&lt;br/&gt;Distance: 1.47km&lt;br/&gt;Speed: 132.30km/h&lt;br/&gt;LD: 25.789740307060494&lt;br/&gt;Vario: 1.4m/s&lt;br/&gt;Cell: 2/03301131313102&lt;br/&gt;</description>
     <Point>
       <coordinates>6.115243994189866,45.63986369919131</coordinates>
     </Point>
@@ -621,7 +621,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.6466498543095 Lng: 6.120386651270378</name>
-    <description>Alt Gain: 2m (2652m 2654m)&lt;br/&gt;Distance: 1.07km&lt;br/&gt;Speed: 120.85km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.1m/s&lt;br/&gt;Cell: 2/033011313130300101211313231321&lt;br/&gt;</description>
+    <description>Alt Gain: 2m (2652m 2654m)&lt;br/&gt;Distance: 1.07km&lt;br/&gt;Speed: 120.85km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.1m/s&lt;br/&gt;Cell: 2/03301131313030&lt;br/&gt;</description>
     <Point>
       <coordinates>6.120386651270378,45.6466498543095</coordinates>
     </Point>
@@ -637,7 +637,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.66421245546245 Lng: 6.172090074608075</name>
-    <description>Alt Gain: -248m (2654m 2406m)&lt;br/&gt;Distance: 9.72km&lt;br/&gt;Speed: 162.08km/h&lt;br/&gt;LD: 39.21267161127852&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/033011313311213113123011230003&lt;br/&gt;</description>
+    <description>Alt Gain: -248m (2654m 2406m)&lt;br/&gt;Distance: 9.72km&lt;br/&gt;Speed: 162.08km/h&lt;br/&gt;LD: 39.21267161127852&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/03301131331121&lt;br/&gt;</description>
     <Point>
       <coordinates>6.172090074608075,45.66421245546245</coordinates>
     </Point>
@@ -653,7 +653,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.682089636601695 Lng: 6.228374522960108</name>
-    <description>Alt Gain: 377m (2406m 2783m)&lt;br/&gt;Distance: 5.70km&lt;br/&gt;Speed: 111.58km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.0m/s&lt;br/&gt;Cell: 2/033011313323112223313013232301&lt;br/&gt;</description>
+    <description>Alt Gain: 377m (2406m 2783m)&lt;br/&gt;Distance: 5.70km&lt;br/&gt;Speed: 111.58km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.0m/s&lt;br/&gt;Cell: 2/03301131332311&lt;br/&gt;</description>
     <Point>
       <coordinates>6.228374522960108,45.682089636601695</coordinates>
     </Point>
@@ -669,7 +669,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.864197315970195 Lng: 6.517564260052672</name>
-    <description>Alt Gain: -2783m (2783m 0m)&lt;br/&gt;Distance: 66.90km&lt;br/&gt;Speed: 146.67km/h&lt;br/&gt;LD: 24.03827174332621&lt;br/&gt;Vario: -1.7m/s&lt;br/&gt;Cell: 2/033011330212231213021111213103&lt;br/&gt;</description>
+    <description>Alt Gain: -2783m (2783m 0m)&lt;br/&gt;Distance: 66.90km&lt;br/&gt;Speed: 146.67km/h&lt;br/&gt;LD: 24.03827174332621&lt;br/&gt;Vario: -1.7m/s&lt;br/&gt;Cell: 2/03301133021223&lt;br/&gt;</description>
     <Point>
       <coordinates>6.517564260052672,45.864197315970195</coordinates>
     </Point>
@@ -685,7 +685,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.918434329230834 Lng: 6.824347497928808</name>
-    <description>Alt Gain: 3212m (0m 3212m)&lt;br/&gt;Distance: 11.22km&lt;br/&gt;Speed: 112.20km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 8.9m/s&lt;br/&gt;Cell: 2/033010222033130123012202321013&lt;br/&gt;</description>
+    <description>Alt Gain: 3212m (0m 3212m)&lt;br/&gt;Distance: 11.22km&lt;br/&gt;Speed: 112.20km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 8.9m/s&lt;br/&gt;Cell: 2/03301022203313&lt;br/&gt;</description>
     <Point>
       <coordinates>6.824347497928808,45.918434329230834</coordinates>
     </Point>
@@ -701,7 +701,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.9387217059052 Lng: 6.839963948025335</name>
-    <description>Alt Gain: -99m (3212m 3113m)&lt;br/&gt;Distance: 5.13km&lt;br/&gt;Speed: 159.05km/h&lt;br/&gt;LD: 51.76785318641086&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 2/033010222100101021301230331101&lt;br/&gt;</description>
+    <description>Alt Gain: -99m (3212m 3113m)&lt;br/&gt;Distance: 5.13km&lt;br/&gt;Speed: 159.05km/h&lt;br/&gt;LD: 51.76785318641086&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 2/03301022210010&lt;br/&gt;</description>
     <Point>
       <coordinates>6.839963948025335,45.9387217059052</coordinates>
     </Point>
@@ -717,7 +717,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.958271992393556 Lng: 6.861471946102917</name>
-    <description>Alt Gain: 130m (3113m 3243m)&lt;br/&gt;Distance: 2.73km&lt;br/&gt;Speed: 117.08km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 2/033010221230312030221233033002&lt;br/&gt;</description>
+    <description>Alt Gain: 130m (3113m 3243m)&lt;br/&gt;Distance: 2.73km&lt;br/&gt;Speed: 117.08km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 2/03301022123031&lt;br/&gt;</description>
     <Point>
       <coordinates>6.861471946102917,45.958271992393556</coordinates>
     </Point>
@@ -733,7 +733,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.97723575005245 Lng: 6.874706150713664</name>
-    <description>Alt Gain: -45m (3243m 3198m)&lt;br/&gt;Distance: 5.43km&lt;br/&gt;Speed: 152.83km/h&lt;br/&gt;LD: 120.7512115694739&lt;br/&gt;Vario: -0.4m/s&lt;br/&gt;Cell: 2/033010221223121203101022311203&lt;br/&gt;</description>
+    <description>Alt Gain: -45m (3243m 3198m)&lt;br/&gt;Distance: 5.43km&lt;br/&gt;Speed: 152.83km/h&lt;br/&gt;LD: 120.7512115694739&lt;br/&gt;Vario: -0.4m/s&lt;br/&gt;Cell: 2/03301022122312&lt;br/&gt;</description>
     <Point>
       <coordinates>6.874706150713664,45.97723575005245</coordinates>
     </Point>
@@ -749,7 +749,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.997872712014974 Lng: 6.899063267620507</name>
-    <description>Alt Gain: 41m (3198m 3239m)&lt;br/&gt;Distance: 1.89km&lt;br/&gt;Speed: 113.16km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.7m/s&lt;br/&gt;Cell: 2/033010221221113132320222112211&lt;br/&gt;</description>
+    <description>Alt Gain: 41m (3198m 3239m)&lt;br/&gt;Distance: 1.89km&lt;br/&gt;Speed: 113.16km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.7m/s&lt;br/&gt;Cell: 2/03301022122111&lt;br/&gt;</description>
     <Point>
       <coordinates>6.899063267620507,45.997872712014974</coordinates>
     </Point>
@@ -765,7 +765,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.01889900535058 Lng: 6.975624269159001</name>
-    <description>Alt Gain: -275m (3239m 2964m)&lt;br/&gt;Distance: 13.70km&lt;br/&gt;Speed: 164.37km/h&lt;br/&gt;LD: 49.80990974761715&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 2/033013112210221213122123113203&lt;br/&gt;</description>
+    <description>Alt Gain: -275m (3239m 2964m)&lt;br/&gt;Distance: 13.70km&lt;br/&gt;Speed: 164.37km/h&lt;br/&gt;LD: 49.80990974761715&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 2/03301311221022&lt;br/&gt;</description>
     <Point>
       <coordinates>6.975624269159001,46.01889900535058</coordinates>
     </Point>
@@ -781,7 +781,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.030814408724176 Lng: 7.063626070094741</name>
-    <description>Alt Gain: 215m (2964m 3179m)&lt;br/&gt;Distance: 4.52km&lt;br/&gt;Speed: 113.05km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 2/033013121103010101332030211323&lt;br/&gt;</description>
+    <description>Alt Gain: 215m (2964m 3179m)&lt;br/&gt;Distance: 4.52km&lt;br/&gt;Speed: 113.05km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 2/03301312110301&lt;br/&gt;</description>
     <Point>
       <coordinates>7.063626070094741,46.030814408724176</coordinates>
     </Point>
@@ -797,7 +797,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.02322470204575 Lng: 7.1315409262584915</name>
-    <description>Alt Gain: -313m (3179m 2866m)&lt;br/&gt;Distance: 10.86km&lt;br/&gt;Speed: 152.67km/h&lt;br/&gt;LD: 34.68558400341542&lt;br/&gt;Vario: -1.2m/s&lt;br/&gt;Cell: 2/033013121123332101131331010030&lt;br/&gt;</description>
+    <description>Alt Gain: -313m (3179m 2866m)&lt;br/&gt;Distance: 10.86km&lt;br/&gt;Speed: 152.67km/h&lt;br/&gt;LD: 34.68558400341542&lt;br/&gt;Vario: -1.2m/s&lt;br/&gt;Cell: 2/03301312112333&lt;br/&gt;</description>
     <Point>
       <coordinates>7.1315409262584915,46.02322470204575</coordinates>
     </Point>
@@ -813,7 +813,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.01647012873816 Lng: 7.198582355631751</name>
-    <description>Alt Gain: -2866m (2866m 0m)&lt;br/&gt;Distance: 5.02km&lt;br/&gt;Speed: 113.04km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -17.9m/s&lt;br/&gt;Cell: 2/033013121220113013113002302120&lt;br/&gt;</description>
+    <description>Alt Gain: -2866m (2866m 0m)&lt;br/&gt;Distance: 5.02km&lt;br/&gt;Speed: 113.04km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -17.9m/s&lt;br/&gt;Cell: 2/03301312122011&lt;br/&gt;</description>
     <Point>
       <coordinates>7.198582355631751,46.01647012873816</coordinates>
     </Point>
@@ -829,7 +829,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.00905979609839 Lng: 7.220354053212376</name>
-    <description>Alt Gain: 3044m (0m 3044m)&lt;br/&gt;Distance: 3.09km&lt;br/&gt;Speed: 154.31km/h&lt;br/&gt;LD: 1.0138529640451144&lt;br/&gt;Vario: 42.3m/s&lt;br/&gt;Cell: 2/033013121223012100112221032321&lt;br/&gt;</description>
+    <description>Alt Gain: 3044m (0m 3044m)&lt;br/&gt;Distance: 3.09km&lt;br/&gt;Speed: 154.31km/h&lt;br/&gt;LD: 1.0138529640451144&lt;br/&gt;Vario: 42.3m/s&lt;br/&gt;Cell: 2/03301312122301&lt;br/&gt;</description>
     <Point>
       <coordinates>7.220354053212376,46.00905979609839</coordinates>
     </Point>
@@ -845,7 +845,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.9968228793206 Lng: 7.2320354121594645</name>
-    <description>Alt Gain: -3044m (3044m 0m)&lt;br/&gt;Distance: 1.65km&lt;br/&gt;Speed: 106.10km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -54.4m/s&lt;br/&gt;Cell: 2/033013122111321220200232330112&lt;br/&gt;</description>
+    <description>Alt Gain: -3044m (3044m 0m)&lt;br/&gt;Distance: 1.65km&lt;br/&gt;Speed: 106.10km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -54.4m/s&lt;br/&gt;Cell: 2/03301312211132&lt;br/&gt;</description>
     <Point>
       <coordinates>7.2320354121594645,45.9968228793206</coordinates>
     </Point>
@@ -861,7 +861,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.99142448579294 Lng: 7.240807752966431</name>
-    <description>Alt Gain: 3209m (0m 3209m)&lt;br/&gt;Distance: 3.21km&lt;br/&gt;Speed: 120.54km/h&lt;br/&gt;LD: 1.0016818686082574&lt;br/&gt;Vario: 33.4m/s&lt;br/&gt;Cell: 2/033013122111300302211233323213&lt;br/&gt;</description>
+    <description>Alt Gain: 3209m (0m 3209m)&lt;br/&gt;Distance: 3.21km&lt;br/&gt;Speed: 120.54km/h&lt;br/&gt;LD: 1.0016818686082574&lt;br/&gt;Vario: 33.4m/s&lt;br/&gt;Cell: 2/03301312211130&lt;br/&gt;</description>
     <Point>
       <coordinates>7.240807752966431,45.99142448579294</coordinates>
     </Point>
@@ -877,7 +877,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.99096629787721 Lng: 7.243677123181508</name>
-    <description>Alt Gain: 12m (3209m 3221m)&lt;br/&gt;Distance: 0.60km&lt;br/&gt;Speed: 108.43km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.6m/s&lt;br/&gt;Cell: 2/033013122112033120132313003000&lt;br/&gt;</description>
+    <description>Alt Gain: 12m (3209m 3221m)&lt;br/&gt;Distance: 0.60km&lt;br/&gt;Speed: 108.43km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.6m/s&lt;br/&gt;Cell: 2/03301312211203&lt;br/&gt;</description>
     <Point>
       <coordinates>7.243677123181508,45.99096629787721</coordinates>
     </Point>
@@ -893,7 +893,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.99437249644076 Lng: 7.238824625730418</name>
-    <description>Alt Gain: 64m (3221m 3285m)&lt;br/&gt;Distance: 1.29km&lt;br/&gt;Speed: 116.04km/h&lt;br/&gt;LD: 20.1460347532727&lt;br/&gt;Vario: 1.6m/s&lt;br/&gt;Cell: 2/033013122111302112220322222311&lt;br/&gt;</description>
+    <description>Alt Gain: 64m (3221m 3285m)&lt;br/&gt;Distance: 1.29km&lt;br/&gt;Speed: 116.04km/h&lt;br/&gt;LD: 20.1460347532727&lt;br/&gt;Vario: 1.6m/s&lt;br/&gt;Cell: 2/03301312211130&lt;br/&gt;</description>
     <Point>
       <coordinates>7.238824625730418,45.99437249644076</coordinates>
     </Point>
@@ -909,7 +909,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.99348729108777 Lng: 7.241482376849602</name>
-    <description>Alt Gain: 299m (3285m 3584m)&lt;br/&gt;Distance: 5.77km&lt;br/&gt;Speed: 105.98km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 2/033013122111301102130212002323&lt;br/&gt;</description>
+    <description>Alt Gain: 299m (3285m 3584m)&lt;br/&gt;Distance: 5.77km&lt;br/&gt;Speed: 105.98km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.5m/s&lt;br/&gt;Cell: 2/03301312211130&lt;br/&gt;</description>
     <Point>
       <coordinates>7.241482376849602,45.99348729108777</coordinates>
     </Point>
@@ -925,7 +925,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.99043205434908 Lng: 7.246000471711851</name>
-    <description>Alt Gain: 42m (3584m 3626m)&lt;br/&gt;Distance: 0.91km&lt;br/&gt;Speed: 137.05km/h&lt;br/&gt;LD: 21.754073813085704&lt;br/&gt;Vario: 1.8m/s&lt;br/&gt;Cell: 2/033013122112030312120323123321&lt;br/&gt;</description>
+    <description>Alt Gain: 42m (3584m 3626m)&lt;br/&gt;Distance: 0.91km&lt;br/&gt;Speed: 137.05km/h&lt;br/&gt;LD: 21.754073813085704&lt;br/&gt;Vario: 1.8m/s&lt;br/&gt;Cell: 2/03301312211203&lt;br/&gt;</description>
     <Point>
       <coordinates>7.246000471711851,45.99043205434908</coordinates>
     </Point>
@@ -941,7 +941,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.988343857838444 Lng: 7.2557624078745215</name>
-    <description>Alt Gain: 411m (3626m 4037m)&lt;br/&gt;Distance: 5.47km&lt;br/&gt;Speed: 111.82km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.3m/s&lt;br/&gt;Cell: 2/033013122112201032120003133331&lt;br/&gt;</description>
+    <description>Alt Gain: 411m (3626m 4037m)&lt;br/&gt;Distance: 5.47km&lt;br/&gt;Speed: 111.82km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.3m/s&lt;br/&gt;Cell: 2/03301312211220&lt;br/&gt;</description>
     <Point>
       <coordinates>7.2557624078745215,45.988343857838444</coordinates>
     </Point>
@@ -957,7 +957,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.013908586245456 Lng: 7.347045639455113</name>
-    <description>Alt Gain: -277m (4037m 3760m)&lt;br/&gt;Distance: 15.26km&lt;br/&gt;Speed: 147.67km/h&lt;br/&gt;LD: 55.08788088795529&lt;br/&gt;Vario: -0.7m/s&lt;br/&gt;Cell: 2/033013122202303111120030133130&lt;br/&gt;</description>
+    <description>Alt Gain: -277m (4037m 3760m)&lt;br/&gt;Distance: 15.26km&lt;br/&gt;Speed: 147.67km/h&lt;br/&gt;LD: 55.08788088795529&lt;br/&gt;Vario: -0.7m/s&lt;br/&gt;Cell: 2/03301312220230&lt;br/&gt;</description>
     <Point>
       <coordinates>7.347045639455113,46.013908586245456</coordinates>
     </Point>
@@ -973,7 +973,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.03750072909861 Lng: 7.435639820059221</name>
-    <description>Alt Gain: 301m (3760m 4061m)&lt;br/&gt;Distance: 4.90km&lt;br/&gt;Speed: 119.13km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.0m/s&lt;br/&gt;Cell: 2/033013211100301032123311000032&lt;br/&gt;</description>
+    <description>Alt Gain: 301m (3760m 4061m)&lt;br/&gt;Distance: 4.90km&lt;br/&gt;Speed: 119.13km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.0m/s&lt;br/&gt;Cell: 2/03301321110030&lt;br/&gt;</description>
     <Point>
       <coordinates>7.435639820059221,46.03750072909861</coordinates>
     </Point>
@@ -989,7 +989,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.08343902642555 Lng: 7.516060899132837</name>
-    <description>Alt Gain: -375m (4061m 3686m)&lt;br/&gt;Distance: 16.18km&lt;br/&gt;Speed: 154.92km/h&lt;br/&gt;LD: 43.14832486981201&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 2/033013211012212120122332103202&lt;br/&gt;</description>
+    <description>Alt Gain: -375m (4061m 3686m)&lt;br/&gt;Distance: 16.18km&lt;br/&gt;Speed: 154.92km/h&lt;br/&gt;LD: 43.14832486981201&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 2/03301321101221&lt;br/&gt;</description>
     <Point>
       <coordinates>7.516060899132837,46.08343902642555</coordinates>
     </Point>
@@ -1005,7 +1005,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.12076550487283 Lng: 7.6040929011685945</name>
-    <description>Alt Gain: -3686m (3686m 0m)&lt;br/&gt;Distance: 5.97km&lt;br/&gt;Speed: 116.74km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -20.0m/s&lt;br/&gt;Cell: 2/033013210222022033001032230210&lt;br/&gt;</description>
+    <description>Alt Gain: -3686m (3686m 0m)&lt;br/&gt;Distance: 5.97km&lt;br/&gt;Speed: 116.74km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -20.0m/s&lt;br/&gt;Cell: 2/03301321022202&lt;br/&gt;</description>
     <Point>
       <coordinates>7.6040929011685945,46.12076550487283</coordinates>
     </Point>
@@ -1021,7 +1021,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.134567175593894 Lng: 7.63972002140793</name>
-    <description>Alt Gain: 3884m (0m 3884m)&lt;br/&gt;Distance: 4.71km&lt;br/&gt;Speed: 184.33km/h&lt;br/&gt;LD: 1.212850448419331&lt;br/&gt;Vario: 42.2m/s&lt;br/&gt;Cell: 2/033013213112012301333020231110&lt;br/&gt;</description>
+    <description>Alt Gain: 3884m (0m 3884m)&lt;br/&gt;Distance: 4.71km&lt;br/&gt;Speed: 184.33km/h&lt;br/&gt;LD: 1.212850448419331&lt;br/&gt;Vario: 42.2m/s&lt;br/&gt;Cell: 2/03301321311201&lt;br/&gt;</description>
     <Point>
       <coordinates>7.63972002140793,46.134567175593894</coordinates>
     </Point>
@@ -1037,7 +1037,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.1450073729026 Lng: 7.667592719734781</name>
-    <description>Alt Gain: 22m (3884m 3906m)&lt;br/&gt;Distance: 1.30km&lt;br/&gt;Speed: 117.37km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.6m/s&lt;br/&gt;Cell: 2/033013213120003210322021013022&lt;br/&gt;</description>
+    <description>Alt Gain: 22m (3884m 3906m)&lt;br/&gt;Distance: 1.30km&lt;br/&gt;Speed: 117.37km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.6m/s&lt;br/&gt;Cell: 2/03301321312000&lt;br/&gt;</description>
     <Point>
       <coordinates>7.667592719734781,46.1450073729026</coordinates>
     </Point>
@@ -1053,7 +1053,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.164251844345095 Lng: 7.711006555418617</name>
-    <description>Alt Gain: -208m (3906m 3698m)&lt;br/&gt;Distance: 8.40km&lt;br/&gt;Speed: 154.27km/h&lt;br/&gt;LD: 40.380281370731225&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/033013213133030032123222222312&lt;br/&gt;</description>
+    <description>Alt Gain: -208m (3906m 3698m)&lt;br/&gt;Distance: 8.40km&lt;br/&gt;Speed: 154.27km/h&lt;br/&gt;LD: 40.380281370731225&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/03301321313303&lt;br/&gt;</description>
     <Point>
       <coordinates>7.711006555418617,46.164251844345095</coordinates>
     </Point>
@@ -1069,7 +1069,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.19232045145725 Lng: 7.73770903078853</name>
-    <description>Alt Gain: 120m (3698m 3818m)&lt;br/&gt;Distance: 3.06km&lt;br/&gt;Speed: 114.57km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.2m/s&lt;br/&gt;Cell: 2/033013213311013013123011030301&lt;br/&gt;</description>
+    <description>Alt Gain: 120m (3698m 3818m)&lt;br/&gt;Distance: 3.06km&lt;br/&gt;Speed: 114.57km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.2m/s&lt;br/&gt;Cell: 2/03301321331101&lt;br/&gt;</description>
     <Point>
       <coordinates>7.73770903078853,46.19232045145725</coordinates>
     </Point>
@@ -1085,7 +1085,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.20275956769997 Lng: 7.749503015660672</name>
-    <description>Alt Gain: 56m (3818m 3874m)&lt;br/&gt;Distance: 3.31km&lt;br/&gt;Speed: 119.24km/h&lt;br/&gt;LD: 59.144852228046474&lt;br/&gt;Vario: 0.6m/s&lt;br/&gt;Cell: 2/033013213310202331023232213031&lt;br/&gt;</description>
+    <description>Alt Gain: 56m (3818m 3874m)&lt;br/&gt;Distance: 3.31km&lt;br/&gt;Speed: 119.24km/h&lt;br/&gt;LD: 59.144852228046474&lt;br/&gt;Vario: 0.6m/s&lt;br/&gt;Cell: 2/03301321331020&lt;br/&gt;</description>
     <Point>
       <coordinates>7.749503015660672,46.20275956769997</coordinates>
     </Point>
@@ -1101,7 +1101,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.216686793713954 Lng: 7.760693094106103</name>
-    <description>Alt Gain: 206m (3874m 4080m)&lt;br/&gt;Distance: 4.81km&lt;br/&gt;Speed: 110.94km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.3m/s&lt;br/&gt;Cell: 2/033013213302333212023231011201&lt;br/&gt;</description>
+    <description>Alt Gain: 206m (3874m 4080m)&lt;br/&gt;Distance: 4.81km&lt;br/&gt;Speed: 110.94km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.3m/s&lt;br/&gt;Cell: 2/03301321330233&lt;br/&gt;</description>
     <Point>
       <coordinates>7.760693094106103,46.216686793713954</coordinates>
     </Point>
@@ -1117,7 +1117,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.23961486952393 Lng: 7.865033366274727</name>
-    <description>Alt Gain: -441m (4080m 3639m)&lt;br/&gt;Distance: 17.28km&lt;br/&gt;Speed: 151.01km/h&lt;br/&gt;LD: 39.18899959478211&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/033013220001020321022112131013&lt;br/&gt;</description>
+    <description>Alt Gain: -441m (4080m 3639m)&lt;br/&gt;Distance: 17.28km&lt;br/&gt;Speed: 151.01km/h&lt;br/&gt;LD: 39.18899959478211&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/03301322000102&lt;br/&gt;</description>
     <Point>
       <coordinates>7.865033366274727,46.23961486952393</coordinates>
     </Point>
@@ -1133,7 +1133,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.25889453312896 Lng: 7.973741763199294</name>
-    <description>Alt Gain: 11m (3639m 3650m)&lt;br/&gt;Distance: 0.77km&lt;br/&gt;Speed: 115.10km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.5m/s&lt;br/&gt;Cell: 2/033013231031230321033212323302&lt;br/&gt;</description>
+    <description>Alt Gain: 11m (3639m 3650m)&lt;br/&gt;Distance: 0.77km&lt;br/&gt;Speed: 115.10km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.5m/s&lt;br/&gt;Cell: 2/03301323103123&lt;br/&gt;</description>
     <Point>
       <coordinates>7.973741763199294,46.25889453312896</coordinates>
     </Point>
@@ -1149,7 +1149,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.261021966684915 Lng: 8.017186814867545</name>
-    <description>Alt Gain: -269m (3650m 3381m)&lt;br/&gt;Distance: 7.66km&lt;br/&gt;Speed: 149.91km/h&lt;br/&gt;LD: 28.482850181132452&lt;br/&gt;Vario: -1.5m/s&lt;br/&gt;Cell: 2/033013231003203203301220131111&lt;br/&gt;</description>
+    <description>Alt Gain: -269m (3650m 3381m)&lt;br/&gt;Distance: 7.66km&lt;br/&gt;Speed: 149.91km/h&lt;br/&gt;LD: 28.482850181132452&lt;br/&gt;Vario: -1.5m/s&lt;br/&gt;Cell: 2/03301323100320&lt;br/&gt;</description>
     <Point>
       <coordinates>8.017186814867545,46.261021966684915</coordinates>
     </Point>
@@ -1165,7 +1165,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.265099964435045 Lng: 8.070161095883387</name>
-    <description>Alt Gain: -3381m (3381m 0m)&lt;br/&gt;Distance: 3.77km&lt;br/&gt;Speed: 109.46km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -27.3m/s&lt;br/&gt;Cell: 2/033013230331102230013022133011&lt;br/&gt;</description>
+    <description>Alt Gain: -3381m (3381m 0m)&lt;br/&gt;Distance: 3.77km&lt;br/&gt;Speed: 109.46km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -27.3m/s&lt;br/&gt;Cell: 2/03301323033110&lt;br/&gt;</description>
     <Point>
       <coordinates>8.070161095883387,46.265099964435045</coordinates>
     </Point>
@@ -1181,7 +1181,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.30932492480966 Lng: 8.111945838585209</name>
-    <description>Alt Gain: 3321m (0m 3321m)&lt;br/&gt;Distance: 11.72km&lt;br/&gt;Speed: 162.32km/h&lt;br/&gt;LD: 3.5299122071179494&lt;br/&gt;Vario: 12.8m/s&lt;br/&gt;Cell: 2/033013230200332201120032130302&lt;br/&gt;</description>
+    <description>Alt Gain: 3321m (0m 3321m)&lt;br/&gt;Distance: 11.72km&lt;br/&gt;Speed: 162.32km/h&lt;br/&gt;LD: 3.5299122071179494&lt;br/&gt;Vario: 12.8m/s&lt;br/&gt;Cell: 2/03301323020033&lt;br/&gt;</description>
     <Point>
       <coordinates>8.111945838585209,46.30932492480966</coordinates>
     </Point>
@@ -1197,7 +1197,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.35331695762996 Lng: 8.13983802784572</name>
-    <description>Alt Gain: 31m (3321m 3352m)&lt;br/&gt;Distance: 0.97km&lt;br/&gt;Speed: 109.68km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.0m/s&lt;br/&gt;Cell: 2/033013230210312311213002030021&lt;br/&gt;</description>
+    <description>Alt Gain: 31m (3321m 3352m)&lt;br/&gt;Distance: 0.97km&lt;br/&gt;Speed: 109.68km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.0m/s&lt;br/&gt;Cell: 2/03301323021031&lt;br/&gt;</description>
     <Point>
       <coordinates>8.13983802784572,46.35331695762996</coordinates>
     </Point>
@@ -1213,7 +1213,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.36428043611997 Lng: 8.155513005361174</name>
-    <description>Alt Gain: -114m (3352m 3238m)&lt;br/&gt;Distance: 3.69km&lt;br/&gt;Speed: 174.96km/h&lt;br/&gt;LD: 32.399629558170275&lt;br/&gt;Vario: -1.5m/s&lt;br/&gt;Cell: 2/033013230122331101232110223203&lt;br/&gt;</description>
+    <description>Alt Gain: -114m (3352m 3238m)&lt;br/&gt;Distance: 3.69km&lt;br/&gt;Speed: 174.96km/h&lt;br/&gt;LD: 32.399629558170275&lt;br/&gt;Vario: -1.5m/s&lt;br/&gt;Cell: 2/03301323012233&lt;br/&gt;</description>
     <Point>
       <coordinates>8.155513005361174,46.36428043611997</coordinates>
     </Point>
@@ -1229,7 +1229,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.375930272692145 Lng: 8.178199504442297</name>
-    <description>Alt Gain: -3238m (3238m 0m)&lt;br/&gt;Distance: 6.51km&lt;br/&gt;Speed: 117.15km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -16.2m/s&lt;br/&gt;Cell: 2/033013230121222322013300023312&lt;br/&gt;</description>
+    <description>Alt Gain: -3238m (3238m 0m)&lt;br/&gt;Distance: 6.51km&lt;br/&gt;Speed: 117.15km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -16.2m/s&lt;br/&gt;Cell: 2/03301323012122&lt;br/&gt;</description>
     <Point>
       <coordinates>8.178199504442297,46.375930272692145</coordinates>
     </Point>
@@ -1245,7 +1245,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.43774829116753 Lng: 8.280314913356825</name>
-    <description>Alt Gain: 3317m (0m 3317m)&lt;br/&gt;Distance: 18.87km&lt;br/&gt;Speed: 169.79km/h&lt;br/&gt;LD: 5.687612149176282&lt;br/&gt;Vario: 8.3m/s&lt;br/&gt;Cell: 2/033002300322023032123223330103&lt;br/&gt;</description>
+    <description>Alt Gain: 3317m (0m 3317m)&lt;br/&gt;Distance: 18.87km&lt;br/&gt;Speed: 169.79km/h&lt;br/&gt;LD: 5.687612149176282&lt;br/&gt;Vario: 8.3m/s&lt;br/&gt;Cell: 2/03300230032202&lt;br/&gt;</description>
     <Point>
       <coordinates>8.280314913356825,46.43774829116753</coordinates>
     </Point>
@@ -1261,7 +1261,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.499952082960974 Lng: 8.362155240233674</name>
-    <description>Alt Gain: 336m (3317m 3653m)&lt;br/&gt;Distance: 3.49km&lt;br/&gt;Speed: 108.31km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.9m/s&lt;br/&gt;Cell: 2/033002300030212121323230332123&lt;br/&gt;</description>
+    <description>Alt Gain: 336m (3317m 3653m)&lt;br/&gt;Distance: 3.49km&lt;br/&gt;Speed: 108.31km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.9m/s&lt;br/&gt;Cell: 2/03300230003021&lt;br/&gt;</description>
     <Point>
       <coordinates>8.362155240233674,46.499952082960974</coordinates>
     </Point>
@@ -1277,7 +1277,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.53623416779156 Lng: 8.396886196762242</name>
-    <description>Alt Gain: -170m (3653m 3483m)&lt;br/&gt;Distance: 10.74km&lt;br/&gt;Speed: 155.89km/h&lt;br/&gt;LD: 63.16935967376046&lt;br/&gt;Vario: -0.7m/s&lt;br/&gt;Cell: 2/033002233011230110131133200311&lt;br/&gt;</description>
+    <description>Alt Gain: -170m (3653m 3483m)&lt;br/&gt;Distance: 10.74km&lt;br/&gt;Speed: 155.89km/h&lt;br/&gt;LD: 63.16935967376046&lt;br/&gt;Vario: -0.7m/s&lt;br/&gt;Cell: 2/03300223301123&lt;br/&gt;</description>
     <Point>
       <coordinates>8.396886196762242,46.53623416779156</coordinates>
     </Point>
@@ -1293,7 +1293,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.57791809795812 Lng: 8.405549057272738</name>
-    <description>Alt Gain: 64m (3483m 3547m)&lt;br/&gt;Distance: 0.91km&lt;br/&gt;Speed: 117.08km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.3m/s&lt;br/&gt;Cell: 2/033002233022113203211302032330&lt;br/&gt;</description>
+    <description>Alt Gain: 64m (3483m 3547m)&lt;br/&gt;Distance: 0.91km&lt;br/&gt;Speed: 117.08km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.3m/s&lt;br/&gt;Cell: 2/03300223302211&lt;br/&gt;</description>
     <Point>
       <coordinates>8.405549057272738,46.57791809795812</coordinates>
     </Point>
@@ -1309,7 +1309,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.60649692857298 Lng: 8.434323669994484</name>
-    <description>Alt Gain: -133m (3547m 3414m)&lt;br/&gt;Distance: 8.67km&lt;br/&gt;Speed: 159.20km/h&lt;br/&gt;LD: 65.16754805537296&lt;br/&gt;Vario: -0.7m/s&lt;br/&gt;Cell: 2/033002233132003322331300312301&lt;br/&gt;</description>
+    <description>Alt Gain: -133m (3547m 3414m)&lt;br/&gt;Distance: 8.67km&lt;br/&gt;Speed: 159.20km/h&lt;br/&gt;LD: 65.16754805537296&lt;br/&gt;Vario: -0.7m/s&lt;br/&gt;Cell: 2/03300223313200&lt;br/&gt;</description>
     <Point>
       <coordinates>8.434323669994484,46.60649692857298</coordinates>
     </Point>
@@ -1325,7 +1325,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.61743555205605 Lng: 8.483931118049625</name>
-    <description>Alt Gain: 59m (3414m 3473m)&lt;br/&gt;Distance: 1.71km&lt;br/&gt;Speed: 110.05km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.1m/s&lt;br/&gt;Cell: 2/033002233103033333301201210201&lt;br/&gt;</description>
+    <description>Alt Gain: 59m (3414m 3473m)&lt;br/&gt;Distance: 1.71km&lt;br/&gt;Speed: 110.05km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.1m/s&lt;br/&gt;Cell: 2/03300223310303&lt;br/&gt;</description>
     <Point>
       <coordinates>8.483931118049625,46.61743555205605</coordinates>
     </Point>
@@ -1341,7 +1341,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.62643719995499 Lng: 8.507999013476224</name>
-    <description>Alt Gain: -81m (3473m 3392m)&lt;br/&gt;Distance: 8.48km&lt;br/&gt;Speed: 155.68km/h&lt;br/&gt;LD: 104.64252288291694&lt;br/&gt;Vario: -0.4m/s&lt;br/&gt;Cell: 2/033002233110000303302000232121&lt;br/&gt;</description>
+    <description>Alt Gain: -81m (3473m 3392m)&lt;br/&gt;Distance: 8.48km&lt;br/&gt;Speed: 155.68km/h&lt;br/&gt;LD: 104.64252288291694&lt;br/&gt;Vario: -0.4m/s&lt;br/&gt;Cell: 2/03300223311000&lt;br/&gt;</description>
     <Point>
       <coordinates>8.507999013476224,46.62643719995499</coordinates>
     </Point>
@@ -1357,7 +1357,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.61895074802778 Lng: 8.477371926520021</name>
-    <description>Alt Gain: 295m (3392m 3687m)&lt;br/&gt;Distance: 4.27km&lt;br/&gt;Speed: 113.04km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.2m/s&lt;br/&gt;Cell: 2/033002233102312201013021221232&lt;br/&gt;</description>
+    <description>Alt Gain: 295m (3392m 3687m)&lt;br/&gt;Distance: 4.27km&lt;br/&gt;Speed: 113.04km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.2m/s&lt;br/&gt;Cell: 2/03300223310231&lt;br/&gt;</description>
     <Point>
       <coordinates>8.477371926520021,46.61895074802778</coordinates>
     </Point>
@@ -1373,7 +1373,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.57944202259343 Lng: 8.447349294778812</name>
-    <description>Alt Gain: -216m (3687m 3471m)&lt;br/&gt;Distance: 9.99km&lt;br/&gt;Speed: 169.58km/h&lt;br/&gt;LD: 46.233724549382934&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 2/033002233023233203332333130122&lt;br/&gt;</description>
+    <description>Alt Gain: -216m (3687m 3471m)&lt;br/&gt;Distance: 9.99km&lt;br/&gt;Speed: 169.58km/h&lt;br/&gt;LD: 46.233724549382934&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 2/03300223302323&lt;br/&gt;</description>
     <Point>
       <coordinates>8.447349294778812,46.57944202259343</coordinates>
     </Point>
@@ -1389,7 +1389,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.541269658459775 Lng: 8.411892238021753</name>
-    <description>Alt Gain: 229m (3471m 3700m)&lt;br/&gt;Distance: 2.31km&lt;br/&gt;Speed: 115.67km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 3.2m/s&lt;br/&gt;Cell: 2/033002233012010130123101231300&lt;br/&gt;</description>
+    <description>Alt Gain: 229m (3471m 3700m)&lt;br/&gt;Distance: 2.31km&lt;br/&gt;Speed: 115.67km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 3.2m/s&lt;br/&gt;Cell: 2/03300223301201&lt;br/&gt;</description>
     <Point>
       <coordinates>8.411892238021753,46.541269658459775</coordinates>
     </Point>
@@ -1405,7 +1405,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.50252794749069 Lng: 8.367095164006006</name>
-    <description>Alt Gain: -267m (3700m 3433m)&lt;br/&gt;Distance: 11.49km&lt;br/&gt;Speed: 169.49km/h&lt;br/&gt;LD: 43.024896551533494&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/033002300033210333123202333110&lt;br/&gt;</description>
+    <description>Alt Gain: -267m (3700m 3433m)&lt;br/&gt;Distance: 11.49km&lt;br/&gt;Speed: 169.49km/h&lt;br/&gt;LD: 43.024896551533494&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/03300230003321&lt;br/&gt;</description>
     <Point>
       <coordinates>8.367095164006006,46.50252794749069</coordinates>
     </Point>
@@ -1421,7 +1421,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.46261314689075 Lng: 8.320748523071533</name>
-    <description>Alt Gain: 141m (3433m 3574m)&lt;br/&gt;Distance: 2.15km&lt;br/&gt;Speed: 113.57km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.1m/s&lt;br/&gt;Cell: 2/033002300021000302313312003232&lt;br/&gt;</description>
+    <description>Alt Gain: 141m (3433m 3574m)&lt;br/&gt;Distance: 2.15km&lt;br/&gt;Speed: 113.57km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.1m/s&lt;br/&gt;Cell: 2/03300230002100&lt;br/&gt;</description>
     <Point>
       <coordinates>8.320748523071533,46.46261314689075</coordinates>
     </Point>
@@ -1437,7 +1437,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.45441981674259 Lng: 8.307814613764489</name>
-    <description>Alt Gain: -40m (3574m 3534m)&lt;br/&gt;Distance: 3.13km&lt;br/&gt;Speed: 165.54km/h&lt;br/&gt;LD: 78.17197445051818&lt;br/&gt;Vario: -0.6m/s&lt;br/&gt;Cell: 2/033002300012200232122332231032&lt;br/&gt;</description>
+    <description>Alt Gain: -40m (3574m 3534m)&lt;br/&gt;Distance: 3.13km&lt;br/&gt;Speed: 165.54km/h&lt;br/&gt;LD: 78.17197445051818&lt;br/&gt;Vario: -0.6m/s&lt;br/&gt;Cell: 2/03300230001220&lt;br/&gt;</description>
     <Point>
       <coordinates>8.307814613764489,46.45441981674259</coordinates>
     </Point>
@@ -1453,7 +1453,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.44059610261463 Lng: 8.299999834626433</name>
-    <description>Alt Gain: 152m (3534m 3686m)&lt;br/&gt;Distance: 2.76km&lt;br/&gt;Speed: 107.89km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.7m/s&lt;br/&gt;Cell: 2/033002300321203133330220000011&lt;br/&gt;</description>
+    <description>Alt Gain: 152m (3534m 3686m)&lt;br/&gt;Distance: 2.76km&lt;br/&gt;Speed: 107.89km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.7m/s&lt;br/&gt;Cell: 2/03300230032120&lt;br/&gt;</description>
     <Point>
       <coordinates>8.299999834626433,46.44059610261463</coordinates>
     </Point>
@@ -1469,7 +1469,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.43246628873439 Lng: 8.27587670623673</name>
-    <description>Alt Gain: -38m (3686m 3648m)&lt;br/&gt;Distance: 4.81km&lt;br/&gt;Speed: 154.64km/h&lt;br/&gt;LD: 126.6048787852134&lt;br/&gt;Vario: -0.3m/s&lt;br/&gt;Cell: 2/033002300322012122031131130223&lt;br/&gt;</description>
+    <description>Alt Gain: -38m (3686m 3648m)&lt;br/&gt;Distance: 4.81km&lt;br/&gt;Speed: 154.64km/h&lt;br/&gt;LD: 126.6048787852134&lt;br/&gt;Vario: -0.3m/s&lt;br/&gt;Cell: 2/03300230032201&lt;br/&gt;</description>
     <Point>
       <coordinates>8.27587670623673,46.43246628873439</coordinates>
     </Point>
@@ -1485,7 +1485,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.41644301521801 Lng: 8.257082210377776</name>
-    <description>Alt Gain: -22m (3648m 3626m)&lt;br/&gt;Distance: 0.94km&lt;br/&gt;Speed: 120.58km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -0.8m/s&lt;br/&gt;Cell: 2/033013233230032120020011231022&lt;br/&gt;</description>
+    <description>Alt Gain: -22m (3648m 3626m)&lt;br/&gt;Distance: 0.94km&lt;br/&gt;Speed: 120.58km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -0.8m/s&lt;br/&gt;Cell: 2/03301323323003&lt;br/&gt;</description>
     <Point>
       <coordinates>8.257082210377776,46.41644301521801</coordinates>
     </Point>
@@ -1501,7 +1501,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.40495772084994 Lng: 8.237522714910423</name>
-    <description>Alt Gain: -95m (3626m 3531m)&lt;br/&gt;Distance: 4.16km&lt;br/&gt;Speed: 162.83km/h&lt;br/&gt;LD: 43.80234825194197&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 2/033013233223210113000323010123&lt;br/&gt;</description>
+    <description>Alt Gain: -95m (3626m 3531m)&lt;br/&gt;Distance: 4.16km&lt;br/&gt;Speed: 162.83km/h&lt;br/&gt;LD: 43.80234825194197&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 2/03301323322321&lt;br/&gt;</description>
     <Point>
       <coordinates>8.237522714910423,46.40495772084994</coordinates>
     </Point>
@@ -1517,7 +1517,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.392597075515674 Lng: 8.214927422216462</name>
-    <description>Alt Gain: 166m (3531m 3697m)&lt;br/&gt;Distance: 2.42km&lt;br/&gt;Speed: 114.58km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.2m/s&lt;br/&gt;Cell: 2/033013233221011301202300120221&lt;br/&gt;</description>
+    <description>Alt Gain: 166m (3531m 3697m)&lt;br/&gt;Distance: 2.42km&lt;br/&gt;Speed: 114.58km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.2m/s&lt;br/&gt;Cell: 2/03301323322101&lt;br/&gt;</description>
     <Point>
       <coordinates>8.214927422216462,46.392597075515674</coordinates>
     </Point>
@@ -1533,7 +1533,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.390879339365014 Lng: 8.205125855361352</name>
-    <description>Alt Gain: 48m (3697m 3745m)&lt;br/&gt;Distance: 1.77km&lt;br/&gt;Speed: 144.57km/h&lt;br/&gt;LD: 36.81286241381798&lt;br/&gt;Vario: 1.1m/s&lt;br/&gt;Cell: 2/033013233221001111301302112122&lt;br/&gt;</description>
+    <description>Alt Gain: 48m (3697m 3745m)&lt;br/&gt;Distance: 1.77km&lt;br/&gt;Speed: 144.57km/h&lt;br/&gt;LD: 36.81286241381798&lt;br/&gt;Vario: 1.1m/s&lt;br/&gt;Cell: 2/03301323322100&lt;br/&gt;</description>
     <Point>
       <coordinates>8.205125855361352,46.390879339365014</coordinates>
     </Point>
@@ -1549,7 +1549,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.39070587011882 Lng: 8.190813610274148</name>
-    <description>Alt Gain: 469m (3745m 4214m)&lt;br/&gt;Distance: 5.59km&lt;br/&gt;Speed: 114.30km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.7m/s&lt;br/&gt;Cell: 2/033013233212021012301033000022&lt;br/&gt;</description>
+    <description>Alt Gain: 469m (3745m 4214m)&lt;br/&gt;Distance: 5.59km&lt;br/&gt;Speed: 114.30km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.7m/s&lt;br/&gt;Cell: 2/03301323321202&lt;br/&gt;</description>
     <Point>
       <coordinates>8.190813610274148,46.39070587011882</coordinates>
     </Point>
@@ -1565,7 +1565,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.35956939157871 Lng: 8.140242138432246</name>
-    <description>Alt Gain: -223m (4214m 3991m)&lt;br/&gt;Distance: 10.54km&lt;br/&gt;Speed: 123.23km/h&lt;br/&gt;LD: 47.27661508635946&lt;br/&gt;Vario: -0.7m/s&lt;br/&gt;Cell: 2/033013230210301330023031310211&lt;br/&gt;</description>
+    <description>Alt Gain: -223m (4214m 3991m)&lt;br/&gt;Distance: 10.54km&lt;br/&gt;Speed: 123.23km/h&lt;br/&gt;LD: 47.27661508635946&lt;br/&gt;Vario: -0.7m/s&lt;br/&gt;Cell: 2/03301323021030&lt;br/&gt;</description>
     <Point>
       <coordinates>8.140242138432246,46.35956939157871</coordinates>
     </Point>
@@ -1581,7 +1581,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.328872404135986 Lng: 8.086272393627857</name>
-    <description>Alt Gain: 0m (3991m 3991m)&lt;br/&gt;Distance: 0.96km&lt;br/&gt;Speed: 107.91km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.0m/s&lt;br/&gt;Cell: 2/033013230231230300212133332113&lt;br/&gt;</description>
+    <description>Alt Gain: 0m (3991m 3991m)&lt;br/&gt;Distance: 0.96km&lt;br/&gt;Speed: 107.91km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.0m/s&lt;br/&gt;Cell: 2/03301323023123&lt;br/&gt;</description>
     <Point>
       <coordinates>8.086272393627857,46.328872404135986</coordinates>
     </Point>
@@ -1597,7 +1597,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.24437289384554 Lng: 7.9719003718231285</name>
-    <description>Alt Gain: -678m (3991m 3313m)&lt;br/&gt;Distance: 26.97km&lt;br/&gt;Speed: 123.86km/h&lt;br/&gt;LD: 39.78333630326907&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 2/033013231032213022220111121311&lt;br/&gt;</description>
+    <description>Alt Gain: -678m (3991m 3313m)&lt;br/&gt;Distance: 26.97km&lt;br/&gt;Speed: 123.86km/h&lt;br/&gt;LD: 39.78333630326907&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 2/03301323103221&lt;br/&gt;</description>
     <Point>
       <coordinates>7.9719003718231285,46.24437289384554</coordinates>
     </Point>
@@ -1613,7 +1613,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.16106290293411 Lng: 7.860421816940279</name>
-    <description>Alt Gain: 665m (3313m 3978m)&lt;br/&gt;Distance: 8.17km&lt;br/&gt;Speed: 109.76km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.5m/s&lt;br/&gt;Cell: 2/033013220312233230212331330200&lt;br/&gt;</description>
+    <description>Alt Gain: 665m (3313m 3978m)&lt;br/&gt;Distance: 8.17km&lt;br/&gt;Speed: 109.76km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.5m/s&lt;br/&gt;Cell: 2/03301322031223&lt;br/&gt;</description>
     <Point>
       <coordinates>7.860421816940279,46.16106290293411</coordinates>
     </Point>
@@ -1629,7 +1629,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.145427888744834 Lng: 7.853455330571107</name>
-    <description>Alt Gain: -88m (3978m 3890m)&lt;br/&gt;Distance: 3.50km&lt;br/&gt;Speed: 157.56km/h&lt;br/&gt;LD: 39.788460799521566&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/033013220320323223133020031312&lt;br/&gt;</description>
+    <description>Alt Gain: -88m (3978m 3890m)&lt;br/&gt;Distance: 3.50km&lt;br/&gt;Speed: 157.56km/h&lt;br/&gt;LD: 39.788460799521566&lt;br/&gt;Vario: -1.1m/s&lt;br/&gt;Cell: 2/03301322032032&lt;br/&gt;</description>
     <Point>
       <coordinates>7.853455330571107,46.145427888744834</coordinates>
     </Point>
@@ -1645,7 +1645,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.130226825071645 Lng: 7.845330711834593</name>
-    <description>Alt Gain: 428m (3890m 4318m)&lt;br/&gt;Distance: 3.74km&lt;br/&gt;Speed: 108.59km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 3.5m/s&lt;br/&gt;Cell: 2/033013220331103013100031220231&lt;br/&gt;</description>
+    <description>Alt Gain: 428m (3890m 4318m)&lt;br/&gt;Distance: 3.74km&lt;br/&gt;Speed: 108.59km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 3.5m/s&lt;br/&gt;Cell: 2/03301322033110&lt;br/&gt;</description>
     <Point>
       <coordinates>7.845330711834593,46.130226825071645</coordinates>
     </Point>
@@ -1661,7 +1661,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.117192021377534 Lng: 7.736225538688627</name>
-    <description>Alt Gain: -267m (4318m 4051m)&lt;br/&gt;Distance: 18.51km&lt;br/&gt;Speed: 136.52km/h&lt;br/&gt;LD: 69.31252862479012&lt;br/&gt;Vario: -0.5m/s&lt;br/&gt;Cell: 2/033013213032002031212213013110&lt;br/&gt;</description>
+    <description>Alt Gain: -267m (4318m 4051m)&lt;br/&gt;Distance: 18.51km&lt;br/&gt;Speed: 136.52km/h&lt;br/&gt;LD: 69.31252862479012&lt;br/&gt;Vario: -0.5m/s&lt;br/&gt;Cell: 2/03301321303200&lt;br/&gt;</description>
     <Point>
       <coordinates>7.736225538688627,46.117192021377534</coordinates>
     </Point>
@@ -1677,7 +1677,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.076715835461044 Lng: 7.657808334613107</name>
-    <description>Alt Gain: 337m (4051m 4388m)&lt;br/&gt;Distance: 5.20km&lt;br/&gt;Speed: 111.46km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.0m/s&lt;br/&gt;Cell: 2/033013212013303331030111331020&lt;br/&gt;</description>
+    <description>Alt Gain: 337m (4051m 4388m)&lt;br/&gt;Distance: 5.20km&lt;br/&gt;Speed: 111.46km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.0m/s&lt;br/&gt;Cell: 2/03301321201330&lt;br/&gt;</description>
     <Point>
       <coordinates>7.657808334613107,46.076715835461044</coordinates>
     </Point>
@@ -1693,7 +1693,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 46.013899056224766 Lng: 7.532630669542773</name>
-    <description>Alt Gain: -595m (4388m 3793m)&lt;br/&gt;Distance: 25.00km&lt;br/&gt;Speed: 149.02km/h&lt;br/&gt;LD: 42.019975839099146&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 2/033013211202101111032001300031&lt;br/&gt;</description>
+    <description>Alt Gain: -595m (4388m 3793m)&lt;br/&gt;Distance: 25.00km&lt;br/&gt;Speed: 149.02km/h&lt;br/&gt;LD: 42.019975839099146&lt;br/&gt;Vario: -1.0m/s&lt;br/&gt;Cell: 2/03301321120210&lt;br/&gt;</description>
     <Point>
       <coordinates>7.532630669542773,46.013899056224766</coordinates>
     </Point>
@@ -1709,7 +1709,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.94883205571693 Lng: 7.419245402844632</name>
-    <description>Alt Gain: 36m (3793m 3829m)&lt;br/&gt;Distance: 1.34km&lt;br/&gt;Speed: 109.38km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.8m/s&lt;br/&gt;Cell: 2/033010122220230031131200300210&lt;br/&gt;</description>
+    <description>Alt Gain: 36m (3793m 3829m)&lt;br/&gt;Distance: 1.34km&lt;br/&gt;Speed: 109.38km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.8m/s&lt;br/&gt;Cell: 2/03301012222023&lt;br/&gt;</description>
     <Point>
       <coordinates>7.419245402844632,45.94883205571693</coordinates>
     </Point>
@@ -1725,7 +1725,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.92719103557718 Lng: 7.366810868864389</name>
-    <description>Alt Gain: -205m (3829m 3624m)&lt;br/&gt;Distance: 9.19km&lt;br/&gt;Speed: 145.10km/h&lt;br/&gt;LD: 44.82775315582829&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 2/033010211103031031303331231211&lt;br/&gt;</description>
+    <description>Alt Gain: -205m (3829m 3624m)&lt;br/&gt;Distance: 9.19km&lt;br/&gt;Speed: 145.10km/h&lt;br/&gt;LD: 44.82775315582829&lt;br/&gt;Vario: -0.9m/s&lt;br/&gt;Cell: 2/03301021110303&lt;br/&gt;</description>
     <Point>
       <coordinates>7.366810868864389,45.92719103557718</coordinates>
     </Point>
@@ -1741,7 +1741,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.915895666702454 Lng: 7.311862632363409</name>
-    <description>Alt Gain: -17m (3624m 3607m)&lt;br/&gt;Distance: 0.69km&lt;br/&gt;Speed: 124.07km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -0.8m/s&lt;br/&gt;Cell: 2/033010211133111011231322201202&lt;br/&gt;</description>
+    <description>Alt Gain: -17m (3624m 3607m)&lt;br/&gt;Distance: 0.69km&lt;br/&gt;Speed: 124.07km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -0.8m/s&lt;br/&gt;Cell: 2/03301021113311&lt;br/&gt;</description>
     <Point>
       <coordinates>7.311862632363409,45.915895666702454</coordinates>
     </Point>
@@ -1757,7 +1757,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.913039798926725 Lng: 7.31096110341499</name>
-    <description>Alt Gain: 6m (3607m 3613m)&lt;br/&gt;Distance: 0.57km&lt;br/&gt;Speed: 128.52km/h&lt;br/&gt;LD: 95.19738387702621&lt;br/&gt;Vario: 0.4m/s&lt;br/&gt;Cell: 2/033010211133103011223112300230&lt;br/&gt;</description>
+    <description>Alt Gain: 6m (3607m 3613m)&lt;br/&gt;Distance: 0.57km&lt;br/&gt;Speed: 128.52km/h&lt;br/&gt;LD: 95.19738387702621&lt;br/&gt;Vario: 0.4m/s&lt;br/&gt;Cell: 2/03301021113310&lt;br/&gt;</description>
     <Point>
       <coordinates>7.31096110341499,45.913039798926725</coordinates>
     </Point>
@@ -1773,7 +1773,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.9113011449172 Lng: 7.323606908468423</name>
-    <description>Alt Gain: 614m (3613m 4227m)&lt;br/&gt;Distance: 11.03km&lt;br/&gt;Speed: 115.45km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.8m/s&lt;br/&gt;Cell: 2/033010211132132233010003013221&lt;br/&gt;</description>
+    <description>Alt Gain: 614m (3613m 4227m)&lt;br/&gt;Distance: 11.03km&lt;br/&gt;Speed: 115.45km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 1.8m/s&lt;br/&gt;Cell: 2/03301021113213&lt;br/&gt;</description>
     <Point>
       <coordinates>7.323606908468423,45.9113011449172</coordinates>
     </Point>
@@ -1789,7 +1789,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.87886997081322 Lng: 7.198655453580854</name>
-    <description>Alt Gain: -448m (4227m 3779m)&lt;br/&gt;Distance: 21.95km&lt;br/&gt;Speed: 143.17km/h&lt;br/&gt;LD: 49.00062278312792&lt;br/&gt;Vario: -0.8m/s&lt;br/&gt;Cell: 2/033010211301023100130002313030&lt;br/&gt;</description>
+    <description>Alt Gain: -448m (4227m 3779m)&lt;br/&gt;Distance: 21.95km&lt;br/&gt;Speed: 143.17km/h&lt;br/&gt;LD: 49.00062278312792&lt;br/&gt;Vario: -0.8m/s&lt;br/&gt;Cell: 2/03301021130102&lt;br/&gt;</description>
     <Point>
       <coordinates>7.198655453580854,45.87886997081322</coordinates>
     </Point>
@@ -1805,7 +1805,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.83292791165811 Lng: 7.077925990136444</name>
-    <description>Alt Gain: 77m (3779m 3856m)&lt;br/&gt;Distance: 0.93km&lt;br/&gt;Speed: 119.48km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.8m/s&lt;br/&gt;Cell: 2/033010213033321102302332312322&lt;br/&gt;</description>
+    <description>Alt Gain: 77m (3779m 3856m)&lt;br/&gt;Distance: 0.93km&lt;br/&gt;Speed: 119.48km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 2.8m/s&lt;br/&gt;Cell: 2/03301021303332&lt;br/&gt;</description>
     <Point>
       <coordinates>7.077925990136444,45.83292791165811</coordinates>
     </Point>
@@ -1821,7 +1821,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.82504514925168 Lng: 7.067093597972842</name>
-    <description>Alt Gain: 114m (3856m 3970m)&lt;br/&gt;Distance: 2.58km&lt;br/&gt;Speed: 136.60km/h&lt;br/&gt;LD: 22.634163133182827&lt;br/&gt;Vario: 1.7m/s&lt;br/&gt;Cell: 2/033010213033102012032321101021&lt;br/&gt;</description>
+    <description>Alt Gain: 114m (3856m 3970m)&lt;br/&gt;Distance: 2.58km&lt;br/&gt;Speed: 136.60km/h&lt;br/&gt;LD: 22.634163133182827&lt;br/&gt;Vario: 1.7m/s&lt;br/&gt;Cell: 2/03301021303310&lt;br/&gt;</description>
     <Point>
       <coordinates>7.067093597972842,45.82504514925168</coordinates>
     </Point>
@@ -1837,7 +1837,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.81962461895768 Lng: 7.0539723505431615</name>
-    <description>Alt Gain: 522m (3970m 4492m)&lt;br/&gt;Distance: 4.50km&lt;br/&gt;Speed: 112.61km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 3.6m/s&lt;br/&gt;Cell: 2/033010213031300333310111313213&lt;br/&gt;</description>
+    <description>Alt Gain: 522m (3970m 4492m)&lt;br/&gt;Distance: 4.50km&lt;br/&gt;Speed: 112.61km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 3.6m/s&lt;br/&gt;Cell: 2/03301021303130&lt;br/&gt;</description>
     <Point>
       <coordinates>7.0539723505431615,45.81962461895768</coordinates>
     </Point>
@@ -1853,7 +1853,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.788057856565395 Lng: 6.983770270574446</name>
-    <description>Alt Gain: -419m (4492m 4073m)&lt;br/&gt;Distance: 13.31km&lt;br/&gt;Speed: 151.64km/h&lt;br/&gt;LD: 31.76772530244644&lt;br/&gt;Vario: -1.3m/s&lt;br/&gt;Cell: 2/033010220323001332121000122010&lt;br/&gt;</description>
+    <description>Alt Gain: -419m (4492m 4073m)&lt;br/&gt;Distance: 13.31km&lt;br/&gt;Speed: 151.64km/h&lt;br/&gt;LD: 31.76772530244644&lt;br/&gt;Vario: -1.3m/s&lt;br/&gt;Cell: 2/03301022032300&lt;br/&gt;</description>
     <Point>
       <coordinates>6.983770270574446,45.788057856565395</coordinates>
     </Point>
@@ -1869,7 +1869,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.752063436214335 Lng: 6.9055376058177105</name>
-    <description>Alt Gain: -4073m (4073m 0m)&lt;br/&gt;Distance: 3.86km&lt;br/&gt;Speed: 115.68km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -33.9m/s&lt;br/&gt;Cell: 2/033010220023110001103100221313&lt;br/&gt;</description>
+    <description>Alt Gain: -4073m (4073m 0m)&lt;br/&gt;Distance: 3.86km&lt;br/&gt;Speed: 115.68km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -33.9m/s&lt;br/&gt;Cell: 2/03301022002311&lt;br/&gt;</description>
     <Point>
       <coordinates>6.9055376058177105,45.752063436214335</coordinates>
     </Point>
@@ -1885,7 +1885,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.6517424192818 Lng: 6.673551293859633</name>
-    <description>Alt Gain: 3039m (0m 3039m)&lt;br/&gt;Distance: 42.81km&lt;br/&gt;Speed: 136.16km/h&lt;br/&gt;LD: 14.088303417330946&lt;br/&gt;Vario: 2.7m/s&lt;br/&gt;Cell: 2/033010230022033012213333220031&lt;br/&gt;</description>
+    <description>Alt Gain: 3039m (0m 3039m)&lt;br/&gt;Distance: 42.81km&lt;br/&gt;Speed: 136.16km/h&lt;br/&gt;LD: 14.088303417330946&lt;br/&gt;Vario: 2.7m/s&lt;br/&gt;Cell: 2/03301023002203&lt;br/&gt;</description>
     <Point>
       <coordinates>6.673551293859633,45.6517424192818</coordinates>
     </Point>
@@ -1901,7 +1901,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.5416032427304 Lng: 6.4368473092021175</name>
-    <description>Alt Gain: -3039m (3039m 0m)&lt;br/&gt;Distance: 1.35km&lt;br/&gt;Speed: 121.37km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -76.0m/s&lt;br/&gt;Cell: 2/033011322002233030221120022320&lt;br/&gt;</description>
+    <description>Alt Gain: -3039m (3039m 0m)&lt;br/&gt;Distance: 1.35km&lt;br/&gt;Speed: 121.37km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -76.0m/s&lt;br/&gt;Cell: 2/03301132200223&lt;br/&gt;</description>
     <Point>
       <coordinates>6.4368473092021175,45.5416032427304</coordinates>
     </Point>
@@ -1917,7 +1917,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.4940304640742 Lng: 6.382684703277652</name>
-    <description>Alt Gain: 2818m (0m 2818m)&lt;br/&gt;Distance: 13.24km&lt;br/&gt;Speed: 121.56km/h&lt;br/&gt;LD: 4.697183513616545&lt;br/&gt;Vario: 7.2m/s&lt;br/&gt;Cell: 2/033011321233332120131103110133&lt;br/&gt;</description>
+    <description>Alt Gain: 2818m (0m 2818m)&lt;br/&gt;Distance: 13.24km&lt;br/&gt;Speed: 121.56km/h&lt;br/&gt;LD: 4.697183513616545&lt;br/&gt;Vario: 7.2m/s&lt;br/&gt;Cell: 2/03301132123333&lt;br/&gt;</description>
     <Point>
       <coordinates>6.382684703277652,45.4940304640742</coordinates>
     </Point>
@@ -1933,7 +1933,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.463060793557084 Lng: 6.36358226618019</name>
-    <description>Alt Gain: -23m (2818m 2795m)&lt;br/&gt;Distance: 0.79km&lt;br/&gt;Speed: 101.40km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -0.8m/s&lt;br/&gt;Cell: 2/033011321230323103131210210131&lt;br/&gt;</description>
+    <description>Alt Gain: -23m (2818m 2795m)&lt;br/&gt;Distance: 0.79km&lt;br/&gt;Speed: 101.40km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -0.8m/s&lt;br/&gt;Cell: 2/03301132123032&lt;br/&gt;</description>
     <Point>
       <coordinates>6.36358226618019,45.463060793557084</coordinates>
     </Point>
@@ -1949,7 +1949,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.4549612166433 Lng: 6.360244285687381</name>
-    <description>Alt Gain: 14m (2795m 2809m)&lt;br/&gt;Distance: 1.21km&lt;br/&gt;Speed: 108.87km/h&lt;br/&gt;LD: 86.4015190040683&lt;br/&gt;Vario: 0.3m/s&lt;br/&gt;Cell: 2/033011321223202320231132221231&lt;br/&gt;</description>
+    <description>Alt Gain: 14m (2795m 2809m)&lt;br/&gt;Distance: 1.21km&lt;br/&gt;Speed: 108.87km/h&lt;br/&gt;LD: 86.4015190040683&lt;br/&gt;Vario: 0.3m/s&lt;br/&gt;Cell: 2/03301132122320&lt;br/&gt;</description>
     <Point>
       <coordinates>6.360244285687381,45.4549612166433</coordinates>
     </Point>
@@ -1965,7 +1965,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.446155749572696 Lng: 6.3557970675116735</name>
-    <description>Alt Gain: 0m (2809m 2809m)&lt;br/&gt;Distance: 1.45km&lt;br/&gt;Speed: 108.45km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.0m/s&lt;br/&gt;Cell: 2/033011321223113130130211021310&lt;br/&gt;</description>
+    <description>Alt Gain: 0m (2809m 2809m)&lt;br/&gt;Distance: 1.45km&lt;br/&gt;Speed: 108.45km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.0m/s&lt;br/&gt;Cell: 2/03301132122311&lt;br/&gt;</description>
     <Point>
       <coordinates>6.3557970675116735,45.446155749572696</coordinates>
     </Point>
@@ -1981,7 +1981,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.39772305346716 Lng: 6.221766981888739</name>
-    <description>Alt Gain: -2809m (2809m 0m)&lt;br/&gt;Distance: 28.10km&lt;br/&gt;Speed: 114.42km/h&lt;br/&gt;LD: 10.002200281931039&lt;br/&gt;Vario: -3.2m/s&lt;br/&gt;Cell: 2/033011012220030021012233132221&lt;br/&gt;</description>
+    <description>Alt Gain: -2809m (2809m 0m)&lt;br/&gt;Distance: 28.10km&lt;br/&gt;Speed: 114.42km/h&lt;br/&gt;LD: 10.002200281931039&lt;br/&gt;Vario: -3.2m/s&lt;br/&gt;Cell: 2/03301101222003&lt;br/&gt;</description>
     <Point>
       <coordinates>6.221766981888739,45.39772305346716</coordinates>
     </Point>
@@ -1997,7 +1997,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.34137075729786 Lng: 6.142695499072365</name>
-    <description>Alt Gain: 2359m (0m 2359m)&lt;br/&gt;Distance: 0.64km&lt;br/&gt;Speed: 115.57km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 118.0m/s&lt;br/&gt;Cell: 2/033011021031011111001302021102&lt;br/&gt;</description>
+    <description>Alt Gain: 2359m (0m 2359m)&lt;br/&gt;Distance: 0.64km&lt;br/&gt;Speed: 115.57km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 118.0m/s&lt;br/&gt;Cell: 2/03301102103101&lt;br/&gt;</description>
     <Point>
       <coordinates>6.142695499072365,45.34137075729786</coordinates>
     </Point>
@@ -2013,7 +2013,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.323099855569225 Lng: 6.14022290647511</name>
-    <description>Alt Gain: -8m (2359m 2351m)&lt;br/&gt;Distance: 4.53km&lt;br/&gt;Speed: 110.29km/h&lt;br/&gt;LD: 566.7775889437792&lt;br/&gt;Vario: -0.1m/s&lt;br/&gt;Cell: 2/033011021031211123133021330302&lt;br/&gt;</description>
+    <description>Alt Gain: -8m (2359m 2351m)&lt;br/&gt;Distance: 4.53km&lt;br/&gt;Speed: 110.29km/h&lt;br/&gt;LD: 566.7775889437792&lt;br/&gt;Vario: -0.1m/s&lt;br/&gt;Cell: 2/03301102103121&lt;br/&gt;</description>
     <Point>
       <coordinates>6.14022290647511,45.323099855569225</coordinates>
     </Point>
@@ -2029,7 +2029,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.307553227634884 Lng: 6.117809508651789</name>
-    <description>Alt Gain: -2351m (2351m 0m)&lt;br/&gt;Distance: 1.30km&lt;br/&gt;Speed: 106.09km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -53.4m/s&lt;br/&gt;Cell: 2/033011021013213100203212020130&lt;br/&gt;</description>
+    <description>Alt Gain: -2351m (2351m 0m)&lt;br/&gt;Distance: 1.30km&lt;br/&gt;Speed: 106.09km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -53.4m/s&lt;br/&gt;Cell: 2/03301102101321&lt;br/&gt;</description>
     <Point>
       <coordinates>6.117809508651789,45.307553227634884</coordinates>
     </Point>
@@ -2045,7 +2045,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.2807944688238 Lng: 6.070097117699147</name>
-    <description>Alt Gain: 2137m (0m 2137m)&lt;br/&gt;Distance: 9.41km&lt;br/&gt;Speed: 111.42km/h&lt;br/&gt;LD: 4.402933172238595&lt;br/&gt;Vario: 7.0m/s&lt;br/&gt;Cell: 2/033011020233312300301030032313&lt;br/&gt;</description>
+    <description>Alt Gain: 2137m (0m 2137m)&lt;br/&gt;Distance: 9.41km&lt;br/&gt;Speed: 111.42km/h&lt;br/&gt;LD: 4.402933172238595&lt;br/&gt;Vario: 7.0m/s&lt;br/&gt;Cell: 2/03301102023331&lt;br/&gt;</description>
     <Point>
       <coordinates>6.070097117699147,45.2807944688238</coordinates>
     </Point>
@@ -2061,7 +2061,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.25468027418752 Lng: 6.023653826755532</name>
-    <description>Alt Gain: -2137m (2137m 0m)&lt;br/&gt;Distance: 1.15km&lt;br/&gt;Speed: 103.88km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -53.4m/s&lt;br/&gt;Cell: 2/033011020220003210332301012020&lt;br/&gt;</description>
+    <description>Alt Gain: -2137m (2137m 0m)&lt;br/&gt;Distance: 1.15km&lt;br/&gt;Speed: 103.88km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -53.4m/s&lt;br/&gt;Cell: 2/03301102022000&lt;br/&gt;</description>
     <Point>
       <coordinates>6.023653826755532,45.25468027418752</coordinates>
     </Point>
@@ -2077,7 +2077,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.40306153363296 Lng: 6.025322943519535</name>
-    <description>Alt Gain: 1366m (0m 1366m)&lt;br/&gt;Distance: 32.90km&lt;br/&gt;Speed: 104.64km/h&lt;br/&gt;LD: 24.08639210879741&lt;br/&gt;Vario: 1.2m/s&lt;br/&gt;Cell: 2/033011021230011211103122302230&lt;br/&gt;</description>
+    <description>Alt Gain: 1366m (0m 1366m)&lt;br/&gt;Distance: 32.90km&lt;br/&gt;Speed: 104.64km/h&lt;br/&gt;LD: 24.08639210879741&lt;br/&gt;Vario: 1.2m/s&lt;br/&gt;Cell: 2/03301102123001&lt;br/&gt;</description>
     <Point>
       <coordinates>6.025322943519535,45.40306153363296</coordinates>
     </Point>
@@ -2093,7 +2093,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.53383182036701 Lng: 6.025817826802798</name>
-    <description>Alt Gain: 7m (1366m 1373m)&lt;br/&gt;Distance: 0.49km&lt;br/&gt;Speed: 87.68km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.3m/s&lt;br/&gt;Cell: 2/033011311300231001032102112312&lt;br/&gt;</description>
+    <description>Alt Gain: 7m (1366m 1373m)&lt;br/&gt;Distance: 0.49km&lt;br/&gt;Speed: 87.68km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.3m/s&lt;br/&gt;Cell: 2/03301131130023&lt;br/&gt;</description>
     <Point>
       <coordinates>6.025817826802798,45.53383182036701</coordinates>
     </Point>
@@ -2109,7 +2109,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.555931121034995 Lng: 6.039941371147532</name>
-    <description>Alt Gain: 226m (1373m 1599m)&lt;br/&gt;Distance: 20.31km&lt;br/&gt;Speed: 98.81km/h&lt;br/&gt;LD: 89.87323566423612&lt;br/&gt;Vario: 0.3m/s&lt;br/&gt;Cell: 2/033011311332212133330323010302&lt;br/&gt;</description>
+    <description>Alt Gain: 226m (1373m 1599m)&lt;br/&gt;Distance: 20.31km&lt;br/&gt;Speed: 98.81km/h&lt;br/&gt;LD: 89.87323566423612&lt;br/&gt;Vario: 0.3m/s&lt;br/&gt;Cell: 2/03301131133221&lt;br/&gt;</description>
     <Point>
       <coordinates>6.039941371147532,45.555931121034995</coordinates>
     </Point>
@@ -2125,7 +2125,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.58318364600775 Lng: 6.053122399751446</name>
-    <description>Alt Gain: 6m (1599m 1605m)&lt;br/&gt;Distance: 0.58km&lt;br/&gt;Speed: 87.66km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.2m/s&lt;br/&gt;Cell: 2/033011312000011102310213211133&lt;br/&gt;</description>
+    <description>Alt Gain: 6m (1599m 1605m)&lt;br/&gt;Distance: 0.58km&lt;br/&gt;Speed: 87.66km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: 0.2m/s&lt;br/&gt;Cell: 2/03301131200001&lt;br/&gt;</description>
     <Point>
       <coordinates>6.053122399751446,45.58318364600775</coordinates>
     </Point>
@@ -2141,7 +2141,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.67504036359413 Lng: 6.036014438941912</name>
-    <description>Alt Gain: -908m (1605m 697m)&lt;br/&gt;Distance: 69.18km&lt;br/&gt;Speed: 105.53km/h&lt;br/&gt;LD: 76.19126911084192&lt;br/&gt;Vario: -0.4m/s&lt;br/&gt;Cell: 2/033011310123313102031202130213&lt;br/&gt;</description>
+    <description>Alt Gain: -908m (1605m 697m)&lt;br/&gt;Distance: 69.18km&lt;br/&gt;Speed: 105.53km/h&lt;br/&gt;LD: 76.19126911084192&lt;br/&gt;Vario: -0.4m/s&lt;br/&gt;Cell: 2/03301131012331&lt;br/&gt;</description>
     <Point>
       <coordinates>6.036014438941912,45.67504036359413</coordinates>
     </Point>
@@ -2157,7 +2157,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.57276472860189 Lng: 5.981073820163486</name>
-    <description>Alt Gain: -697m (697m 0m)&lt;br/&gt;Distance: 1.83km&lt;br/&gt;Speed: 97.04km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -10.2m/s&lt;br/&gt;Cell: 2/033011311321331020120232203101&lt;br/&gt;</description>
+    <description>Alt Gain: -697m (697m 0m)&lt;br/&gt;Distance: 1.83km&lt;br/&gt;Speed: 97.04km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -10.2m/s&lt;br/&gt;Cell: 2/03301131132133&lt;br/&gt;</description>
     <Point>
       <coordinates>5.981073820163486,45.57276472860189</coordinates>
     </Point>
@@ -2173,7 +2173,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.55718452558442 Lng: 5.986819442966089</name>
-    <description>Alt Gain: 340m (0m 340m)&lt;br/&gt;Distance: 3.73km&lt;br/&gt;Speed: 90.81km/h&lt;br/&gt;LD: 10.979898829387981&lt;br/&gt;Vario: 2.3m/s&lt;br/&gt;Cell: 2/033011311313003330130023220111&lt;br/&gt;</description>
+    <description>Alt Gain: 340m (0m 340m)&lt;br/&gt;Distance: 3.73km&lt;br/&gt;Speed: 90.81km/h&lt;br/&gt;LD: 10.979898829387981&lt;br/&gt;Vario: 2.3m/s&lt;br/&gt;Cell: 2/03301131131300&lt;br/&gt;</description>
     <Point>
       <coordinates>5.986819442966089,45.55718452558442</coordinates>
     </Point>
@@ -2189,7 +2189,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.55805000000031 Lng: 5.978991666666667</name>
-    <description>Alt Gain: -2m (340m 338m)&lt;br/&gt;Distance: 0.00km&lt;br/&gt;Speed: 0.35km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -0.1m/s&lt;br/&gt;Cell: 2/033011311321000333330323120001&lt;br/&gt;</description>
+    <description>Alt Gain: -2m (340m 338m)&lt;br/&gt;Distance: 0.00km&lt;br/&gt;Speed: 0.35km/h&lt;br/&gt;LD: 0&lt;br/&gt;Vario: -0.1m/s&lt;br/&gt;Cell: 2/03301131132100&lt;br/&gt;</description>
     <Point>
       <coordinates>5.978991666666667,45.55805000000031</coordinates>
     </Point>
@@ -2205,7 +2205,7 @@
   </Placemark>
   <Placemark>
     <name>Lat: 45.55769363597334 Lng: 5.979411966642303</name>
-    <description>Alt Gain: 4m (338m 342m)&lt;br/&gt;Distance: 0.10km&lt;br/&gt;Speed: 2.00km/h&lt;br/&gt;LD: 25.59310493728617&lt;br/&gt;Vario: 0.0m/s&lt;br/&gt;Cell: 2/033011311312333003033213000101&lt;br/&gt;</description>
+    <description>Alt Gain: 4m (338m 342m)&lt;br/&gt;Distance: 0.10km&lt;br/&gt;Speed: 2.00km/h&lt;br/&gt;LD: 25.59310493728617&lt;br/&gt;Vario: 0.0m/s&lt;br/&gt;Cell: 2/03301131131233&lt;br/&gt;</description>
     <Point>
       <coordinates>5.979411966642303,45.55769363597334</coordinates>
     </Point>
