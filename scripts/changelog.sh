@@ -22,7 +22,7 @@ set -euo pipefail
 
 if ! [ -x "$(command -v github_changelog_generator)" ]; then
   gem install --user-install github_changelog_generator
-  export PATH=$PATH:$(find ~/.gem -name bin | tail -1)
+  export PATH=$PATH:$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
 fi
 
 github_changelog_generator -u ezgliding -p goigc --token $GITHUB_TOKEN --since-tag $(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)
