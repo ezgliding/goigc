@@ -1,0 +1,13 @@
+name: goigc
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - gdown
+  - matplotlib
+  - numpy
+  - pandas
+  - pip
+  - pip:
+    - git+https://github.com/python-visualization/branca
+    - git+https://github.com/sknzl/folium@update-css-url-to-https
