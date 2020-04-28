@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir -p /tmp/gliding-data
+
+cd /tmp/gliding-data
+gdown https://drive.google.com/uc?id=1_EcCg6CquBdewwJ9-mHvCH939ot31RE9
+
+cd $HOME
